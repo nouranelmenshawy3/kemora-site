@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-gray-900 bg-white;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@layer utilities {
+  /* Scroll-reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero entrance (runs immediately on load) */
+  .hero-enter {
+    animation: heroFadeUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .hero-enter-delay-1 {
+    animation: heroFadeUp 0.9s 0.15s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .hero-enter-delay-2 {
+    animation: heroFadeUp 0.9s 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .hero-enter-delay-3 {
+    animation: heroFadeUp 0.9s 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scroll-down indicator */
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  .scroll-bounce {
+    animation: scrollBounce 1.8s ease-in-out infinite;
+  }
+
+  /* Subtle fabric texture for dark sections */
+  .texture-dark {
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 24px,
+        rgba(255, 255, 255, 0.015) 24px,
+        rgba(255, 255, 255, 0.015) 25px
+      );
+  }
+
+  /* Step connector line */
+  .step-connector::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: calc(50% + 20px);
+    right: calc(-50% + 20px);
+    height: 1px;
+    background: linear-gradient(90deg, #C4622D 0%, rgba(196, 98, 45, 0.2) 100%);
+  }
+}
