@@ -52,10 +52,10 @@ export default function Footer() {
               <div>
                 <p className="text-white/30 text-xs mb-0.5">Email</p>
                 <a
-                  href="mailto:nouran@kemora-eg.com"
+                  href="mailto:hello@kemoratex.com"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  nouran@kemora-eg.com
+                  hello@kemoratex.com
                 </a>
               </div>
               <div>
@@ -69,7 +69,11 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-white/30 text-xs mb-0.5">Client Relations (Poland)</p>
-                <p className="text-white/60">Youssif Elmenshawy, Warsaw</p>
+                <p className="text-white/60">Youssif Elmenshawy, Wrocław</p>
+              </div>
+              <div>
+                <p className="text-white/30 text-xs mb-0.5">Operations (Poland)</p>
+                <p className="text-white/60">Abdalla Elmenshawy, Łódź</p>
               </div>
               <div>
                 <p className="text-white/30 text-xs mb-0.5">Production (Egypt)</p>
@@ -88,7 +92,7 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-white/60 transition-colors">
               Privacy Policy
             </Link>
-            <span>Cairo, Egypt · Warsaw, Poland</span>
+            <span>Cairo, Egypt · Wrocław &amp; Łódź, Poland</span>
           </div>
         </div>
       </div>

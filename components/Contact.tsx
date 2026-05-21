@@ -169,8 +169,8 @@ export default function Contact() {
               {status === 'error' && (
                 <p className="text-red-600 text-sm">
                   Something went wrong. Please email us directly at{' '}
-                  <a href="mailto:nouran@kemora-eg.com" className="underline">
-                    nouran@kemora-eg.com
+                  <a href="mailto:hello@kemoratex.com" className="underline">
+                    hello@kemoratex.com
                   </a>
                   .
                 </p>
@@ -184,8 +184,8 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-bold text-primary mb-1">Prefer direct contact?</h3>
                 <p className="text-k-muted text-sm leading-relaxed">
-                  We're happy to speak directly. Youssif is based in Poland — same timezone,
-                  same working hours.
+                  We're happy to speak directly. Youssif and Abdalla are based in Poland —
+                  same timezone, same working hours.
                 </p>
               </div>
 
@@ -193,7 +193,7 @@ export default function Contact() {
               <div className="space-y-4">
                 {/* Email */}
                 <a
-                  href="mailto:nouran@kemora-eg.com"
+                  href="mailto:hello@kemoratex.com"
                   className="flex items-start gap-4 p-4 rounded-xl border border-k-border hover:border-accent/40 hover:shadow-md transition-all duration-200 group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-sand flex items-center justify-center text-accent flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
@@ -203,7 +203,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs text-k-muted font-medium uppercase tracking-wide mb-0.5">Email</p>
-                    <p className="text-primary font-semibold text-sm">nouran@kemora-eg.com</p>
+                    <p className="text-primary font-semibold text-sm">hello@kemoratex.com</p>
                     <p className="text-k-muted text-xs mt-0.5">Responses within 1 business day</p>
                   </div>
                 </a>
@@ -229,7 +229,7 @@ export default function Contact() {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/nouran-elmenshawy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-4 rounded-xl border border-k-border hover:border-accent/40 hover:shadow-md transition-all duration-200 group"
@@ -241,8 +241,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs text-k-muted font-medium uppercase tracking-wide mb-0.5">LinkedIn</p>
-                    <p className="text-primary font-semibold text-sm">Kemora</p>
-                    <p className="text-k-muted text-xs mt-0.5">Follow us for updates</p>
+                    <p className="text-primary font-semibold text-sm">Nouran Elmenshawy</p>
+                    <p className="text-k-muted text-xs mt-0.5">Connect with our team</p>
                   </div>
                 </a>
               </div>
@@ -251,7 +251,9 @@ export default function Contact() {
               <div className="p-4 rounded-xl bg-sand border border-k-border">
                 <p className="text-xs font-bold text-primary uppercase tracking-wide mb-2">Our Locations</p>
                 <p className="text-sm text-k-muted leading-relaxed">
-                  <span className="font-medium text-primary">Youssif</span> — Warsaw, Poland
+                  <span className="font-medium text-primary">Youssif</span> — Wrocław, Poland
+                  <br />
+                  <span className="font-medium text-primary">Abdalla</span> — Łódź, Poland
                   <br />
                   <span className="font-medium text-primary">Nouran</span> — Cairo, Egypt
                 </p>

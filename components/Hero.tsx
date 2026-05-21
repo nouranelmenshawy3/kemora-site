@@ -28,7 +28,7 @@ export default function Hero() {
           Private Label &nbsp;·&nbsp; 0% EU Duty &nbsp;·&nbsp; 14-Day Delivery to Poland
         </p>
         <p className="hero-enter-delay-2 text-sm sm:text-base text-white/45 max-w-xl mx-auto mb-10">
-          Quality garments from Cairo, managed from Warsaw. A family business built on
+          Quality garments from Cairo, managed from Wrocław. A family business built on
           transparency, speed, and European service standards.
         </p>
 

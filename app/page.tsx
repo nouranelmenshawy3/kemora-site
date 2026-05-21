@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import WhyKemora from '@/components/WhyKemora'
 import WhatWeProduce from '@/components/WhatWeProduce'
+import SampleWork from '@/components/SampleWork'
 import OurProcess from '@/components/OurProcess'
 import AboutUs from '@/components/AboutUs'
 import TrustCompliance from '@/components/TrustCompliance'
@@ -16,6 +17,7 @@ export default function HomePage() {
         <Hero />
         <WhyKemora />
         <WhatWeProduce />
+        <SampleWork />
         <OurProcess />
         <AboutUs />
         <TrustCompliance />

@@ -57,10 +57,10 @@ export default function TrustCompliance() {
         </AnimateIn>
 
         {/* Items grid */}
-        <div className="grid sm:grid-cols-2 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 auto-rows-fr gap-6 mb-16">
           {items.map(({ icon, title, body }, i) => (
-            <AnimateIn key={title} delay={i * 100}>
-              <div className="flex gap-5 p-6 bg-white rounded-xl border border-k-border hover:border-accent/30 hover:shadow-md transition-all duration-300">
+            <AnimateIn key={title} delay={i * 100} className="h-full">
+              <div className="h-full flex gap-5 p-6 bg-white rounded-xl border border-k-border hover:border-accent/30 hover:shadow-md transition-all duration-300">
                 {/* Icon */}
                 <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
                   {icon}
@@ -85,7 +85,9 @@ export default function TrustCompliance() {
               "We are a family business that delivers European-grade service
               with Egyptian manufacturing value."
             </p>
-            <p className="text-accent text-sm font-medium mt-4">— Nouran &amp; Youssif Elmenshawy, Co-Founders</p>
+            <p className="text-accent text-sm font-medium mt-4">
+              — Nouran, Youssif &amp; Abdalla Elmenshawy, Co-Founders
+            </p>
           </div>
         </AnimateIn>
       </div>

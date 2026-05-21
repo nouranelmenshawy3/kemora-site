@@ -52,14 +52,15 @@ export default function PrivacyPage() {
                 <p><span className="font-semibold text-primary">Data Controller:</span> Kemora, Cairo, Egypt</p>
                 <p>
                   <span className="font-semibold text-primary">Contact:</span>{' '}
-                  <a href="mailto:nouran@kemora-eg.com" className="text-accent hover:underline">
-                    nouran@kemora-eg.com
+                  <a href="mailto:hello@kemoratex.com" className="text-accent hover:underline">
+                    hello@kemoratex.com
                   </a>
                 </p>
                 <p className="text-k-muted pt-1">
-                  EU representative: Youssif Elmenshawy, Warsaw, Poland —{' '}
-                  <a href="mailto:nouran@kemora-eg.com" className="text-accent hover:underline">
-                    nouran@kemora-eg.com
+                  EU representatives: Youssif Elmenshawy, Wrocław, Poland; Abdalla Elmenshawy,
+                  Łódź, Poland —{' '}
+                  <a href="mailto:hello@kemoratex.com" className="text-accent hover:underline">
+                    hello@kemoratex.com
                   </a>
                 </p>
               </div>
@@ -161,8 +162,8 @@ export default function PrivacyPage() {
               </ul>
               <p className="text-sm mt-4 text-k-muted">
                 To exercise any right, email{' '}
-                <a href="mailto:nouran@kemora-eg.com" className="text-accent hover:underline">
-                  nouran@kemora-eg.com
+                <a href="mailto:hello@kemoratex.com" className="text-accent hover:underline">
+                  hello@kemoratex.com
                 </a>
                 . We will respond within 30 days. If unsatisfied, you may lodge a complaint with
                 your local supervisory authority (in Poland:{' '}
@@ -186,8 +187,8 @@ export default function PrivacyPage() {
               <p className="text-sm leading-relaxed">
                 Our entire site uses HTTPS encryption. Contact form submissions are transmitted
                 securely. Our email and hosting accounts are protected by strong passwords and
-                two-factor authentication. Only Nouran and Youssif Elmenshawy have access to
-                inquiry emails.
+                two-factor authentication. Only Nouran, Youssif, and Abdalla Elmenshawy have
+                access to inquiry emails.
               </p>
             </section>
 

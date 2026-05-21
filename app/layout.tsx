@@ -23,12 +23,12 @@ export const metadata: Metadata = {
     'textile export Egypt',
   ],
   authors: [{ name: 'Kemora' }],
-  metadataBase: new URL('https://kemora-eg.com'),
+  metadataBase: new URL('https://kemoratex.com'),
   openGraph: {
     title: 'Kemora – Egyptian Private Label Clothing Manufacturer',
     description:
       'Private Label | 0% EU Duty | 14-Day Delivery to Poland. Quality garment manufacturing from Egypt for European brands.',
-    url: 'https://kemora-eg.com',
+    url: 'https://kemoratex.com',
     siteName: 'Kemora',
     type: 'website',
     images: [

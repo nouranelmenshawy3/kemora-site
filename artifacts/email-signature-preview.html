@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kemora Email Signature Preview</title>
+    <style>
+      :root {
+        --primary: #0f1923;
+        --accent: #c4622d;
+        --muted: #6b6460;
+        --line: #e2ddd6;
+        --sand: #f5f1eb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #f7f5f2;
+        color: var(--primary);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        padding: 48px;
+      }
+
+      .sheet {
+        max-width: 920px;
+        margin: 0 auto;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 42px;
+        box-shadow: 0 24px 70px rgba(15, 25, 35, 0.08);
+      }
+
+      .eyebrow {
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin: 0 0 10px;
+      }
+
+      h1 {
+        font-size: 30px;
+        line-height: 1.15;
+        margin: 0 0 10px;
+      }
+
+      .intro {
+        max-width: 660px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0 0 34px;
+      }
+
+      .preview-label {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin: 0 0 12px;
+        text-transform: uppercase;
+      }
+
+      .signature-frame {
+        display: inline-block;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 18px 20px;
+      }
+
+      .signature {
+        border-collapse: collapse;
+        color: var(--primary);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        line-height: 1.45;
+        min-width: 560px;
+      }
+
+      .logo-cell {
+        width: 112px;
+        padding: 0 22px 0 0;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .logo {
+        display: block;
+        width: 56px;
+        height: auto;
+        margin: 0 auto 9px;
+      }
+
+      .brand {
+        color: var(--primary);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+      }
+
+      .divider {
+        width: 1px;
+        background: var(--line);
+      }
+
+      .details {
+        padding: 0 0 0 22px;
+        vertical-align: middle;
+      }
+
+      .name {
+        color: var(--primary);
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+      }
+
+      .role {
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+        padding-top: 2px;
+      }
+
+      .company {
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 700;
+        padding-top: 10px;
+      }
+
+      .contact {
+        color: var(--muted);
+        font-size: 12px;
+        padding-top: 8px;
+      }
+
+      .contact a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .notes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .note {
+        background: var(--sand);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 16px;
+      }
+
+      .note strong {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 6px;
+      }
+
+      .note span {
+        color: var(--muted);
+        display: block;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .source {
+        background: #0f1923;
+        border-radius: 12px;
+        color: #d9dedf;
+        font-size: 12px;
+        line-height: 1.55;
+        margin-top: 30px;
+        padding: 18px;
+        white-space: pre-wrap;
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+        }
+
+        .page {
+          padding: 26px;
+        }
+
+        .sheet {
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="sheet">
+        <p class="eyebrow">Kemora Signature Preview</p>
+        <h1>Email signature direction</h1>
+        <p class="intro">
+          Recommended structure: keep the logo mark on the left, separate it with a fine line,
+          and keep all readable information on the right. This keeps the signature premium,
+          compact, and easy to reuse for each team member.
+        </p>
+
+        <p class="preview-label">Recommended layout</p>
+        <div class="signature-frame">
+          <table class="signature" role="presentation" aria-label="Kemora email signature preview">
+            <tr>
+              <td class="logo-cell">
+                <img class="logo" src="../public/kemora-mark.png" alt="Kemora logo" />
+                <div class="brand">KEMORA</div>
+              </td>
+              <td class="divider"></td>
+              <td class="details">
+                <div class="name">[Name]</div>
+                <div class="role">Co-Founder &amp; [Role]</div>
+                <div class="company">Kemora - Private Label Manufacturing &amp; Export</div>
+                <div class="contact">
+                  📍 [City], Poland / Egypt<br />
+                  ✉️ <a href="mailto:hello@kemoratex.com">hello@kemoratex.com</a><br />
+                  🌐 <a href="https://kemoratex.com">kemoratex.com</a>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="notes">
+          <div class="note">
+            <strong>Logo placement</strong>
+            <span>Left side, small mark above KEMORA. This keeps the brand visible without making the signature bulky.</span>
+          </div>
+          <div class="note">
+            <strong>Best size</strong>
+            <span>Use a 52-60px logo mark. Bigger than that starts to feel like an ad inside the email.</span>
+          </div>
+          <div class="note">
+            <strong>Email use</strong>
+            <span>For real email clients, a simple table layout is safest. Replace placeholders per person.</span>
+          </div>
+        </div>
+
+        <div class="source">[Name]
+Co-Founder &amp; [Role]
+
+Kemora - Private Label Manufacturing &amp; Export
+
+📍 [City], Poland / Egypt
+✉️ hello@kemoratex.com
+🌐 kemoratex.com</div>
+      </section>
+    </main>
+  </body>
+</html>

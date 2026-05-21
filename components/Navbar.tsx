@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const navLinks = [
   { href: '#why', label: 'Why Kemora' },
@@ -30,16 +31,26 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <nav className="w-full px-4 sm:px-6 lg:px-10 xl:px-12 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
           className={`text-xl font-bold tracking-widest transition-colors duration-300 ${
             scrolled ? 'text-primary' : 'text-white'
           }`}
-          aria-label="Kemora – Home"
+          aria-label="Kemora - Home"
         >
-          KEMORA
+          <span className="flex items-center gap-2">
+            <Image
+              src="/kemora-mark.png"
+              alt="Kemora logo"
+              width={38}
+              height={40}
+              className="h-9 w-auto shrink-0"
+              priority
+            />
+            <span>KEMORA</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
