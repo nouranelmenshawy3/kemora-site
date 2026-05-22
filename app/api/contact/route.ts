@@ -8,7 +8,7 @@ interface ContactPayload {
   consent: boolean
 }
 
-const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'hello@kemoratex.com'
+const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'info@kemoratex.com'
 const CONTACT_FROM_EMAIL =
   process.env.CONTACT_FROM_EMAIL || 'Kemora Website <website@kemoratex.com>'
 

@@ -169,8 +169,8 @@ export default function Contact() {
               {status === 'error' && (
                 <p className="text-red-600 text-sm">
                   Something went wrong. Please email us directly at{' '}
-                  <a href="mailto:hello@kemoratex.com" className="underline">
-                    hello@kemoratex.com
+                  <a href="mailto:info@kemoratex.com" className="underline">
+                    info@kemoratex.com
                   </a>
                   .
                 </p>
@@ -193,7 +193,7 @@ export default function Contact() {
               <div className="space-y-4">
                 {/* Email */}
                 <a
-                  href="mailto:hello@kemoratex.com"
+                  href="mailto:info@kemoratex.com"
                   className="flex items-start gap-4 p-4 rounded-xl border border-k-border hover:border-accent/40 hover:shadow-md transition-all duration-200 group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-sand flex items-center justify-center text-accent flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
@@ -203,7 +203,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs text-k-muted font-medium uppercase tracking-wide mb-0.5">Email</p>
-                    <p className="text-primary font-semibold text-sm">hello@kemoratex.com</p>
+                    <p className="text-primary font-semibold text-sm">info@kemoratex.com</p>
                     <p className="text-k-muted text-xs mt-0.5">Responses within 1 business day</p>
                   </div>
                 </a>

@@ -52,10 +52,10 @@ export default function Footer() {
               <div>
                 <p className="text-white/30 text-xs mb-0.5">Email</p>
                 <a
-                  href="mailto:hello@kemoratex.com"
+                  href="mailto:info@kemoratex.com"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  hello@kemoratex.com
+                  info@kemoratex.com
                 </a>
               </div>
               <div>

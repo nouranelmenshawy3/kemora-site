@@ -52,15 +52,15 @@ export default function PrivacyPage() {
                 <p><span className="font-semibold text-primary">Data Controller:</span> Kemora, Cairo, Egypt</p>
                 <p>
                   <span className="font-semibold text-primary">Contact:</span>{' '}
-                  <a href="mailto:hello@kemoratex.com" className="text-accent hover:underline">
-                    hello@kemoratex.com
+                  <a href="mailto:info@kemoratex.com" className="text-accent hover:underline">
+                    info@kemoratex.com
                   </a>
                 </p>
                 <p className="text-k-muted pt-1">
                   EU representatives: Youssif Elmenshawy, Wrocław, Poland; Abdalla Elmenshawy,
                   Łódź, Poland —{' '}
-                  <a href="mailto:hello@kemoratex.com" className="text-accent hover:underline">
-                    hello@kemoratex.com
+                  <a href="mailto:info@kemoratex.com" className="text-accent hover:underline">
+                    info@kemoratex.com
                   </a>
                 </p>
               </div>
@@ -162,8 +162,8 @@ export default function PrivacyPage() {
               </ul>
               <p className="text-sm mt-4 text-k-muted">
                 To exercise any right, email{' '}
-                <a href="mailto:hello@kemoratex.com" className="text-accent hover:underline">
-                  hello@kemoratex.com
+                <a href="mailto:info@kemoratex.com" className="text-accent hover:underline">
+                  info@kemoratex.com
                 </a>
                 . We will respond within 30 days. If unsatisfied, you may lodge a complaint with
                 your local supervisory authority (in Poland:{' '}
