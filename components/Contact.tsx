@@ -210,7 +210,7 @@ export default function Contact() {
 
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/20XXXXXXXXX"
+                  href="https://wa.me/48575379875"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-4 rounded-xl border border-k-border hover:border-accent/40 hover:shadow-md transition-all duration-200 group"
@@ -222,14 +222,14 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs text-k-muted font-medium uppercase tracking-wide mb-0.5">WhatsApp</p>
-                    <p className="text-primary font-semibold text-sm">+20 XXX XXX XXXX</p>
+                    <p className="text-primary font-semibold text-sm">+48 575 379 875</p>
                     <p className="text-k-muted text-xs mt-0.5">Tap to open on mobile</p>
                   </div>
                 </a>
 
                 {/* LinkedIn */}
                 <a
-                  href="https://www.linkedin.com/in/nouran-elmenshawy"
+                  href="https://www.linkedin.com/company/kemoratex/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-4 rounded-xl border border-k-border hover:border-accent/40 hover:shadow-md transition-all duration-200 group"
@@ -241,8 +241,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs text-k-muted font-medium uppercase tracking-wide mb-0.5">LinkedIn</p>
-                    <p className="text-primary font-semibold text-sm">Nouran Elmenshawy</p>
-                    <p className="text-k-muted text-xs mt-0.5">Connect with our team</p>
+                    <p className="text-primary font-semibold text-sm">Kemora</p>
+                    <p className="text-k-muted text-xs mt-0.5">Follow our company page</p>
                   </div>
                 </a>
               </div>

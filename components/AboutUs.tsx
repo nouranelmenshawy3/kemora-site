@@ -1,28 +1,26 @@
 import AnimateIn from './AnimateIn'
 
-const temporaryLinkedInUrl = 'https://www.linkedin.com/in/nouran-elmenshawy'
-
 const teamMembers = [
   {
     name: 'Youssif Elmenshawy',
     role: 'Co-Founder & Client Relations',
     location: '📍 Wrocław, Poland',
     note: 'Your direct contact for quotes, samples, and strategic planning.',
-    linkedinUrl: temporaryLinkedInUrl,
+    linkedinUrl: 'https://www.linkedin.com/in/youssif-elmenshawy-bb6996283/',
   },
   {
     name: 'Nouran Elmenshawy',
     role: 'Co-Founder & Production Manager',
     location: '📍 Cairo, Egypt',
     note: 'On the factory floor daily, ensuring quality and on-time delivery.',
-    linkedinUrl: temporaryLinkedInUrl,
+    linkedinUrl: 'https://www.linkedin.com/in/nouran-elmenshawy',
   },
   {
     name: 'Abdalla Elmenshawy',
     role: 'Co-Founder & Operations Director',
     location: '📍 Łódź, Poland',
     note: 'Manages shipping, logistics, and sample handling from Cairo to your door.',
-    linkedinUrl: temporaryLinkedInUrl,
+    linkedinUrl: 'https://www.linkedin.com/in/abdalla-elmenshawy-b216a8293/',
   },
 ]
 
