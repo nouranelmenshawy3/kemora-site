@@ -6,21 +6,21 @@ const teamMembers = [
     role: 'Co-Founder & Client Relations',
     location: '📍 Wrocław, Poland',
     note: 'Your direct contact for quotes, samples, and strategic planning.',
-    linkedinUrl: 'https://www.linkedin.com/in/youssif-elmenshawy-bb6996283/',
+    // linkedinUrl: 'https://www.linkedin.com/in/youssif-elmenshawy-bb6996283/',
   },
   {
     name: 'Nouran Elmenshawy',
     role: 'Co-Founder & Production Manager',
     location: '📍 Cairo, Egypt',
     note: 'On the factory floor daily, ensuring quality and on-time delivery.',
-    linkedinUrl: 'https://www.linkedin.com/in/nouran-elmenshawy',
+    // linkedinUrl: 'https://www.linkedin.com/in/nouran-elmenshawy',
   },
   {
     name: 'Abdalla Elmenshawy',
     role: 'Co-Founder & Operations Director',
     location: '📍 Łódź, Poland',
     note: 'Manages shipping, logistics, and sample handling from Cairo to your door.',
-    linkedinUrl: 'https://www.linkedin.com/in/abdalla-elmenshawy-b216a8293/',
+    // linkedinUrl: 'https://www.linkedin.com/in/abdalla-elmenshawy-b216a8293/',
   },
 ]
 
@@ -162,9 +162,9 @@ export default function AboutUs() {
                   <p className="text-accent text-xs font-semibold mt-0.5">{role}</p>
                   <p className="text-k-muted text-xs mt-1">{location}</p>
                   <p className="text-k-muted text-xs mt-2 leading-relaxed">{note}</p>
-                  {linkedinUrl && (
+                  {/* {linkedinUrl && (
                     <p className="text-accent text-xs font-bold mt-4">View LinkedIn profile</p>
-                  )}
+                  )} */}
                 </>
               )
 

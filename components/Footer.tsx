@@ -68,16 +68,13 @@ export default function Footer() {
                 </a>
               </div>
               <div>
-                <p className="text-white/30 text-xs mb-0.5">Client Relations (Poland)</p>
-                <p className="text-white/60">Youssif Elmenshawy, Wrocław</p>
-              </div>
-              <div>
-                <p className="text-white/30 text-xs mb-0.5">Operations (Poland)</p>
-                <p className="text-white/60">Abdalla Elmenshawy, Łódź</p>
-              </div>
-              <div>
-                <p className="text-white/30 text-xs mb-0.5">Production (Egypt)</p>
-                <p className="text-white/60">Nouran Elmenshawy, Cairo</p>
+                <p className="text-white/30 text-xs mb-0.5">LinkedIn</p>
+                <a
+                  href="https://www.linkedin.com/company/kemoratex"
+                  className="text-white/60 hover:text-white transition-colors"
+                >
+                  Kemoratex
+                </a>
               </div>
             </div>
           </div>
