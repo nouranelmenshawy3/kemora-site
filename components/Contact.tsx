@@ -228,7 +228,7 @@ export default function Contact() {
                 </a>
 
                 {/* LinkedIn */}
-                <a
+                {/* <a
                   href="https://www.linkedin.com/company/kemoratex/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -244,7 +244,7 @@ export default function Contact() {
                     <p className="text-primary font-semibold text-sm">Kemora</p>
                     <p className="text-k-muted text-xs mt-0.5">Follow our company page</p>
                   </div>
-                </a>
+                </a> */}
               </div>
 
               {/* Locations */}

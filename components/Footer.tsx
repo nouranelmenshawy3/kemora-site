@@ -67,7 +67,7 @@ export default function Footer() {
                   +48 575 379 875
                 </a>
               </div>
-              <div>
+              {/* <div>
                 <p className="text-white/30 text-xs mb-0.5">LinkedIn</p>
                 <a
                   href="https://www.linkedin.com/company/kemoratex"
@@ -75,7 +75,7 @@ export default function Footer() {
                 >
                   Kemoratex
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
