@@ -106,7 +106,7 @@ export default function WhatWeProduce() {
               cotton-poly blends, polyester, fleece, French terry, jersey, denim, and more.
               All materials are sourced under{' '}
               <span className="font-semibold text-primary">EU REACH compliance standards</span>.
-              Minimum order from 500 pieces per style.
+              Flexible MOQs starting from 300 pieces per style depending on fabric and construction.
             </p>
           </div>
         </AnimateIn>
