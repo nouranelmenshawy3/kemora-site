@@ -4,7 +4,7 @@ import AnimateIn from './AnimateIn'
 const teamMembers = [
   {
     name: 'Youssif Elmenshawy',
-    role: 'Co-Founder & Client Lead',
+    role: 'Co-Founder & Client Relations Director',
     location: '📍 Wrocław, Poland',
     note: 'Your direct contact for quotes, samples, and strategic planning.',
     // linkedinUrl: 'https://www.linkedin.com/in/youssif-elmenshawy-bb6996283/',
@@ -12,7 +12,7 @@ const teamMembers = [
   },
   {
     name: 'Nouran Elmenshawy',
-    role: 'Co-Founder & Production Lead',
+    role: 'Co-Founder & Production Director',
     location: '📍 Cairo, Egypt',
     note: 'On the factory floor, coordinating samples, quality checks, and delivery timing.',
     // linkedinUrl: 'https://www.linkedin.com/in/nouran-elmenshawy',
