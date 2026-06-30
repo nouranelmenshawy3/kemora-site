@@ -43,7 +43,7 @@ export default function AboutUs() {
               <p className="text-k-muted leading-relaxed mb-4">
                 <span className="font-semibold text-primary">Youssif Elmenshawy</span>{' '}
                 manages client communication from Poland, while{' '}
-                <span className="font-semibold text-primary">Nouran Elmenshawy</span>{' '}
+                <span className="font-semibold text-primary">Nouran and Mirna Elmenshawy</span>{' '}
                 oversees samples, production, and quality control on the factory floor in
                 Cairo. Abdalla supports logistics and shipment coordination between Egypt
                 and Europe.
