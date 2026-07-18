@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   authors: [{ name: 'Kemora' }],
   metadataBase: new URL('https://kemoratex.com'),
   icons: {
-    icon: [{ url: '/icon.png', type: 'image/png' }],
-    apple: [{ url: '/icon.png', type: 'image/png' }],
+    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '96x96' }],
+    apple: [{ url: '/favicon.png', type: 'image/png', sizes: '96x96' }],
   },
   openGraph: {
     title: 'Kemora – Egyptian Private Label Clothing Manufacturer',
