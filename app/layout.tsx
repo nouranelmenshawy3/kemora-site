@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { seoKeywords, siteConfig } from '@/lib/seo'
 import './globals.css'
 
 const inter = Inter({
@@ -11,48 +12,64 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Kemora – Egyptian Private Label Clothing Manufacturer for European Brands',
+  title: {
+    default: 'Private Label Clothing Manufacturer Egypt | Kemora',
+    template: '%s | Kemora',
+  },
   description:
-    'Kemora offers private label clothing manufacturing with 0% EU duty, 14-day delivery to Poland, and a Poland-based client manager. T-shirts, hoodies, uniforms, and more.',
-  keywords: [
-    'garment manufacturing',
-    'private label clothing',
-    'Egypt manufacturer',
-    'European clothing brands',
-    'Polish fashion brands',
-    'EU duty free',
-    'textile export Egypt',
-  ],
+    'Private label clothing manufacturer in Egypt for European brands. Custom T-shirts, hoodies, workwear, abayas, hijabs and EU export support.',
+  applicationName: siteConfig.name,
+  keywords: seoKeywords,
   authors: [{ name: 'Kemora' }],
-  metadataBase: new URL('https://kemoratex.com'),
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: '/',
+  },
   icons: {
-    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '96x96' }],
-    apple: [{ url: '/favicon.png', type: 'image/png', sizes: '96x96' }],
+    icon: [{ url: siteConfig.favicon, type: 'image/png', sizes: '96x96' }],
+    apple: [{ url: siteConfig.favicon, type: 'image/png', sizes: '96x96' }],
   },
   openGraph: {
-    title: 'Kemora – Egyptian Private Label Clothing Manufacturer',
+    title: 'Private Label Clothing Manufacturer Egypt | Kemora',
     description:
-      'Private Label | 0% EU Duty | 14-Day Delivery to Poland. Quality garment manufacturing from Egypt for European brands.',
-    url: 'https://kemoratex.com',
-    siteName: 'Kemora',
+      'Kemora helps European fashion brands source custom clothing from Egypt, including T-shirts, hoodies, workwear, abayas, hijabs, and EU-ready export documentation.',
+    url: '/',
+    siteName: siteConfig.name,
     type: 'website',
+    locale: 'en_US',
     images: [
       {
-        url: '/og-image.jpg',
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: 'Kemora – Egyptian Garment Manufacturer for European Brands',
+        alt: 'Kemora custom T-shirts produced in Egypt for a Central Studio collaboration',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kemora – Egyptian Private Label Clothing Manufacturer',
-    description: 'Private Label | 0% EU Duty | 14-Day Delivery to Poland',
+    title: 'Private Label Clothing Manufacturer Egypt | Kemora',
+    description: 'Custom garment manufacturing in Egypt for European fashion brands.',
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  category: 'Apparel manufacturing',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 }
 

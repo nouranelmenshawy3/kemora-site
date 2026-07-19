@@ -19,8 +19,8 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <p className="text-xl font-bold text-white tracking-widest mb-3">KEMORA</p>
             <p className="text-white/45 text-sm leading-relaxed mb-5 max-w-xs">
-              Egyptian private-label garment manufacturing for European brands.
-              Quality production, European service, zero customs duty.
+              Egyptian private-label garment manufacturing for European brands:
+              custom clothing, export support, European service, and zero customs duty.
             </p>
             <div className="flex items-center gap-2 text-white/30 text-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400" />

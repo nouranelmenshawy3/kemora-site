@@ -43,7 +43,7 @@ export default function Navbar() {
           <span className="flex items-center gap-2">
             <Image
               src="/kemora-mark.png"
-              alt="Kemora logo"
+              alt="Kemora clothing manufacturer logo"
               width={38}
               height={40}
               className="h-9 w-auto shrink-0"

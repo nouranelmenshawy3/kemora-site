@@ -37,22 +37,22 @@ export default function AboutUs() {
             <AnimateIn delay={80}>
               <p className="text-k-muted leading-relaxed mb-4">
                 Kemora was built from more than 20 years of textile manufacturing
-                relationships in Cairo. We connect European brands to Egyptian production
-                with direct oversight, not anonymous sourcing.
+                relationships in Cairo. We connect European brands to an Egyptian garment
+                manufacturer with direct oversight, not anonymous sourcing.
               </p>
               <p className="text-k-muted leading-relaxed mb-4">
                 <span className="font-semibold text-primary">Youssif Elmenshawy</span>{' '}
                 manages client communication from Poland, while{' '}
                 <span className="font-semibold text-primary">Nouran and Mirna Elmenshawy</span>{' '}
-                oversees samples, production, and quality control on the factory floor in
+                oversee samples, production, and quality control on the factory floor in
                 Cairo. Abdalla supports logistics and shipment coordination between Egypt
                 and Europe.
               </p>
               <p className="text-k-muted leading-relaxed mb-8">
                 That structure gives you the cost advantages of Egyptian manufacturing
                 with a clear European point of contact. Our factories produce over 5,000
-                garments per day. From a 500-piece test order to a 50,000-piece seasonal
-                run, we scale with you.
+                garments per day. From a 500-piece private label test order to a
+                50,000-piece seasonal run, we scale with you.
               </p>
             </AnimateIn>
           </div>
@@ -63,7 +63,7 @@ export default function AboutUs() {
               <div className="relative min-h-[520px] overflow-hidden rounded-2xl bg-primary shadow-2xl shadow-primary/20 sm:aspect-[4/5] sm:min-h-0">
                 <Image
                   src="/egypt-factory.jpeg"
-                  alt="Kemora partner factory floor in Egypt with garment production machinery"
+                  alt="Garment production machinery on a Kemora partner factory floor in Cairo, Egypt"
                   fill
                   sizes="(min-width: 1024px) 42vw, 100vw"
                   loading="eager"

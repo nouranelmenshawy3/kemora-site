@@ -8,7 +8,7 @@ const categories = [
         <path d="M4 16 L12 8 L19 13 C20 13.5 22 14 24 14 C26 14 28 13.5 29 13 L36 8 L44 16 L38 21 L38 40 L10 40 L10 21 Z" />
       </svg>
     ),
-    note: 'Crew neck, V-neck, oversized, fitted',
+    note: 'Private label crew neck, V-neck, oversized, fitted',
   },
   {
     label: 'Hoodies & Sweatshirts',
@@ -19,7 +19,7 @@ const categories = [
         <path d="M14 8 L18 12 L24 10 L30 12 L34 8" />
       </svg>
     ),
-    note: 'Pullover, zip-up, fleece, French terry',
+    note: 'Custom hoodies, zip-ups, fleece, French terry',
   },
   {
     label: 'Polo Shirts',
@@ -30,7 +30,7 @@ const categories = [
         <line x1="22" y1="14" x2="22" y2="20" />
       </svg>
     ),
-    note: 'Piqué, performance, long-sleeve',
+    note: 'Piqué, performance, long-sleeve collections',
   },
   {
     label: 'Denim',
@@ -40,7 +40,7 @@ const categories = [
         <path d="M12 22 L10 44 L20 44 L24 32 L28 44 L38 44 L36 22" />
       </svg>
     ),
-    note: 'Jeans, denim jackets, shorts',
+    note: 'Jeans, denim jackets, shorts, woven bottoms',
   },
   {
     label: 'Workwear & Uniforms',
@@ -52,7 +52,7 @@ const categories = [
         <line x1="24" y1="10" x2="24" y2="44" />
       </svg>
     ),
-    note: 'Hi-vis, corporate, promotional',
+    note: 'Hi-vis, corporate, hospitality, promotional',
   },
   {
     label: 'Bags & Accessories',
@@ -63,7 +63,7 @@ const categories = [
         <line x1="8" y1="26" x2="40" y2="26" />
       </svg>
     ),
-    note: 'Tote bags, backpacks, caps',
+    note: 'Tote bags, caps, scarves, hijabs',
   },
 ]
 
@@ -78,8 +78,8 @@ export default function WhatWeProduce() {
             What We Produce
           </h2>
           <p className="mt-4 text-k-muted max-w-xl mx-auto leading-relaxed">
-            From essentials to outerwear — private label manufacturing across the full
-            garment spectrum, for brands of every size.
+            From custom clothing basics to modestwear and workwear — private label
+            manufacturing across the full garment spectrum for brands of every size.
           </p>
         </AnimateIn>
 
@@ -106,7 +106,8 @@ export default function WhatWeProduce() {
               cotton-poly blends, polyester, fleece, French terry, jersey, denim, and more.
               All materials are sourced under{' '}
               <span className="font-semibold text-primary">EU REACH compliance standards</span>.
-              Flexible MOQs starting from 300 pieces per style depending on fabric and construction.
+              Flexible MOQs starting from 300 pieces per style depending on fabric and construction,
+              including T-shirts, hoodies, abayas, hijabs, uniforms, and custom apparel.
             </p>
           </div>
         </AnimateIn>

@@ -9,7 +9,7 @@ const reasons = [
     ),
     label: '0% Customs Duty',
     headline: 'Save 12% on every shipment',
-    body: 'Under the EU–Egypt Free Trade Agreement, your brand pays zero import duty when goods arrive in the EU. That\'s a 12% cost advantage compared to Asian suppliers — on every order, every time.',
+    body: 'Under the EU–Egypt Free Trade Agreement, eligible garments arrive in the EU with zero import duty. That gives your brand a cost advantage compared to many Asian suppliers — on every order, every time.',
   },
   {
     icon: (
@@ -20,7 +20,7 @@ const reasons = [
     ),
     label: '14-Day Shipping',
     headline: 'Alexandria to Gdańsk in two weeks',
-    body: 'Sea freight from our port takes just 10–14 days to reach Poland — not 40+ like Asia. Faster restocks, less safety stock, and more predictable lead times for your planning.',
+    body: 'Sea freight from our port takes just 10–14 days to reach Poland — not 40+ like Asia. Faster restocks, less safety stock, and a practical clothing export partner for European brands.',
   },
   {
     icon: (
@@ -31,7 +31,7 @@ const reasons = [
     ),
     label: 'Poland-Based Manager',
     headline: 'Your contact is in the same timezone',
-    body: 'Youssif, our co-founder, lives and works in Poland. You get face-to-face meetings, same-timezone WhatsApp, and European standards of communication — without paying European factory prices.',
+    body: 'Youssif, our co-founder, lives and works in Poland. You get face-to-face meetings, same-timezone WhatsApp, and a clear bridge to an apparel supplier in Egypt without paying European factory prices.',
   },
 ]
 

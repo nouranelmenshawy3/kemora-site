@@ -6,6 +6,7 @@ const collaboration = {
   title: 'T-shirts representing Egypt in the dance scene',
   note: 'Custom merchandise worn by Central Studio at the pyramids.',
   src: '/sample-work/central-studio-pyramids-team.jpg',
+  alt: 'Central Studio dancers wearing Kemora custom T-shirts by the pyramids in Egypt',
 }
 
 const samples = [
@@ -13,6 +14,7 @@ const samples = [
     title: 'White studio sample',
     note: 'Clean styling sample for brand-ready campaign content.',
     src: '/sample-work/white-studio-merch.jpg',
+    alt: 'Model wearing a white custom T-shirt sample for private label merchandise',
     aspect: 'portrait',
     objectPosition: '50% 42%',
   },
@@ -27,6 +29,7 @@ const samples = [
     title: 'Fleece finishing detail',
     note: 'Close-up on fabric texture, waistband, and drawcord finish.',
     src: '/sample-work/washed-fleece-detail.jpg',
+    alt: 'Close-up of washed fleece garment waistband and drawcord finishing',
     aspect: 'portrait',
     objectPosition: '50% 48%',
   },
@@ -34,18 +37,21 @@ const samples = [
     title: 'Studio lounge set',
     note: 'Color, fit, and styling ready for brand campaigns.',
     src: '/sample-work/burgundy-studio-set.webp',
+    alt: 'Burgundy studio lounge set sample for custom apparel production',
     aspect: 'portrait',
   },
   {
     title: 'Black knit separates',
     note: 'Minimal everyday pieces with a premium hand feel.',
     src: '/sample-work/black-studio-set.webp',
+    alt: 'Black knit separates sample with relaxed fit for private label clothing',
     aspect: 'portrait',
   },
   {
     title: 'Pink vacation set',
     note: 'Poolside campaign sample with a wrap top and soft skirt drape.',
     src: '/sample-work/pink-vacation-set.jpg',
+    alt: 'Pink resortwear co-ord set sample with wrap top and long skirt',
     aspect: 'portrait',
     objectPosition: '50% 40%',
   },
@@ -53,24 +59,28 @@ const samples = [
     title: 'Resortwear co-ord set',
     note: 'Full outfit sample with soft drape and clean finishing.',
     src: '/sample-work/brown-resort-set.webp',
+    alt: 'Brown resortwear co-ord set sample with soft drape and clean finishing',
     aspect: 'portrait',
   },
   {
     title: 'Lightweight leisurewear',
     note: 'Relaxed shapes for warm-weather collections.',
     src: '/sample-work/white-lounge-set.webp',
+    alt: 'White lightweight leisurewear sample for warm-weather fashion collections',
     aspect: 'portrait',
   },
   {
     title: 'Sample development board',
     note: 'Detail shots, fit notes, and product presentation.',
     src: '/sample-work/gray-lounge-sample.webp',
+    alt: 'Sample development board showing garment fit notes and product details',
     aspect: 'portrait',
   },
   {
     title: 'Colorway exploration',
     note: 'Multiple sample directions for collection planning.',
     src: '/sample-work/checked-colorways.webp',
+    alt: 'Garment sample colorway exploration for private label collection planning',
     aspect: 'portrait',
   },
 ]
@@ -119,7 +129,7 @@ export default function SampleWork() {
                 <div className="relative aspect-[16/10] overflow-hidden bg-primary">
                   <Image
                     src={collaboration.src}
-                    alt={collaboration.title}
+                    alt={collaboration.alt}
                     fill
                     sizes="(min-width: 1024px) 55vw, 100vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -142,13 +152,13 @@ export default function SampleWork() {
             </AnimateIn>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {samples.map(({ title, note, src, aspect, objectPosition }, index) => (
+              {samples.map(({ title, note, src, alt, aspect, objectPosition }, index) => (
                 <AnimateIn key={title} delay={index * 60}>
                   <article className="group h-full overflow-hidden rounded-lg border border-k-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-black/10">
                     <div className={`relative overflow-hidden ${getAspectClass(aspect)}`}>
                       <Image
                         src={src}
-                        alt={title}
+                        alt={alt}
                         fill
                         sizes="(min-width: 1024px) 18vw, 50vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"

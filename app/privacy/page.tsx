@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Privacy Policy – Kemora',
   description: 'Privacy Policy for Kemora – how we collect, use, and protect your personal data.',
+  alternates: {
+    canonical: '/privacy',
+  },
   robots: { index: false, follow: false },
 }
 
