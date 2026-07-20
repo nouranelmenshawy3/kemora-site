@@ -63,7 +63,7 @@ const categories = [
         <line x1="8" y1="26" x2="40" y2="26" />
       </svg>
     ),
-    note: 'Tote bags, caps, scarves, hijabs',
+    note: 'Tote bags, caps, scarves',
   },
 ]
 
@@ -107,7 +107,7 @@ export default function WhatWeProduce() {
               All materials are sourced under{' '}
               <span className="font-semibold text-primary">EU REACH compliance standards</span>.
               Flexible MOQs starting from 300 pieces per style depending on fabric and construction,
-              including T-shirts, hoodies, abayas, hijabs, uniforms, and custom apparel.
+              including T-shirts, hoodies, abayas, uniforms, and custom apparel.
             </p>
           </div>
         </AnimateIn>

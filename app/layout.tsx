@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: '%s | Kemora',
   },
   description:
-    'Private label clothing manufacturer in Egypt for European brands. Custom T-shirts, hoodies, workwear, abayas, hijabs and EU export support.',
+    'Private label clothing manufacturer in Egypt for European brands. Custom T-shirts, hoodies, workwear, abayas, and EU export support.',
   applicationName: siteConfig.name,
   keywords: seoKeywords,
   authors: [{ name: 'Kemora' }],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Private Label Clothing Manufacturer Egypt | Kemora',
     description:
-      'Kemora helps European fashion brands source custom clothing from Egypt, including T-shirts, hoodies, workwear, abayas, hijabs, and EU-ready export documentation.',
+      'Kemora helps European fashion brands source custom clothing from Egypt, including T-shirts, hoodies, workwear, abayas, and EU-ready export documentation.',
     url: '/',
     siteName: siteConfig.name,
     type: 'website',

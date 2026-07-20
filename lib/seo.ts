@@ -38,7 +38,7 @@ export const faqItems = [
   {
     question: 'What garments can Kemora manufacture?',
     answer:
-      'We support custom T-shirts, hoodies, sweatshirts, polo shirts, denim, workwear, uniforms, abayas, hijabs, resortwear, lounge sets, bags, and accessories, depending on fabric, construction, and order size.',
+      'We support custom T-shirts, hoodies, sweatshirts, polo shirts, denim, workwear, uniforms, abayas, resortwear, lounge sets, bags, and accessories, depending on fabric, construction, and order size.',
   },
   {
     question: 'Do you work with European fashion brands?',
@@ -103,7 +103,7 @@ export const homepageStructuredData = [
     url: `${siteConfig.url}/`,
     name: 'Private Label Clothing Manufacturer Egypt | Kemora',
     description:
-      'Private label garment manufacturing in Egypt for European brands, including custom T-shirts, hoodies, workwear, abayas, hijabs, and EU export support.',
+      'Private label garment manufacturing in Egypt for European brands, including custom T-shirts, hoodies, workwear, abayas, and EU export support.',
     isPartOf: { '@id': `${siteConfig.url}/#website` },
     about: { '@id': `${siteConfig.url}/#organization` },
     primaryImageOfPage: {
