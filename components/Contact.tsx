@@ -255,7 +255,7 @@ export default function Contact() {
                   <br />
                   <span className="font-medium text-primary">Abdalla</span> — Łódź, Poland
                   <br />
-                  <span className="font-medium text-primary">Nouran</span> — Cairo, Egypt
+                  <span className="font-medium text-primary">Asma Elmahde</span> — Cairo, Egypt
                   <br />
                   <span className="font-medium text-primary">Mirna</span> — Cairo, Egypt
                 </p>
