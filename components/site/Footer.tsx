@@ -1,0 +1,96 @@
+import Link from 'next/link'
+import { path, privacyPath, type Locale } from '@/lib/i18n'
+import type { CommonContent } from '@/content/types'
+import { siteConfig, contactConfig, analyticsEvents } from '@/lib/site'
+import TrackedLink from '../ui/TrackedLink'
+
+export default function Footer({
+  locale,
+  common,
+  whatsappHref,
+}: {
+  locale: Locale
+  common: CommonContent
+  whatsappHref: string
+}) {
+  const privacyHref = privacyPath(locale)
+
+  return (
+    <footer className="bg-primary texture-dark">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="lg:col-span-2">
+            <p className="mb-3 text-xl font-bold tracking-widest text-white ltr-inline">KEMORA</p>
+            <p className="mb-5 max-w-md text-sm leading-relaxed text-white/50">
+              {common.footer.about}
+            </p>
+            <p className="flex items-center gap-2 text-xs text-white/35">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-400" aria-hidden="true" />
+              {common.footer.status}
+            </p>
+          </div>
+
+          <nav aria-label={common.footer.navHeading}>
+            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-white/60">
+              {common.footer.navHeading}
+            </p>
+            <ul className="space-y-2">
+              {common.nav.map(({ key, label }) => (
+                <li key={key}>
+                  <Link
+                    href={path(key, locale)}
+                    className="text-sm text-white/50 transition-colors hover:text-white"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-white/60">
+              {common.footer.contactHeading}
+            </p>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="mb-0.5 text-xs text-white/35">{common.footer.emailLabel}</p>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="text-white/60 transition-colors hover:text-white ltr-inline"
+                >
+                  {siteConfig.email}
+                </a>
+              </div>
+              <div>
+                <p className="mb-0.5 text-xs text-white/35">{common.footer.whatsappLabel}</p>
+                <TrackedLink
+                  href={whatsappHref}
+                  external
+                  event={analyticsEvents.whatsappClick}
+                  className="text-white/60 transition-colors hover:text-white ltr-inline"
+                >
+                  {contactConfig.whatsappPrimaryDisplay}
+                </TrackedLink>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-white/35 sm:flex-row sm:px-6 lg:px-8">
+          <p>
+            © {new Date().getFullYear()} Kemora. {common.footer.rights}
+          </p>
+          <div className="flex items-center gap-5">
+            <Link href={privacyHref} className="transition-colors hover:text-white/60">
+              {common.footer.privacy}
+            </Link>
+            <span>{common.footer.locations}</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}

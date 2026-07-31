@@ -4,10 +4,12 @@ const config: Config = {
   content: [
     './app/**/*.{ts,tsx,js,jsx}',
     './components/**/*.{ts,tsx,js,jsx}',
+    './content/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
       colors: {
+        // Existing brand identity is preserved.
         primary: '#0F1923',
         accent: {
           DEFAULT: '#C4622D',
@@ -18,11 +20,19 @@ const config: Config = {
           DEFAULT: '#F5F1EB',
           dark: '#EAE4D9',
         },
+        // Warm neutral additions introduced by the redesign.
+        offwhite: '#FBFAF7',
+        olive: {
+          DEFAULT: '#6B6F4E',
+          dark: '#565A3D',
+          light: '#8A8E69',
+        },
         'k-muted': '#6B6460',
         'k-border': '#E2DDD6',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        arabic: ['var(--font-arabic)', 'var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out forwards',
