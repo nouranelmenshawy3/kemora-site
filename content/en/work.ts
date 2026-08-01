@@ -30,6 +30,30 @@ export const workEn: WorkItem[] = [
     objectPosition: '50% 48%',
   },
   {
+    id: 'white-lounge-set',
+    title: 'Meejhu — Checked Out collection',
+    note: 'Striped shirt and trouser set produced as completed project work for the Checked Out collection.',
+    src: '/sample-work/meejhu-checked-out-garden.webp',
+    alt: 'Model wearing a beige striped oversized shirt and matching trousers from the Checked Out collection',
+    workType: 'project',
+    published: true,
+    permissionNote:
+      'Confirmed by Kemora team as completed project work. Keep client approval to display campaign creative on file.',
+    objectPosition: '50% 48%',
+  },
+  {
+    id: 'checked-colorways',
+    title: 'Checked Out colourways',
+    note: 'Beige and pink striped set colourways produced as completed project work.',
+    src: '/sample-work/meejhu-checked-out-colorways.webp',
+    alt: 'Beige and pink striped shirt and trouser colourways from the Checked Out collection',
+    workType: 'project',
+    published: true,
+    permissionNote:
+      'Confirmed by Kemora team as completed project work. Keep client approval to display campaign creative on file.',
+    objectPosition: '50% 50%',
+  },
+  {
     id: 'puffer-jackets-colourways',
     title: 'Puffer jacket colourways',
     note: 'Quilted puffer jacket sample reference shown in multiple colourways with stand collar and zip front.',
@@ -116,32 +140,5 @@ export const workEn: WorkItem[] = [
     published: true,
     permissionNote:
       'TODO: garment carries a small embroidered brand mark. Confirm the client has approved public display before keeping this live.',
-  },
-
-  /* ---------------------------------------------------------------- */
-  /*  WITHHELD — third-party brand campaign assets.                     */
-  /*  Do not set published: true without written permission.            */
-  /* ---------------------------------------------------------------- */
-  {
-    id: 'white-lounge-set',
-    title: 'Striped shirt and trouser set',
-    note: 'Withheld from the public gallery pending permission.',
-    src: '/sample-work/white-lounge-set.webp',
-    alt: 'Model wearing a striped oversized shirt and matching trousers',
-    workType: 'project',
-    published: false,
-    permissionNote:
-      'URGENT: image carries another brand’s campaign typography ("Someday, Somewhere — The Checked Out Collection"). It was previously published under the generic title "Lightweight leisurewear", which implies it is Kemora’s own work. Do not republish until Kemora confirms (a) that it produced these garments and (b) that the brand has given written permission to display its campaign creative.',
-  },
-  {
-    id: 'checked-colorways',
-    title: 'Checked shirt colourways',
-    note: 'Withheld from the public gallery pending permission.',
-    src: '/sample-work/checked-colorways.webp',
-    alt: 'Two colourways of a striped shirt and trouser set shown side by side',
-    workType: 'project',
-    published: false,
-    permissionNote:
-      'URGENT: image carries a visible "www.meejhu.com" watermark — it is a third-party brand’s marketing asset. It was previously published as "Colorway exploration". Remove permanently unless Kemora produced this range AND holds written permission to use the brand’s creative.',
   },
 ]
