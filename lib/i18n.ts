@@ -77,6 +77,7 @@ export const productCategorySlugs = [
   'dresses-womens-wear',
   'abayas-modest-wear',
   'activewear',
+  'puffer-jackets-outerwear',
   'workwear-uniforms',
 ] as const
 

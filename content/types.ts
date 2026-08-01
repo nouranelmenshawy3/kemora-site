@@ -157,6 +157,21 @@ export type Section =
       tone?: 'default' | 'muted' | 'dark'
     }
   | {
+      kind: 'imageFeature'
+      eyebrow?: string
+      heading: string
+      lead: string
+      image: {
+        src: string
+        alt: string
+        objectPosition?: string
+      }
+      items: string[]
+      ctas?: Cta[]
+      tone?: 'default' | 'muted' | 'dark'
+      reverse?: boolean
+    }
+  | {
       kind: 'cta'
       heading: string
       body?: string
@@ -170,6 +185,12 @@ export interface PageHero {
   h1: string
   lead: string
   supporting?: string
+  /** Optional real image used as the hero background. */
+  backgroundImage?: {
+    src: string
+    alt: string
+    objectPosition?: string
+  }
   ctas?: Cta[]
   /** Small trust/qualifier strip under the CTAs. */
   highlights?: string[]

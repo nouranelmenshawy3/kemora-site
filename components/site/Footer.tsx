@@ -16,10 +16,10 @@ export default function Footer({
   const privacyHref = privacyPath(locale)
 
   return (
-    <footer className="bg-primary texture-dark">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-2">
+    <footer data-header-theme="dark" className="bg-primary texture-dark">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-5">
             <p className="mb-3 text-xl font-bold tracking-widest text-white ltr-inline">KEMORA</p>
             <p className="mb-5 max-w-md text-sm leading-relaxed text-white/50">
               {common.footer.about}
@@ -30,11 +30,11 @@ export default function Footer({
             </p>
           </div>
 
-          <nav aria-label={common.footer.navHeading}>
+          <nav aria-label={common.footer.navHeading} className="lg:col-span-4">
             <p className="mb-4 text-xs font-bold uppercase tracking-widest text-white/60">
               {common.footer.navHeading}
             </p>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
               {common.nav.map(({ key, label }) => (
                 <li key={key}>
                   <Link
@@ -48,7 +48,7 @@ export default function Footer({
             </ul>
           </nav>
 
-          <div>
+          <div className="lg:col-span-3">
             <p className="mb-4 text-xs font-bold uppercase tracking-widest text-white/60">
               {common.footer.contactHeading}
             </p>
@@ -73,6 +73,13 @@ export default function Footer({
                   {contactConfig.whatsappPrimaryDisplay}
                 </TrackedLink>
               </div>
+              <TrackedLink
+                href={path('contact', locale)}
+                event={analyticsEvents.sampleRequestClick}
+                className="mt-2 inline-flex rounded-lg bg-accent px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-accent-dark"
+              >
+                {common.cta.requestSample}
+              </TrackedLink>
             </div>
           </div>
         </div>

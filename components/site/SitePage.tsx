@@ -89,14 +89,12 @@ export default function SitePage({
     <>
       <JsonLd data={structuredData} />
 
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
-      >
-        {common.skipToContent}
-      </a>
-
-      <Navbar locale={locale} common={common} whatsappHref={whatsappHref} />
+      <Navbar
+        locale={locale}
+        common={common}
+        whatsappHref={whatsappHref}
+        initialTheme="dark"
+      />
 
       <main id="main">
         <Hero hero={page.hero} variant={isHome ? 'home' : 'page'} crumbs={crumbs} />

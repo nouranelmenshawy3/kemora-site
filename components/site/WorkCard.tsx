@@ -17,24 +17,30 @@ const labelStyles: Record<WorkType, string> = {
 export default function WorkCard({
   item,
   label,
-  featured = false,
+  featured,
   priority = false,
+  className = '',
 }: {
   item: WorkItem
   label: string
   featured?: boolean
   priority?: boolean
+  className?: string
 }) {
+  const isFeatured = featured ?? item.featured ?? false
+
   return (
-    <article className="group h-full overflow-hidden rounded-lg border border-k-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-black/10">
-      <div className={`relative overflow-hidden ${featured ? 'aspect-[16/10]' : 'aspect-[3/4]'}`}>
+    <article
+      className={`group h-full overflow-hidden rounded-lg border border-k-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-black/10 ${className}`}
+    >
+      <div className={`relative overflow-hidden ${isFeatured ? 'aspect-[4/3]' : 'aspect-[3/4]'}`}>
         <Image
           src={item.src}
           alt={item.alt}
           fill
           sizes={
-            featured
-              ? '(min-width: 1024px) 55vw, 100vw'
+            isFeatured
+              ? '(min-width: 1024px) 62vw, (min-width: 640px) 90vw, 100vw'
               : '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw'
           }
           className="object-cover transition-transform duration-500 group-hover:scale-105"

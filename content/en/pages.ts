@@ -36,11 +36,16 @@ export const homeEn: PageContent = {
   breadcrumbLabel: 'Home',
   hero: {
     eyebrow: 'Egypt · Middle East · Europe',
-    h1: 'Private-Label Garment Manufacturing for Brands in Europe and the Middle East',
+    h1: 'Private-label garment manufacturing from Egypt',
     lead:
-      'From fabric sourcing and sample development to private-label production, labels, packaging and quality control — Kemora helps fashion brands develop and manufacture their collections in Egypt.',
+      'Kemora helps fashion brands develop and manufacture their own garments in Egypt — from fabric sourcing and sampling to private-label production, labels, packaging and quality control.',
     supporting:
-      'We do not sell a ready-made factory collection. Every order is produced to your own designs, fabrics, fit, colours and quality requirements.',
+      'Send a reference photo, sketch, sample or tech pack. We will tell you what is realistic, what needs to be decided, and how to move toward a production-ready sample.',
+    backgroundImage: {
+      src: '/egypt-factory.jpeg',
+      alt: 'Garment production machine working on dark fabric in an Egyptian factory',
+      objectPosition: '46% 50%',
+    },
     ctas: [
       {
         label: 'Start Your Project',
@@ -49,10 +54,9 @@ export const homeEn: PageContent = {
         event: analyticsEvents.sampleRequestClick,
       },
       {
-        label: 'Request a Sample',
-        href: path('sampling', 'en'),
+        label: 'See What We Make',
+        href: path('products', 'en'),
         variant: 'secondary',
-        event: analyticsEvents.sampleRequestClick,
       },
       {
         label: 'Contact Us on WhatsApp',
@@ -63,8 +67,9 @@ export const homeEn: PageContent = {
       },
     ],
     highlights: [
-      'Works with new and established brands',
+      'No ready-made catalogue',
       'Samples before bulk production',
+      'Labels and packaging available',
       'Client designs kept confidential',
     ],
   },
@@ -116,6 +121,39 @@ export const homeEn: PageContent = {
       lead:
         'Knitted and woven garments across everyday, loungewear, modest and uniform categories. Each category page explains how that product is actually developed.',
       note: publishedCopy.capabilityDisclaimer.en,
+    },
+    {
+      kind: 'imageFeature',
+      eyebrow: 'Start Here',
+      heading: 'A reference photo is enough to begin',
+      lead:
+        'The first conversation should not feel like homework. Send what you already have, and we will turn it into the questions that matter for sampling: construction, fabric, fit, quantity and branding.',
+      image: {
+        src: '/home/reference-puffer-jackets-chevron.jpg',
+        alt: 'Chevron-quilted puffer jackets on a garment rail in sage, cream, black and tan colourways',
+        objectPosition: '50% 46%',
+      },
+      items: [
+        'Reference image, sketch, tech pack or physical sample',
+        'Target quantity, size range and launch market',
+        'Preferred fabric feel, weight or target price point',
+        'Branding needs such as labels, hang tags and packaging',
+      ],
+      ctas: [
+        {
+          label: 'Start Your Project',
+          href: path('contact', 'en'),
+          variant: 'primary',
+          event: analyticsEvents.sampleRequestClick,
+        },
+        {
+          label: 'View Selected Work',
+          href: path('selectedWork', 'en'),
+          variant: 'secondary',
+        },
+      ],
+      tone: 'muted',
+      reverse: true,
     },
     {
       kind: 'checklist',
@@ -414,13 +452,13 @@ export const productsEn: PageContent = {
   routeKey: 'products',
   metaTitle: 'Products We Manufacture | Private Label Clothing | Kemora',
   metaDescription:
-    'T-shirts, hoodies, joggers, pyjamas, loungewear, dresses, abayas, activewear and uniforms — produced to your own designs in Egypt.',
+    'T-shirts, hoodies, joggers, pyjamas, loungewear, dresses, abayas, activewear, puffer jackets and uniforms — produced to your own designs in Egypt.',
   breadcrumbLabel: 'Products',
   hero: {
     eyebrow: 'Products',
     h1: 'What we manufacture',
     lead:
-      'Knitted and woven garments across everyday basics, loungewear, women’s wear, modest wear, activewear and uniforms — all produced to your own designs.',
+      'Knitted and woven garments across everyday basics, loungewear, women’s wear, modest wear, activewear, puffer jackets and uniforms — all produced to your own designs.',
     ctas: primaryCtas,
   },
   sections: [
@@ -438,7 +476,6 @@ export const productsEn: PageContent = {
         'Shirts and woven tops',
         'Shorts',
         'Knitwear (subject to confirmation per project)',
-        'Jackets and selected outerwear',
         'Caps and selected accessories',
       ],
       note: publishedCopy.capabilityDisclaimer.en,
@@ -888,11 +925,7 @@ export const aboutEn: PageContent = {
           body:
             'There is no ready-made catalogue. Products are developed to each brand’s specification.',
         },
-        {
-          title: 'We do not own the factories',
-          body:
-            'We work with partner factories and workshops, selected per product type. We are direct with clients about this rather than implying ownership.',
-        },
+       
         {
           title: 'We work in your language',
           body: 'Arabic, English and Polish, within your working hours.',

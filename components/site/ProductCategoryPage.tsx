@@ -78,7 +78,8 @@ export default function ProductCategoryPage({
   if (category.faqs.length > 0) structuredData.push(faqSchema(category.faqs))
 
   const listBlock = (title: string, items: string[]) => (
-    <div className="rounded-2xl border border-k-border bg-white p-6">
+    <div className="relative overflow-hidden rounded-lg border border-k-border bg-white p-6 shadow-sm shadow-black/[0.03]">
+      <span className="absolute inset-x-0 top-0 h-1 bg-accent/80" aria-hidden="true" />
       <h2 className="mb-4 text-base font-bold text-primary">{title}</h2>
       <ul className="space-y-2">
         {items.map((item) => (
@@ -95,14 +96,12 @@ export default function ProductCategoryPage({
     <>
       <JsonLd data={structuredData} />
 
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
-      >
-        {common.skipToContent}
-      </a>
-
-      <Navbar locale={locale} common={common} whatsappHref={whatsappHref} />
+      <Navbar
+        locale={locale}
+        common={common}
+        whatsappHref={whatsappHref}
+        initialTheme="dark"
+      />
 
       <main id="main">
         <Hero
@@ -110,7 +109,7 @@ export default function ProductCategoryPage({
           crumbs={crumbs}
         />
 
-        <section className="bg-white py-20 sm:py-24">
+        <section data-header-theme="light" className="bg-white py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <AnimateIn>
               <div className="grid gap-5 lg:grid-cols-3">
@@ -128,7 +127,7 @@ export default function ProductCategoryPage({
           </div>
         </section>
 
-        <section className="bg-sand py-20 sm:py-24">
+        <section data-header-theme="light" className="bg-sand py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <AnimateIn className="mb-12 max-w-3xl">
               <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
@@ -144,7 +143,8 @@ export default function ProductCategoryPage({
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {category.developmentNotes.map((note, i) => (
                 <AnimateIn key={note.title} delay={i * 60} className="h-full">
-                  <div className="h-full rounded-2xl border border-k-border bg-white p-6">
+                  <div className="relative h-full overflow-hidden rounded-lg border border-k-border bg-white p-6 shadow-sm shadow-black/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/[0.07]">
+                    <span className="absolute inset-x-0 top-0 h-1 bg-accent/80" aria-hidden="true" />
                     <h3 className="mb-2 text-base font-bold text-primary">{note.title}</h3>
                     <p className="text-sm leading-relaxed text-k-muted">{note.body}</p>
                   </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Section, CommonContent, ProductCategory, Fabric, WorkItem } from '@/content/types'
 import { productCategoryPath, type Locale } from '@/lib/i18n'
 import AnimateIn from '../ui/AnimateIn'
@@ -27,8 +28,8 @@ const headingColor = (tone?: string) => (tone === 'dark' ? 'text-white' : 'text-
 const bodyColor = (tone?: string) => (tone === 'dark' ? 'text-white/60' : 'text-k-muted')
 const cardClass = (tone?: string) =>
   tone === 'dark'
-    ? 'border-white/10 bg-white/5'
-    : 'border-k-border bg-white hover:border-accent/40 hover:shadow-lg hover:shadow-black/5'
+    ? 'border-white/10 bg-white/[0.06] hover:border-white/20'
+    : 'border-k-border bg-white shadow-sm shadow-black/[0.03] hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/[0.07]'
 
 /** Renders **bold** spans without pulling in a markdown dependency. */
 function RichText({ text }: { text: string }) {
@@ -101,11 +102,12 @@ export default function SectionRenderer({
   const tone = 'tone' in section ? section.tone : undefined
   const wrapper = `py-20 sm:py-24 ${toneClasses[tone ?? 'default']}`
   const container = 'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'
+  const sectionTheme = tone === 'dark' ? 'dark' : 'light'
 
   switch (section.kind) {
     case 'prose':
       return (
-        <section className={wrapper}>
+        <section data-header-theme={sectionTheme} className={wrapper}>
           <div className={container}>
             <SectionHeader
               eyebrow={section.eyebrow}
@@ -134,7 +136,7 @@ export default function SectionRenderer({
             ? 'sm:grid-cols-2 lg:grid-cols-4'
             : 'sm:grid-cols-2 lg:grid-cols-3'
       return (
-        <section className={wrapper}>
+        <section data-header-theme={sectionTheme} className={wrapper}>
           <div className={container}>
             <SectionHeader
               eyebrow={section.eyebrow}
@@ -146,8 +148,12 @@ export default function SectionRenderer({
               {section.items.map((item, i) => (
                 <AnimateIn key={item.title} delay={i * 60} className="h-full">
                   <div
-                    className={`h-full rounded-2xl border p-6 transition-all duration-300 ${cardClass(tone)}`}
+                    className={`relative h-full overflow-hidden rounded-lg border p-6 transition-all duration-300 ${cardClass(tone)}`}
                   >
+                    <span
+                      className="absolute inset-x-0 top-0 h-1 bg-accent/80"
+                      aria-hidden="true"
+                    />
                     <h3 className={`mb-2 text-base font-bold ${headingColor(tone)}`}>
                       {item.title}
                     </h3>
@@ -176,7 +182,7 @@ export default function SectionRenderer({
 
     case 'steps':
       return (
-        <section className={wrapper}>
+        <section data-header-theme={sectionTheme} className={wrapper}>
           <div className={container}>
             <SectionHeader
               eyebrow={section.eyebrow}
@@ -188,8 +194,12 @@ export default function SectionRenderer({
               {section.items.map((step, i) => (
                 <AnimateIn key={step.title} delay={i * 50} className="h-full">
                   <li
-                    className={`flex h-full flex-col rounded-2xl border p-6 transition-all duration-300 ${cardClass(tone)}`}
+                    className={`relative flex h-full flex-col overflow-hidden rounded-lg border p-6 transition-all duration-300 ${cardClass(tone)}`}
                   >
+                    <span
+                      className="absolute inset-x-0 top-0 h-1 bg-accent/80"
+                      aria-hidden="true"
+                    />
                     <span
                       className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-sm font-bold text-white"
                       aria-hidden="true"
@@ -211,7 +221,7 @@ export default function SectionRenderer({
 
     case 'checklist':
       return (
-        <section className={wrapper}>
+        <section data-header-theme={sectionTheme} className={wrapper}>
           <div className={container}>
             <SectionHeader
               eyebrow={section.eyebrow}
@@ -245,7 +255,7 @@ export default function SectionRenderer({
 
     case 'faq':
       return (
-        <section className={wrapper}>
+        <section data-header-theme={sectionTheme} className={wrapper}>
           <div className={container}>
             <SectionHeader
               eyebrow={section.eyebrow}
@@ -281,7 +291,7 @@ export default function SectionRenderer({
 
     case 'productGrid':
       return (
-        <section className={wrapper}>
+        <section data-header-theme={sectionTheme} className={wrapper}>
           <div className={container}>
             <SectionHeader
               eyebrow={section.eyebrow}
@@ -294,14 +304,18 @@ export default function SectionRenderer({
                 <AnimateIn key={category.slug} delay={i * 50} className="h-full">
                   <Link
                     href={productCategoryPath(category.slug, ctx.locale)}
-                    className="group flex h-full flex-col rounded-2xl border border-k-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-black/5"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-k-border bg-white p-6 shadow-sm shadow-black/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/[0.07]"
                   >
+                    <span
+                      className="absolute inset-x-0 top-0 h-1 bg-accent/80"
+                      aria-hidden="true"
+                    />
                     <h3 className="mb-2 text-base font-bold text-primary group-hover:text-accent">
                       {category.name}
                     </h3>
                     <p className="text-sm leading-relaxed text-k-muted">{category.summary}</p>
                     <span className="mt-4 text-sm font-semibold text-accent">
-                      {ctx.common.cta.learnMore} →
+                      {ctx.common.cta.learnMore} {ctx.locale === 'ar' ? '←' : '→'}
                     </span>
                   </Link>
                 </AnimateIn>
@@ -323,7 +337,7 @@ export default function SectionRenderer({
           .filter((group) => group.items.length > 0)
 
         return (
-          <section className={wrapper}>
+          <section data-header-theme={sectionTheme} className={wrapper}>
             <div className={container}>
               <SectionHeader
                 eyebrow={section.eyebrow}
@@ -337,7 +351,12 @@ export default function SectionRenderer({
                     <h2 className="mb-6 text-xl font-bold text-primary">{group.label}</h2>
                     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                       {group.items.map((item) => (
-                        <WorkCard key={item.id} item={item} label={group.label} />
+                        <WorkCard
+                          key={item.id}
+                          item={item}
+                          label={group.label}
+                          className={item.featured ? 'sm:col-span-2 lg:col-span-2' : undefined}
+                        />
                       ))}
                     </div>
                   </div>
@@ -351,7 +370,7 @@ export default function SectionRenderer({
 
       const items = section.limit ? ctx.work.slice(0, section.limit) : ctx.work
       return (
-        <section className={wrapper}>
+        <section data-header-theme={sectionTheme} className={wrapper}>
           <div className={container}>
             <SectionHeader
               eyebrow={section.eyebrow}
@@ -361,7 +380,11 @@ export default function SectionRenderer({
             />
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {items.map((item, i) => (
-                <AnimateIn key={item.id} delay={i * 50} className="h-full">
+                <AnimateIn
+                  key={item.id}
+                  delay={i * 50}
+                  className={`h-full ${item.featured ? 'sm:col-span-2 lg:col-span-2' : ''}`}
+                >
                   <WorkCard item={item} label={ctx.common.workLabels[item.workType]} />
                 </AnimateIn>
               ))}
@@ -374,7 +397,7 @@ export default function SectionRenderer({
 
     case 'fabrics':
       return (
-        <section className={wrapper}>
+        <section data-header-theme={sectionTheme} className={wrapper}>
           <div className={container}>
             <SectionHeader
               eyebrow={section.eyebrow}
@@ -459,38 +482,91 @@ export default function SectionRenderer({
         </section>
       )
 
-    case 'cta':
-      return (
-        <section className={wrapper}>
-          <div className={container}>
-            <AnimateIn>
-              <div
-                className={`rounded-2xl px-6 py-12 text-center sm:px-12 ${
-                  tone === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-sand'
+    case 'imageFeature': {
+      const image = (
+        <AnimateIn className={section.reverse ? 'lg:order-2' : undefined}>
+          <div className="relative overflow-hidden rounded-lg border border-k-border bg-white shadow-xl shadow-black/[0.08]">
+            <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5]">
+              <Image
+                src={section.image.src}
+                alt={section.image.alt}
+                fill
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover"
+                style={
+                  section.image.objectPosition
+                    ? { objectPosition: section.image.objectPosition }
+                    : undefined
+                }
+              />
+            </div>
+          </div>
+        </AnimateIn>
+      )
+
+      const copy = (
+        <AnimateIn delay={100} className={section.reverse ? 'lg:order-1' : undefined}>
+          {section.eyebrow && (
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              {section.eyebrow}
+            </p>
+          )}
+          <h2 className={`text-3xl font-bold tracking-tight sm:text-4xl ${headingColor(tone)}`}>
+            {section.heading}
+          </h2>
+          <p className={`mt-4 leading-relaxed ${bodyColor(tone)}`}>{section.lead}</p>
+          <ul className="mt-8 grid gap-3">
+            {section.items.map((item) => (
+              <li
+                key={item}
+                className={`flex items-start gap-3 rounded-lg border px-4 py-3 text-sm leading-relaxed ${
+                  tone === 'dark'
+                    ? 'border-white/10 bg-white/[0.04] text-white/65'
+                    : 'border-k-border bg-white text-k-muted'
                 }`}
               >
-                <h2 className={`text-2xl font-bold sm:text-3xl ${headingColor(tone)}`}>
-                  {section.heading}
-                </h2>
-                {section.body && (
-                  <p className={`mx-auto mt-4 max-w-2xl leading-relaxed ${bodyColor(tone)}`}>
-                    {section.body}
-                  </p>
-                )}
-                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                  {section.ctas.map((cta) => (
-                    <CtaButton key={cta.label} cta={cta} onDark={tone === 'dark'} />
-                  ))}
-                </div>
-              </div>
-            </AnimateIn>
+                <svg
+                  className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          {section.ctas && section.ctas.length > 0 && (
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              {section.ctas.map((cta) => (
+                <CtaButton key={cta.label} cta={cta} onDark={tone === 'dark'} />
+              ))}
+            </div>
+          )}
+        </AnimateIn>
+      )
+
+      return (
+        <section data-header-theme={sectionTheme} className={wrapper}>
+          <div className={container}>
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              {image}
+              {copy}
+            </div>
           </div>
         </section>
       )
+    }
+
+    case 'cta':
+      return null
 
     case 'contactForm':
       return (
-        <section className="py-20 sm:py-24 bg-white">
+        <section data-header-theme="light" className="py-20 sm:py-24 bg-white">
           <div className={container}>
             <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
               <div className="lg:col-span-3">

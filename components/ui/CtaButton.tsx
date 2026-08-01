@@ -30,7 +30,7 @@ export default function CtaButton({ cta, onDark = false }: { cta: Cta; onDark?: 
       href={cta.href}
       event={cta.event}
       external={cta.external}
-      className={`inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-semibold transition-all duration-200 ${classes}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${classes}`}
     >
       {variant === 'whatsapp' && <WhatsAppIcon />}
       <span>{cta.label}</span>

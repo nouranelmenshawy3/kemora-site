@@ -386,6 +386,69 @@ export const productCategoriesEn: ProductCategory[] = [
     ],
   },
   {
+    slug: 'puffer-jackets-outerwear',
+    name: 'Puffer Jackets & Outerwear',
+    summary: 'Quilted jackets, padded outerwear and selected lightweight jacket styles.',
+    title: 'Puffer Jackets & Outerwear',
+    metaTitle: 'Puffer Jacket & Outerwear Manufacturer in Egypt | Kemora',
+    metaDescription:
+      'Private-label puffer jacket and outerwear development in Egypt. Quilted jackets, padded styles, shell fabrics, linings, trims and sample development for fashion brands.',
+    h1: 'Puffer Jacket & Outerwear Manufacturing',
+    intro:
+      'Outerwear needs more development control than a simple cut-and-sew garment. Shell fabric, lining, padding, quilting, zips and cuff finishing all affect the final shape, warmth and cost, so we confirm the construction through sampling before bulk production.',
+    items: [
+      'Puffer jackets',
+      'Lightweight quilted jackets',
+      'Padded vests and gilets',
+      'Zip-front outerwear',
+      'Stand-collar padded jackets',
+      'Light bomber-style jackets',
+      'Utility jackets and overshirts',
+    ],
+    fabrics: [
+      'Polyester woven shell fabrics',
+      'Nylon or nylon-look woven shells',
+      'Water-repellent finishes where available',
+      'Polyester lining fabrics',
+      'Synthetic padding and wadding',
+      'Rib or elasticated cuff finishes',
+    ],
+    finishing: [
+      'Horizontal or panelled quilting',
+      'Front zips and pocket zips',
+      'Elasticated cuffs and hems',
+      'Stand collars and hood options',
+      'Woven labels and care labels',
+      'Hang tags and individual polybags',
+    ],
+    developmentNotes: [
+      {
+        title: 'Padding changes the pattern',
+        body: 'A puffer jacket cannot be fitted like a flat woven shirt. Padding thickness changes the sleeve, shoulder and body volume, so the sample has to be developed in the intended padding weight rather than estimated from a flat sketch.',
+      },
+      {
+        title: 'Quilting affects both look and warmth',
+        body: 'Baffle width, stitch direction and panel placement control how full the jacket looks and how evenly the padding sits. These details are confirmed on the sample before costing bulk production.',
+      },
+      {
+        title: 'Performance claims need confirmation',
+        body: 'Water resistance, windproofing or insulation ratings should only be claimed if the selected fabric and construction are tested. We can develop the garment, but any technical claim is confirmed per project.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can you make puffers in multiple colours?',
+        answer:
+          'Yes. Each shell colour is planned separately, and trims such as zips, lining and cuffs need to be matched or deliberately contrasted. Custom colours may affect minimums and lead time.',
+      },
+      {
+        question: 'Can you work from a puffer sample or reference photo?',
+        answer:
+          'Yes. A physical sample is best, but reference photos are enough to start a development conversation. We confirm fabric, padding, quilting and fit details before making the first sample.',
+      },
+    ],
+  },
+  {
     slug: 'workwear-uniforms',
     name: 'Workwear & Uniforms',
     summary: 'Corporate, hospitality and staff uniforms with consistent repeat sizing.',
@@ -452,6 +515,5 @@ export const additionalCategoriesEn = [
   'Shirts and woven tops',
   'Shorts',
   'Knitwear (subject to confirmation per project)',
-  'Jackets and selected outerwear',
   'Caps and selected accessories',
 ]

@@ -27,8 +27,8 @@ const CONTACT_FROM_EMAIL =
   process.env.CONTACT_FROM_EMAIL || 'Kemora Website <website@kemoratex.com>'
 
 /** Mirrors the client-side limits in components/site/InquiryForm.tsx. */
-const MAX_FILES = 3
-const MAX_TOTAL_BYTES = 5 * 1024 * 1024
+const MAX_FILES = 5
+const MAX_TOTAL_BYTES = 10 * 1024 * 1024
 const MAX_FIELD_LENGTH = 5000
 const ALLOWED_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.webp', '.pdf']
 

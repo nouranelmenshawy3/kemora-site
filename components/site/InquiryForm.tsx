@@ -10,12 +10,20 @@ import { analyticsEvents } from '@/lib/site'
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
 /** Keep in sync with the server-side limits in app/api/contact/route.ts. */
-const MAX_FILES = 3
-const MAX_TOTAL_BYTES = 5 * 1024 * 1024
+const MAX_FILES = 5
+const MAX_TOTAL_MB = 10
+const MAX_TOTAL_BYTES = MAX_TOTAL_MB * 1024 * 1024
 const ACCEPTED = 'image/png,image/jpeg,image/webp,application/pdf'
 
 const fieldClass =
   'w-full rounded-lg border border-k-border bg-sand/40 px-4 py-3 text-primary transition placeholder:text-k-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15'
+
+function formatBytes(bytes: number) {
+  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
+}
+
+const fileKey = (file: File) => `${file.name}-${file.size}-${file.lastModified}`
 
 export default function InquiryForm({
   locale,
@@ -30,12 +38,13 @@ export default function InquiryForm({
   const [status, setStatus] = useState<Status>('idle')
   const [errorDetail, setErrorDetail] = useState<string | null>(null)
   const [fileError, setFileError] = useState<string | null>(null)
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
   const fileRef = useRef<HTMLInputElement>(null)
 
   const privacyHref = privacyPath(locale)
 
   async function readFiles(): Promise<{ filename: string; content: string }[]> {
-    const files = Array.from(fileRef.current?.files ?? [])
+    const files = selectedFiles
     if (files.length === 0) return []
 
     const total = files.reduce((sum, f) => sum + f.size, 0)
@@ -76,8 +85,8 @@ export default function InquiryForm({
       setStatus('idle')
       setFileError(
         locale === 'ar'
-          ? `الحد الأقصى ${MAX_FILES} ملفات وبحجم إجمالي 5 ميجابايت.`
-          : `Maximum ${MAX_FILES} files, 5 MB in total.`
+          ? `الحد الأقصى ${MAX_FILES} ملفات وبحجم إجمالي ${MAX_TOTAL_MB} ميجابايت.`
+          : `Maximum ${MAX_FILES} files, ${MAX_TOTAL_MB} MB in total.`
       )
       return
     }
@@ -116,6 +125,7 @@ export default function InquiryForm({
       })
       setStatus('success')
       formEl.reset()
+      setSelectedFiles([])
     } catch (error) {
       setStatus('error')
       setErrorDetail(error instanceof Error ? error.message : null)
@@ -324,13 +334,88 @@ export default function InquiryForm({
           multiple
           accept={ACCEPTED}
           aria-describedby="files-hint"
+          onChange={(event) => {
+            const incomingFiles = Array.from(event.currentTarget.files ?? [])
+            setSelectedFiles((currentFiles) => {
+              const seen = new Set(currentFiles.map(fileKey))
+              const nextFiles = [...currentFiles]
+
+              for (const file of incomingFiles) {
+                const key = fileKey(file)
+                if (!seen.has(key)) {
+                  seen.add(key)
+                  nextFiles.push(file)
+                }
+              }
+
+              const total = nextFiles.reduce((sum, file) => sum + file.size, 0)
+              if (nextFiles.length > MAX_FILES || total > MAX_TOTAL_BYTES) {
+                setFileError(
+                  locale === 'ar'
+                    ? `اختر حتى ${MAX_FILES} ملفات وبحجم إجمالي ${MAX_TOTAL_MB} ميجابايت.`
+                    : `Choose up to ${MAX_FILES} files, ${MAX_TOTAL_MB} MB in total.`
+                )
+                return currentFiles
+              }
+
+              setFileError(null)
+              return nextFiles
+            })
+            event.currentTarget.value = ''
+          }}
           className="w-full rounded-lg border border-dashed border-k-border bg-sand/30 px-4 py-3 text-sm text-k-muted file:me-3 file:rounded-md file:border-0 file:bg-primary file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-white"
         />
         <p id="files-hint" className="mt-1 text-xs text-k-muted">
           {locale === 'ar'
-            ? 'JPG أو PNG أو WEBP أو PDF — حتى 3 ملفات بحجم إجمالي 5 ميجابايت.'
-            : 'JPG, PNG, WEBP or PDF — up to 3 files, 5 MB total.'}
+            ? `يمكنك اختيار أكثر من ملف مرة واحدة. JPG أو PNG أو WEBP أو PDF — حتى ${MAX_FILES} ملفات بحجم إجمالي ${MAX_TOTAL_MB} ميجابايت.`
+            : `You can select several files at once. JPG, PNG, WEBP or PDF — up to ${MAX_FILES} files, ${MAX_TOTAL_MB} MB total.`}
         </p>
+        {selectedFiles.length > 0 && (
+          <div className="mt-3 rounded-lg border border-k-border bg-white p-3">
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-xs font-semibold text-primary">
+                {locale === 'ar'
+                  ? `${selectedFiles.length} من ${MAX_FILES} ملفات محددة`
+                  : `${selectedFiles.length} of ${MAX_FILES} files selected`}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedFiles([])
+                  setFileError(null)
+                }}
+                className="text-xs font-semibold text-accent hover:underline"
+              >
+                {locale === 'ar' ? 'مسح الكل' : 'Clear all'}
+              </button>
+            </div>
+            <ul className="mt-2 space-y-1.5">
+              {selectedFiles.map((file) => (
+                <li
+                  key={fileKey(file)}
+                  className="flex items-center justify-between gap-3 text-xs text-k-muted"
+                >
+                  <span className="truncate">{file.name}</span>
+                  <span className="flex shrink-0 items-center gap-3">
+                    <span>{formatBytes(file.size)}</span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedFiles((currentFiles) =>
+                          currentFiles.filter((currentFile) => fileKey(currentFile) !== fileKey(file))
+                        )
+                        setFileError(null)
+                      }}
+                      className="font-semibold text-accent hover:underline"
+                    >
+                      {locale === 'ar' ? 'حذف' : 'Remove'}
+                    </button>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         {fileError && (
           <p role="alert" className="mt-1.5 text-sm text-red-600">
             {fileError}
