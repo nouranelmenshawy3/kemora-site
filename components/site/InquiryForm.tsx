@@ -4,16 +4,21 @@ import { useState, useRef, type FormEvent } from 'react'
 import Link from 'next/link'
 import { track } from '@vercel/analytics'
 import type { CommonContent, ProductCategory } from '@/content/types'
+import {
+  CONTACT_ATTACHMENT_ACCEPTED,
+  CONTACT_ATTACHMENT_MAX_FILES,
+  CONTACT_ATTACHMENT_MAX_TOTAL_BYTES,
+  CONTACT_ATTACHMENT_MAX_TOTAL_MB,
+} from '@/lib/contactLimits'
 import { privacyPath, type Locale } from '@/lib/i18n'
 import { analyticsEvents } from '@/lib/site'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
-/** Keep in sync with the server-side limits in app/api/contact/route.ts. */
-const MAX_FILES = 5
-const MAX_TOTAL_MB = 10
-const MAX_TOTAL_BYTES = MAX_TOTAL_MB * 1024 * 1024
-const ACCEPTED = 'image/png,image/jpeg,image/webp,application/pdf'
+const MAX_FILES = CONTACT_ATTACHMENT_MAX_FILES
+const MAX_TOTAL_MB = CONTACT_ATTACHMENT_MAX_TOTAL_MB
+const MAX_TOTAL_BYTES = CONTACT_ATTACHMENT_MAX_TOTAL_BYTES
+const ACCEPTED = CONTACT_ATTACHMENT_ACCEPTED
 
 const fieldClass =
   'w-full rounded-lg border border-k-border bg-sand/40 px-4 py-3 text-primary transition placeholder:text-k-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15'
@@ -83,11 +88,7 @@ export default function InquiryForm({
       attachments = await readFiles()
     } catch {
       setStatus('idle')
-      setFileError(
-        locale === 'ar'
-          ? `الحد الأقصى ${MAX_FILES} ملفات وبحجم إجمالي ${MAX_TOTAL_MB} ميجابايت.`
-          : `Maximum ${MAX_FILES} files, ${MAX_TOTAL_MB} MB in total.`
-      )
+      setFileError(t.attachmentTooLargeError)
       return
     }
 
@@ -350,11 +351,7 @@ export default function InquiryForm({
 
               const total = nextFiles.reduce((sum, file) => sum + file.size, 0)
               if (nextFiles.length > MAX_FILES || total > MAX_TOTAL_BYTES) {
-                setFileError(
-                  locale === 'ar'
-                    ? `اختر حتى ${MAX_FILES} ملفات وبحجم إجمالي ${MAX_TOTAL_MB} ميجابايت.`
-                    : `Choose up to ${MAX_FILES} files, ${MAX_TOTAL_MB} MB in total.`
-                )
+                setFileError(t.attachmentTooLargeError)
                 return currentFiles
               }
 
@@ -485,7 +482,7 @@ export default function InquiryForm({
 
       {status === 'error' && (
         <p role="alert" aria-live="assertive" className="text-sm text-red-600">
-          {t.error}
+          {errorDetail === 'status-413' ? t.attachmentTooLargeError : t.error}
           {errorDetail ? <span className="sr-only"> ({errorDetail})</span> : null}
         </p>
       )}

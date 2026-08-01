@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
+import {
+  CONTACT_ATTACHMENT_MAX_FILES,
+  CONTACT_ATTACHMENT_MAX_TOTAL_BYTES,
+} from '@/lib/contactLimits'
 
 interface Attachment {
   filename: string
@@ -27,8 +31,8 @@ const CONTACT_FROM_EMAIL =
   process.env.CONTACT_FROM_EMAIL || 'Kemora Website <website@kemoratex.com>'
 
 /** Mirrors the client-side limits in components/site/InquiryForm.tsx. */
-const MAX_FILES = 5
-const MAX_TOTAL_BYTES = 10 * 1024 * 1024
+const MAX_FILES = CONTACT_ATTACHMENT_MAX_FILES
+const MAX_TOTAL_BYTES = CONTACT_ATTACHMENT_MAX_TOTAL_BYTES
 const MAX_FIELD_LENGTH = 5000
 const ALLOWED_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.webp', '.pdf']
 

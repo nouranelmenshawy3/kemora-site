@@ -273,6 +273,7 @@ export interface CommonContent {
     success: string
     successDetail: string
     error: string
+    attachmentTooLargeError: string
     required: string
     optional: string
     noTechPackNote: string

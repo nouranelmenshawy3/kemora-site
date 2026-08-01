@@ -93,6 +93,8 @@ export const commonEn: CommonContent = {
     successDetail: 'We typically respond within one business day.',
     error:
       'Something went wrong and your enquiry was not sent. Please try again, or email us directly at info@kemoratex.com.',
+    attachmentTooLargeError:
+      'The attached files are too large for this form. Please attach up to 5 files, 3 MB total, or send larger PDFs by email or WhatsApp after submitting.',
     required: 'required',
     optional: 'optional',
     noTechPackNote:

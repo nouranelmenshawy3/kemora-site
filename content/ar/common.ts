@@ -93,6 +93,8 @@ export const commonAr: CommonContent = {
     successDetail: 'نرد عادةً خلال يوم عمل واحد.',
     error:
       'حدث خطأ ولم يتم إرسال الطلب. يرجى المحاولة مرة أخرى، أو مراسلتنا مباشرة على info@kemoratex.com.',
+    attachmentTooLargeError:
+      'الملفات المرفقة كبيرة جدًا لهذا النموذج. يرجى إرفاق حتى 5 ملفات بحجم إجمالي 3 ميجابايت، أو إرسال ملفات PDF الأكبر عبر البريد الإلكتروني أو واتساب بعد إرسال الطلب.',
     required: 'مطلوب',
     optional: 'اختياري',
     noTechPackNote:

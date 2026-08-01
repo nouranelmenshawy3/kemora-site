@@ -1,0 +1,5 @@
+export const CONTACT_ATTACHMENT_MAX_FILES = 5
+export const CONTACT_ATTACHMENT_MAX_TOTAL_MB = 3
+export const CONTACT_ATTACHMENT_MAX_TOTAL_BYTES = CONTACT_ATTACHMENT_MAX_TOTAL_MB * 1024 * 1024
+export const CONTACT_ATTACHMENT_ACCEPTED = 'image/png,image/jpeg,image/webp,application/pdf'
+
