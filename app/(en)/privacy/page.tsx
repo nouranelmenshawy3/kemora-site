@@ -157,7 +157,7 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-5 space-y-1.5 text-sm">
                 <li><span className="font-semibold text-primary">Access</span> — request a copy of the data we hold about you.</li>
                 <li><span className="font-semibold text-primary">Rectification</span> — correct any inaccurate or incomplete data.</li>
-                <li><span className="font-semibold text-primary">Erasure</span> — request deletion of your data ("right to be forgotten").</li>
+                <li><span className="font-semibold text-primary">Erasure</span> — request deletion of your data (&ldquo;right to be forgotten&rdquo;).</li>
                 <li><span className="font-semibold text-primary">Restriction</span> — request a temporary halt on processing.</li>
                 <li><span className="font-semibold text-primary">Objection</span> — object to processing based on legitimate interest.</li>
                 <li><span className="font-semibold text-primary">Data portability</span> — receive your data in a machine-readable format.</li>
@@ -199,7 +199,7 @@ export default function PrivacyPage() {
               <h2 className="text-xl font-bold text-primary mb-3">10. Changes to This Policy</h2>
               <p className="text-sm leading-relaxed">
                 We may update this Privacy Policy from time to time. The latest version will
-                always be posted on this page with the "Last updated" date. Significant changes
+                always be posted on this page with the &ldquo;Last updated&rdquo; date. Significant changes
                 will be communicated more prominently.
               </p>
             </section>

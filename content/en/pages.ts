@@ -1,5 +1,5 @@
 import type { PageContent } from '../types'
-import { path } from '@/lib/i18n'
+import { path, productCategoryPath } from '@/lib/i18n'
 import { whatsappLink, analyticsEvents } from '@/lib/site'
 import { publishedCopy } from '@/lib/claims'
 
@@ -86,31 +86,37 @@ export const homeEn: PageContent = {
           title: 'Product development',
           body:
             'We review your designs, sketches, reference images or samples and advise on construction, fabric and fit before anything is cut.',
+          href: path('privateLabel', 'en'),
         },
         {
           title: 'Fabric sourcing',
           body:
             'We source fabrics and trims to your specification and recommend alternatives when a fabric is unavailable or does not suit the product.',
+          href: path('fabrics', 'en'),
         },
         {
           title: 'Pattern and sampling',
           body:
             'Patterns are developed to your measurements, and a physical sample is produced for approval before bulk production begins.',
+          href: path('sampling', 'en'),
         },
         {
           title: 'Private-label production',
           body:
             'Bulk production runs against the approved sample and an agreed specification sheet, under your brand’s labels.',
+          href: path('howItWorks', 'en'),
         },
         {
           title: 'Branding and finishing',
           body:
             'Printing, embroidery, woven labels, care labels, hang tags, polybags and packaging are prepared to your brand’s specification.',
+          href: path('fabrics', 'en'),
         },
         {
           title: 'Quality control and shipping',
           body:
             'Orders are inspected before packing with a photo report shared before shipment, and we coordinate export documentation and freight.',
+          href: path('howItWorks', 'en'),
         },
       ],
     },
@@ -237,30 +243,36 @@ export const homeEn: PageContent = {
           title: 'Egyptian manufacturing, closer to both markets',
           body:
             'Egypt sits within short shipping distance of both the Gulf and Europe, which shortens restock cycles compared with sourcing from East Asia.',
+          href: path('europeanBrands', 'en'),
         },
         {
-          title: 'Preferential EU access for qualifying goods',
+          title: 'EU documentation support for eligible shipments',
           body:
-            'Garments that meet the rules of origin under the EU–Egypt Association Agreement can qualify for preferential (0%) import duty into the EU with a valid EUR.1 movement certificate. Eligibility is confirmed per product and per shipment.',
+            'EUR.1 documentation support may be available for eligible EU shipments, subject to applicable rules of origin and customs requirements.',
+          href: path('europeanBrands', 'en'),
         },
         {
           title: 'Arabic, English and Polish',
           body:
             'You can work with us in your own language, in your own working hours, whether you are in Riyadh, Cairo, Dubai or Warsaw.',
+          href: path('contact', 'en'),
         },
         {
           title: 'Built for smaller first orders',
           body: publishedCopy.moq.en,
+          href: path('startBrand', 'en'),
         },
         {
           title: 'One point of contact',
           body:
             'Fabric, trims, printing, labels and packaging are coordinated by us rather than by you across several suppliers.',
+          href: path('howItWorks', 'en'),
         },
         {
           title: 'Confidentiality by default',
           body:
             'Your designs and project details are not shared with other clients, and your brand is not published as a reference without permission.',
+          href: path('selectedWork', 'en'),
         },
       ],
     },
@@ -410,21 +422,25 @@ export const privateLabelEn: PageContent = {
           title: 'It is not buying ready-made stock',
           body:
             'We do not hold a finished collection that you choose from and rebrand. If you need stock immediately with no development, private label is not the right route.',
+          href: path('products', 'en'),
         },
         {
           title: 'It is not instant',
           body:
             'Sampling and production take time because the product is being created. Plan for development, not just delivery.',
+          href: path('sampling', 'en'),
         },
         {
           title: 'It is not a design service by default',
           body:
             'We advise on construction, fabric and feasibility as part of the project. Full creative direction, logo design and brand identity are separate services and would be quoted separately.',
+          href: path('startBrand', 'en'),
         },
         {
           title: 'It is not shared',
           body:
             'Your designs are produced for you. We do not resell your product to other clients or show your designs to them.',
+          href: path('selectedWork', 'en'),
         },
       ],
       tone: 'muted',
@@ -733,12 +749,12 @@ export const howItWorksEn: PageContent = {
         {
           title: 'Europe',
           body:
-            'Sea freight from Alexandria to northern European ports typically takes around 10–14 days in transit, excluding booking, customs clearance and inland delivery.',
+            'Shipments to European markets are coordinated by air or sea depending on order size, urgency and destination. Routing, documentation requirements and expected transit timing are confirmed per shipment.',
         },
         {
-          title: 'EU preferential duty',
+          title: 'EU origin-documentation support',
           body:
-            'Garments that meet the rules of origin under the EU–Egypt Association Agreement can qualify for preferential (0%) import duty into the EU when accompanied by a valid EUR.1 movement certificate. Eligibility is confirmed per product and per shipment.',
+            'EUR.1 documentation support may be available for eligible EU shipments, subject to applicable rules of origin and customs requirements.',
         },
         {
           title: 'Export documentation',
@@ -756,6 +772,213 @@ export const howItWorksEn: PageContent = {
       tone: 'dark',
     },
   ],
+}
+
+/* ------------------------------------------------------------------ */
+/*  EUROPEAN BRANDS                                                    */
+/* ------------------------------------------------------------------ */
+
+const europeanBrandsFaqEn = [
+  {
+    question: 'Can Kemora manufacture for European clothing brands?',
+    answer:
+      'Yes. Kemora coordinates product development, sampling, private-label production, quality follow-up, export documentation and shipping coordination from Egypt for brands selling in European markets.',
+  },
+  {
+    question: 'Do I need a tech pack before contacting you?',
+    answer:
+      'No. A tech pack helps, but a reference image, sketch, existing sample or written description is enough to start a useful conversation.',
+  },
+  {
+    question: 'Can you support EUR.1 documentation for EU shipments?',
+    answer:
+      'EUR.1 documentation support may be available for eligible EU shipments, subject to applicable rules of origin and customs requirements. Eligibility is confirmed per product and per shipment.',
+  },
+  {
+    question: 'Which products can be developed for European brands?',
+    answer:
+      'Common projects include T-shirts, polos, hoodies, sweatshirts, joggers, loungewear, womenswear, puffer jackets, activewear and uniforms. Feasibility depends on fabric, construction, quantity, finishing and project requirements.',
+  },
+  {
+    question: 'How is shipping handled?',
+    answer:
+      'Kemora coordinates freight and export documentation with your forwarder or ours. Routing, courier or freight method, cost and timing are confirmed for the specific shipment.',
+  },
+]
+
+export const europeanBrandsEn: PageContent = {
+  routeKey: 'europeanBrands',
+  metaTitle: 'Clothing Manufacturing in Egypt for European Brands | Kemora',
+  metaDescription:
+    'Private-label clothing manufacturing in Egypt for European brands: sampling, fabric sourcing, labels, QC, export-documentation support and shipping coordination.',
+  ogTitle: 'Egypt-Based Clothing Manufacturing for European Brands | Kemora',
+  ogDescription:
+    'Develop samples and private-label garments in Egypt with one point of contact for fabrics, production, QC, export documents and shipping coordination.',
+  breadcrumbLabel: 'European Brands',
+  hero: {
+    eyebrow: 'Europe',
+    h1: 'Clothing manufacturing in Egypt for European brands',
+    lead:
+      'Kemora helps European fashion brands develop and produce private-label garments in Egypt, with clear sampling, communication, quality follow-up and export-documentation coordination.',
+    supporting:
+      'We do not sell ready-made stock. Your project starts from your design, reference image, sample or tech pack and is developed into a production-ready specification.',
+    ctas: primaryCtas,
+  },
+  sections: [
+    {
+      kind: 'prose',
+      heading: 'A practical manufacturing bridge from Egypt',
+      paragraphs: [
+        'European brands often need a manufacturing partner who can turn early product ideas into workable samples, then manage production details without asking the founder or buying team to coordinate every supplier separately.',
+        'Kemora works from Egypt with manufacturing and sourcing partners selected according to the product. Our role is to review the garment, recommend realistic materials and construction, coordinate sample development, follow production and keep the brand updated before shipment.',
+      ],
+    },
+    {
+      kind: 'cards',
+      heading: 'What we coordinate for European projects',
+      columns: 3,
+      items: [
+        {
+          title: 'Product review',
+          body:
+            'We review your reference images, sketch, sample or tech pack and identify what must be decided before sampling.',
+          href: path('privateLabel', 'en'),
+        },
+        {
+          title: 'Sample development',
+          body:
+            'A physical sample is produced before bulk production, so fit, fabric and construction can be approved first.',
+          href: path('sampling', 'en'),
+        },
+        {
+          title: 'Fabric and trims',
+          body:
+            'Fabrics, GSM, trims, labels, hang tags and packaging are confirmed according to the product and market.',
+          href: path('fabrics', 'en'),
+        },
+        {
+          title: 'Production coordination',
+          body:
+            'Bulk production follows the approved sample and documented specification, with timing confirmed after quantity and fabric are known.',
+          href: path('howItWorks', 'en'),
+        },
+        {
+          title: 'Quality follow-up',
+          body:
+            'Garments are checked before packing, and a photo report can be shared before shipment.',
+          href: path('howItWorks', 'en'),
+        },
+        {
+          title: 'Export documentation',
+          body:
+            'Commercial invoices, packing lists and eligible origin-documentation support are coordinated per shipment.',
+          href: path('howItWorks', 'en'),
+        },
+      ],
+    },
+    {
+      kind: 'cards',
+      heading: 'Products often developed for European brands',
+      lead:
+        'These category pages explain what usually matters before sampling, from fabric weight to fit and finishing.',
+      columns: 4,
+      items: [
+        {
+          title: 'T-shirts and polos',
+          body: 'Combed cotton jersey, interlock, piqué, embroidery, printing and branded labels.',
+          href: productCategoryPath('t-shirts-polos-basics', 'en'),
+        },
+        {
+          title: 'Hoodies and joggers',
+          body: 'French terry, brushed fleece, rib matching, drawcords, cuffs and wash behaviour.',
+          href: productCategoryPath('hoodies-sweatshirts-joggers', 'en'),
+        },
+        {
+          title: 'Pajamas and loungewear',
+          body: 'Cotton jersey, poplin, satin and viscose styles developed as sets.',
+          href: productCategoryPath('pajamas-loungewear', 'en'),
+        },
+        {
+          title: 'Puffer jackets',
+          body: 'Quilting, shell fabric, lining, padding weight, zips, cuffs and colourways.',
+          href: productCategoryPath('puffer-jackets-outerwear', 'en'),
+        },
+        {
+          title: 'Womenswear and dresses',
+          body: 'Jersey and woven dresses, tops, skirts and co-ord sets developed by fit and drape.',
+          href: productCategoryPath('dresses-womens-wear', 'en'),
+        },
+        {
+          title: 'Activewear',
+          body: 'Stretch fabrics, support level, opacity, seams, elastic and branded finishing.',
+          href: productCategoryPath('activewear', 'en'),
+        },
+        {
+          title: 'Workwear and uniforms',
+          body: 'Repeatable staff programmes with practical fabrics, sizing and branding.',
+          href: productCategoryPath('workwear-uniforms', 'en'),
+        },
+        {
+          title: 'All products',
+          body: 'See the full category list and compare which page fits your project best.',
+          href: path('products', 'en'),
+        },
+      ],
+      tone: 'muted',
+      note: publishedCopy.capabilityDisclaimer.en,
+    },
+    {
+      kind: 'steps',
+      heading: 'A simple order path for European brands',
+      items: [
+        {
+          title: 'Send references',
+          body:
+            'Share images, a sketch, a sample or a tech pack, plus target quantity and launch market.',
+        },
+        {
+          title: 'Confirm feasibility',
+          body:
+            'We explain suitable fabrics, construction choices, approximate MOQ logic and any obvious production constraints.',
+        },
+        {
+          title: 'Develop a sample',
+          body:
+            'A paid sample is produced so you can review fit, fabric, colour, trims and finishing before bulk.',
+        },
+        {
+          title: 'Approve specification',
+          body:
+            'Measurements, materials, colours, trims, labels, packing and quantity are documented before production.',
+        },
+        {
+          title: 'Produce and check',
+          body:
+            'Production follows the approved sample, with quality follow-up and a photo report before packing where agreed.',
+        },
+        {
+          title: 'Coordinate shipping',
+          body:
+            'Freight method, export documents, packing list and any eligible origin documentation are confirmed per shipment.',
+        },
+      ],
+    },
+    {
+      kind: 'faq',
+      heading: 'Questions from European brands',
+      items: europeanBrandsFaqEn,
+      tone: 'muted',
+    },
+    {
+      kind: 'cta',
+      heading: 'Send a reference image or tech pack',
+      body:
+        'Tell us what you want to produce, where you plan to sell it and roughly how many pieces you are considering.',
+      ctas: primaryCtas,
+      tone: 'dark',
+    },
+  ],
+  faqForSchema: europeanBrandsFaqEn,
 }
 
 /* ------------------------------------------------------------------ */
@@ -780,6 +1003,36 @@ export const selectedWorkEn: PageContent = {
       kind: 'work',
       grouped: true,
       note: publishedCopy.confidentiality.en,
+    },
+    {
+      kind: 'cards',
+      heading: 'Explore related product categories',
+      lead:
+        'If a sample or project is close to what you want to make, these pages explain the product-specific development decisions.',
+      columns: 4,
+      items: [
+        {
+          title: 'T-shirts and polos',
+          body: 'For printed tees, polos, everyday basics and jersey programmes.',
+          href: productCategoryPath('t-shirts-polos-basics', 'en'),
+        },
+        {
+          title: 'Hoodies and joggers',
+          body: 'For fleece co-ords, sweatshirts, joggers and casualwear sets.',
+          href: productCategoryPath('hoodies-sweatshirts-joggers', 'en'),
+        },
+        {
+          title: 'Puffer jackets',
+          body: 'For quilted outerwear, shell fabrics, padding, lining and colourways.',
+          href: productCategoryPath('puffer-jackets-outerwear', 'en'),
+        },
+        {
+          title: 'Womenswear and sets',
+          body: 'For dresses, tops, skirts, resort co-ords and woven or jersey pieces.',
+          href: productCategoryPath('dresses-womens-wear', 'en'),
+        },
+      ],
+      tone: 'muted',
     },
     {
       kind: 'prose',
@@ -844,31 +1097,37 @@ export const startBrandEn: PageContent = {
           title: 'Start with fewer products',
           body:
             'Most first collections are too wide. Three well-made products in the right fabric usually outperform ten average ones, and cost far less to develop.',
+          href: path('products', 'en'),
         },
         {
           title: 'Colours cost more than sizes',
           body:
             'Each colour is dyed separately and carries its own minimum. Adding a colour affects your order value much more than adding a size does.',
+          href: path('fabrics', 'en'),
         },
         {
           title: 'Budget for sampling',
           body:
             'Sampling is a real cost before you have any stock to sell. Plan for it, and plan for at least one revision round.',
+          href: path('sampling', 'en'),
         },
         {
           title: 'Fabric decides the price',
           body:
             'If you have a target retail price, tell us early. It is the fastest way for us to steer you to a fabric that works commercially.',
+          href: path('fabrics', 'en'),
         },
         {
           title: 'Leave time for production',
           body:
             'Working backwards from a launch date is the most common planning mistake. Development, sampling, production and freight all need time.',
+          href: path('howItWorks', 'en'),
         },
         {
           title: 'A tech pack is not required',
           body:
             'We can build the specification with you. Bring a photo of what you want and we will turn it into something producible.',
+          href: path('contact', 'en'),
         },
       ],
       tone: 'muted',
@@ -1080,13 +1339,13 @@ export const contactEn: PageContent = {
   routeKey: 'contact',
   metaTitle: 'Contact Kemora | Start Your Private-Label Project',
   metaDescription:
-    'Send your designs or reference images, request a sample, book a call or message Kemora on WhatsApp. We typically respond within one business day.',
+    'Send your designs or reference images, request a sample or message Kemora on WhatsApp. WhatsApp is optional; email is enough to start.',
   breadcrumbLabel: 'Contact',
   hero: {
     eyebrow: 'Contact',
     h1: 'Start your project',
     lead:
-      'Send us what you have. A reference photo is enough — you do not need a tech pack to get a useful answer.',
+      'Send us what you have. A reference photo is enough, WhatsApp is optional, and you do not need a tech pack to get a useful answer.',
     ctas: [
       {
         label: 'Contact Us on WhatsApp',
@@ -1107,6 +1366,7 @@ export const pagesEn = {
   sampling: samplingEn,
   fabrics: fabricsPageEn,
   howItWorks: howItWorksEn,
+  europeanBrands: europeanBrandsEn,
   selectedWork: selectedWorkEn,
   startBrand: startBrandEn,
   about: aboutEn,

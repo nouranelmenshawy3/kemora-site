@@ -131,7 +131,7 @@ export const claimsAudit: ClaimRecord[] = [
     evidenceRequired:
       'Bills of lading or forwarder schedules for recent Alexandria→Gdańsk sailings showing actual transit times.',
     revisedWording:
-      'Sea freight from Alexandria to northern European ports typically takes around 10–14 days in transit, excluding booking, customs clearance and inland delivery. Transit times are confirmed per shipment.',
+      'Shipments are coordinated by air or sea depending on order size, urgency and destination. Routing, documentation requirements and expected transit timing are confirmed per shipment.',
   },
   {
     id: 'eu-duty-zero',
@@ -145,7 +145,7 @@ export const claimsAudit: ClaimRecord[] = [
     evidenceRequired:
       'Confirmation that the specific product HS codes meet EU–Egypt rules of origin, plus examples of accepted EUR.1 certificates. Duty-rate comparison should cite the HS codes it applies to.',
     revisedWording:
-      'Garments that meet the rules of origin under the EU–Egypt Association Agreement can qualify for preferential (0%) import duty into the EU when accompanied by a valid EUR.1 movement certificate. Eligibility is confirmed per product and per shipment.',
+      'EUR.1 documentation support may be available for eligible EU shipments, subject to applicable rules of origin and customs requirements.',
   },
   {
     id: 'reach-compliance',

@@ -27,6 +27,7 @@ export type RouteKey =
   | 'sampling'
   | 'fabrics'
   | 'howItWorks'
+  | 'europeanBrands'
   | 'selectedWork'
   | 'startBrand'
   | 'about'
@@ -46,6 +47,7 @@ export const routeMap: Record<RouteKey, Record<Locale, string | null>> = {
   sampling: { en: '/sampling', ar: '/ar/sampling' },
   fabrics: { en: '/fabrics', ar: '/ar/fabrics' },
   howItWorks: { en: '/how-it-works', ar: '/ar/how-it-works' },
+  europeanBrands: { en: '/manufacturing-for-european-brands', ar: null },
   selectedWork: { en: '/selected-work', ar: '/ar/selected-work' },
   startBrand: { en: '/start-clothing-brand', ar: '/ar/start-clothing-brand' },
   about: { en: '/about', ar: '/ar/about' },

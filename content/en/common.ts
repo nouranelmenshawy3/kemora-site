@@ -10,6 +10,7 @@ export const commonEn: CommonContent = {
     { key: 'sampling', label: 'Sampling' },
     { key: 'fabrics', label: 'Fabrics & Finishes' },
     { key: 'howItWorks', label: 'How It Works' },
+    { key: 'europeanBrands', label: 'European Brands' },
     { key: 'selectedWork', label: 'Selected Work' },
     { key: 'about', label: 'About' },
     { key: 'faq', label: 'FAQ' },

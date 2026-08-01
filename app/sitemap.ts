@@ -9,7 +9,6 @@ import { routeMap, productCategoryPath, productCategorySlugs, type RouteKey } fr
  * versions of the same page, which is what stops them being read as duplicates.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
   const abs = (p: string) => `${siteConfig.url}${p}`
 
   const entries: MetadataRoute.Sitemap = []
@@ -36,7 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (!url) continue
       entries.push({
         url: abs(url),
-        lastModified: now,
         changeFrequency: key === 'home' ? 'weekly' : 'monthly',
         priority: priorityFor(key),
         alternates: { languages },
@@ -52,7 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const url of [en, ar]) {
       entries.push({
         url: abs(url),
-        lastModified: now,
         changeFrequency: 'monthly',
         priority: 0.8,
         alternates: { languages },

@@ -13,21 +13,37 @@ const abs = (p: string) => (p.startsWith('http') ? p : `${siteConfig.url}${p}`)
 export const topicsEn = [
   'private label clothing manufacturer Egypt',
   'garment manufacturer Egypt',
+  'clothing manufacturer Egypt',
   'custom clothing manufacturer for fashion brands',
+  'low MOQ clothing manufacturer Egypt',
+  'clothing manufacturer for startups',
   'apparel product development',
   'sample development and pattern making',
   'clothing manufacturer for European brands',
   'clothing manufacturer for Middle East brands',
+  'T-shirt and polo shirt manufacturing',
+  'hoodie and sweatshirt manufacturing',
+  'loungewear and pyjama manufacturing',
+  'abaya and modest wear manufacturing',
+  'activewear manufacturing',
+  'uniform manufacturing',
 ]
 
 export const topicsAr = [
   'مصنع ملابس في مصر',
   'مصنع ملابس للبراندات',
+  'شركة تصنيع ملابس في مصر',
   'تصنيع ملابس Private Label',
   'تصنيع ملابس بعلامة تجارية خاصة',
   'تصنيع عينة ملابس',
   'مصنع ملابس بكميات قليلة',
   'بدء براند ملابس',
+  'مصنع تيشيرتات في مصر',
+  'تصنيع هوديز وسويت شيرت',
+  'تصنيع بيجامات وملابس نوم',
+  'مصنع عبايات في مصر',
+  'تصنيع ملابس محتشمة',
+  'تصنيع ملابس رياضية',
 ]
 
 /* ------------------------------------------------------------------ */
@@ -65,6 +81,11 @@ export const organizationSchema = {
     { '@type': 'Country', name: 'Jordan' },
     { '@type': 'Country', name: 'Iraq' },
     { '@type': 'Country', name: 'Poland' },
+    { '@type': 'Country', name: 'Germany' },
+    { '@type': 'Country', name: 'Netherlands' },
+    { '@type': 'Country', name: 'France' },
+    { '@type': 'Country', name: 'Belgium' },
+    { '@type': 'Place', name: 'Scandinavia' },
   ],
   knowsAbout: [...topicsEn, ...topicsAr],
   contactPoint: [

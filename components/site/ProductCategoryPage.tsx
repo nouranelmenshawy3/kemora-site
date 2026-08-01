@@ -1,4 +1,5 @@
 import type { ProductCategory } from '@/content/types'
+import Link from 'next/link'
 import { path, productCategoryPath, type Locale } from '@/lib/i18n'
 import { whatsappLink, analyticsEvents } from '@/lib/site'
 import { publishedCopy } from '@/lib/claims'
@@ -51,6 +52,51 @@ export default function ProductCategoryPage({
       variant: 'whatsapp' as const,
       event: analyticsEvents.whatsappClick,
       external: true,
+    },
+  ]
+
+  const relatedLinks = [
+    {
+      href: path('sampling', locale),
+      title: isAr ? 'تطوير عينة لهذا المنتج' : 'Sample development for this product',
+      body: isAr
+        ? 'افهم كيف تتحول الصورة المرجعية أو التصميم إلى عينة فعلية قابلة للمراجعة.'
+        : 'See how a reference image or design becomes a physical sample you can review.',
+    },
+    {
+      href: path('fabrics', locale),
+      title: isAr ? 'الخامات والتشطيبات المناسبة' : 'Relevant fabrics and finishes',
+      body: isAr
+        ? 'راجع الخامات، الأوزان، الطباعة، التطريز، الليبلات وخيارات التغليف.'
+        : 'Review fabric constructions, weights, printing, embroidery, labels and packing options.',
+    },
+    {
+      href: path('privateLabel', locale),
+      title: isAr ? 'التصنيع بنظام Private Label' : 'Private-label manufacturing',
+      body: isAr
+        ? 'اعرف كيف يُنتج المنتج وفق تصميمات براندك ومواصفاته وليس من كتالوج جاهز.'
+        : 'Understand how the product is made to your brand specification, not from a stock catalogue.',
+    },
+    {
+      href: path('selectedWork', locale),
+      title: isAr ? 'نماذج من الأعمال والعينات' : 'Selected work and samples',
+      body: isAr
+        ? 'شاهد صورًا مصنفة بوضوح بين أعمال منفذة وعينات تطوير.'
+        : 'View images clearly labelled as completed project work or physical sample development.',
+    },
+    {
+      href: path('products', locale),
+      title: isAr ? 'كل فئات المنتجات' : 'All product categories',
+      body: isAr
+        ? 'قارن هذه الفئة مع فئات أخرى مثل الهوديز، البيجامات، العبايات والملابس الرياضية.'
+        : 'Compare this category with hoodies, loungewear, abayas, activewear and other products.',
+    },
+    {
+      href: path('contact', locale),
+      title: isAr ? 'أرسل صورة مرجعية' : 'Send a reference image',
+      body: isAr
+        ? 'أرسل التصميم أو الصورة المرجعية وسنوضح ما يحتاجه المشروع قبل العينة.'
+        : 'Send the design or reference image and we will explain what the project needs before sampling.',
     },
   ]
 
@@ -157,6 +203,41 @@ export default function ProductCategoryPage({
                 {publishedCopy.moq[locale]}
               </p>
             </AnimateIn>
+          </div>
+        </section>
+
+        <section data-header-theme="light" className="bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <AnimateIn className="mb-8 max-w-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl">
+                {isAr ? 'صفحات مرتبطة بهذا المنتج' : 'Related pages for this product'}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-k-muted">
+                {isAr
+                  ? 'هذه الروابط تساعدك على فهم الخامة، العينة، طريقة التصنيع وما نحتاجه منك قبل عرض السعر.'
+                  : 'Use these pages to understand fabric decisions, sampling, production flow and what we need before quoting.'}
+              </p>
+            </AnimateIn>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedLinks.map((item, i) => (
+                <AnimateIn key={item.href} delay={i * 40} className="h-full">
+                  <Link
+                    href={item.href}
+                    className="group relative block h-full overflow-hidden rounded-lg border border-k-border bg-sand/30 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white hover:shadow-lg hover:shadow-black/[0.06]"
+                  >
+                    <span
+                      className="absolute inset-x-0 top-0 h-1 bg-accent/80"
+                      aria-hidden="true"
+                    />
+                    <h3 className="text-sm font-bold text-primary group-hover:text-accent">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-k-muted">{item.body}</p>
+                  </Link>
+                </AnimateIn>
+              ))}
+            </div>
           </div>
         </section>
 

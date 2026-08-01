@@ -145,11 +145,9 @@ export default function SectionRenderer({
               tone={tone}
             />
             <div className={`grid gap-5 ${cols}`}>
-              {section.items.map((item, i) => (
-                <AnimateIn key={item.title} delay={i * 60} className="h-full">
-                  <div
-                    className={`relative h-full overflow-hidden rounded-lg border p-6 transition-all duration-300 ${cardClass(tone)}`}
-                  >
+              {section.items.map((item, i) => {
+                const cardInner = (
+                  <>
                     <span
                       className="absolute inset-x-0 top-0 h-1 bg-accent/80"
                       aria-hidden="true"
@@ -170,9 +168,28 @@ export default function SectionRenderer({
                         ))}
                       </ul>
                     )}
-                  </div>
-                </AnimateIn>
-              ))}
+                    {item.href && (
+                      <span className="mt-4 inline-flex text-sm font-semibold text-accent">
+                        {ctx.common.cta.learnMore} {ctx.locale === 'ar' ? '←' : '→'}
+                      </span>
+                    )}
+                  </>
+                )
+
+                const cardClasses = `relative h-full overflow-hidden rounded-lg border p-6 transition-all duration-300 ${cardClass(tone)}`
+
+                return (
+                  <AnimateIn key={item.title} delay={i * 60} className="h-full">
+                    {item.href ? (
+                      <Link href={item.href} className={`block ${cardClasses}`}>
+                        {cardInner}
+                      </Link>
+                    ) : (
+                      <div className={cardClasses}>{cardInner}</div>
+                    )}
+                  </AnimateIn>
+                )
+              })}
             </div>
             {section.note && <Note tone={tone}>{section.note}</Note>}
           </div>
