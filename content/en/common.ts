@@ -62,7 +62,7 @@ export const commonEn: CommonContent = {
     brandOptional: 'optional',
     email: 'Email',
     whatsapp: 'WhatsApp number',
-    whatsappHint: 'Include your country code',
+    whatsappHint: 'Optional — email is enough if you prefer. Include your country code if you share WhatsApp.',
     country: 'Country',
     countryPlaceholder: 'e.g. Saudi Arabia, Egypt, Poland',
     preferredLanguage: 'Preferred language',

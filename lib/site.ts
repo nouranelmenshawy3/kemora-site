@@ -2,7 +2,7 @@ import type { Locale } from './i18n'
 
 export const siteConfig = {
   name: 'Kemora',
-  url: 'https://kemoratex.com',
+  url: 'https://www.kemoratex.com',
   email: 'info@kemoratex.com',
   logo: '/kemora-mark.png',
   favicon: '/favicon.png',

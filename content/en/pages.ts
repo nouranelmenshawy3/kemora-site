@@ -27,9 +27,9 @@ const primaryCtas = [
 
 export const homeEn: PageContent = {
   routeKey: 'home',
-  metaTitle: 'Private-Label Clothing Manufacturer in Egypt | Kemora',
+  metaTitle: 'Private-Label Garment Manufacturing from Egypt | Kemora',
   metaDescription:
-    'Egypt-based private-label garment manufacturer and product-development partner for fashion brands in the Middle East and Europe.',
+    'Private-label garment manufacturing from Egypt for fashion brands in the Middle East and Europe: product development, sampling, labels, packaging and QC.',
   ogTitle: 'Private-Label Garment Manufacturing from Egypt | Kemora',
   ogDescription:
     'We develop and manufacture to your brand’s own designs — fabric sourcing, sampling, production, labels, packaging and quality control.',

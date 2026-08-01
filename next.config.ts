@@ -5,6 +5,16 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'kemoratex.com' }],
+        destination: 'https://www.kemoratex.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

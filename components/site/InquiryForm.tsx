@@ -211,7 +211,8 @@ export default function InquiryForm({
         </div>
         <div>
           <label htmlFor="whatsapp" className="mb-1.5 block text-sm font-semibold text-primary">
-            {t.whatsapp}
+            {t.whatsapp}{' '}
+            <span className="font-normal text-k-muted">({t.optional})</span>
           </label>
           <input
             id="whatsapp"

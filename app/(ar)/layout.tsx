@@ -11,11 +11,11 @@ import '../globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'مصنع ملابس Private Label في مصر للبراندات | Kemora',
+    default: 'مصنع ملابس برايفت ليبل في مصر | Kemora',
     template: '%s | Kemora',
   },
   description:
-    'Kemora شركة مقرها مصر لتصنيع الملابس بنظام Private Label وتطوير المنتجات للبراندات في الشرق الأوسط وأوروبا.',
+    'Kemora شركة مقرها مصر لتصنيع ملابس برايفت ليبل وتطوير المنتجات للبراندات في الشرق الأوسط وأوروبا.',
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,

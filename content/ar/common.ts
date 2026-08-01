@@ -62,7 +62,7 @@ export const commonAr: CommonContent = {
     brandOptional: 'اختياري',
     email: 'البريد الإلكتروني',
     whatsapp: 'رقم الواتساب',
-    whatsappHint: 'مع كود الدولة',
+    whatsappHint: 'اختياري — البريد الإلكتروني يكفي إذا كنت تفضل ذلك. أضف كود الدولة إذا كتبت رقم واتساب.',
     country: 'الدولة',
     countryPlaceholder: 'مثال: السعودية، مصر، الإمارات',
     preferredLanguage: 'لغة التواصل المفضلة',
