@@ -27,9 +27,16 @@ export type RouteKey =
   | 'sampling'
   | 'fabrics'
   | 'howItWorks'
+  | 'manufacturerEgypt'
+  | 'lowMoq'
+  | 'international'
   | 'europeanBrands'
   | 'selectedWork'
   | 'startBrand'
+  | 'guides'
+  | 'guideMoq'
+  | 'guideReferenceBrief'
+  | 'guideFleece'
   | 'about'
   | 'faq'
   | 'contact'
@@ -47,9 +54,34 @@ export const routeMap: Record<RouteKey, Record<Locale, string | null>> = {
   sampling: { en: '/sampling', ar: '/ar/sampling' },
   fabrics: { en: '/fabrics', ar: '/ar/fabrics' },
   howItWorks: { en: '/how-it-works', ar: '/ar/how-it-works' },
+  manufacturerEgypt: {
+    en: '/clothing-manufacturer-egypt',
+    ar: '/ar/clothing-manufacturer-egypt',
+  },
+  lowMoq: {
+    en: '/low-moq-clothing-manufacturer',
+    ar: '/ar/low-moq-clothing-manufacturer',
+  },
+  international: {
+    en: '/international-clothing-manufacturing',
+    ar: '/ar/international-clothing-manufacturing',
+  },
   europeanBrands: { en: '/manufacturing-for-european-brands', ar: null },
   selectedWork: { en: '/selected-work', ar: '/ar/selected-work' },
   startBrand: { en: '/start-clothing-brand', ar: '/ar/start-clothing-brand' },
+  guides: { en: '/guides', ar: '/ar/guides' },
+  guideMoq: {
+    en: '/guides/how-clothing-moq-is-calculated',
+    ar: '/ar/guides/how-clothing-moq-is-calculated',
+  },
+  guideReferenceBrief: {
+    en: '/guides/how-to-send-clothing-reference-images',
+    ar: '/ar/guides/how-to-send-clothing-reference-images',
+  },
+  guideFleece: {
+    en: '/guides/french-terry-vs-brushed-fleece',
+    ar: '/ar/guides/french-terry-vs-brushed-fleece',
+  },
   about: { en: '/about', ar: '/ar/about' },
   faq: { en: '/faq', ar: '/ar/faq' },
   contact: { en: '/contact', ar: '/ar/contact' },
@@ -79,6 +111,8 @@ export const productCategorySlugs = [
   'dresses-womens-wear',
   'abayas-modest-wear',
   'activewear',
+  'streetwear',
+  'resortwear',
   'puffer-jackets-outerwear',
   'workwear-uniforms',
 ] as const

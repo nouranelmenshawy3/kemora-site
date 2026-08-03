@@ -217,6 +217,8 @@ export interface NavEntry {
 export interface CommonContent {
   locale: Locale
   nav: NavEntry[]
+  /** Extended navigation used in the footer without crowding the main menu. */
+  footerNav?: NavEntry[]
   brandTagline: string
   skipToContent: string
   languageSwitch: { label: string; toEnglish: string; toArabic: string }
@@ -266,6 +268,9 @@ export interface CommonContent {
     hasDesignsOptions: { value: string; label: string }[]
     message: string
     messagePlaceholder: string
+    messageOptional: string
+    messageHint: string
+    projectDetailsRequired: string
     consent: string
     consentLink: string
     submit: string

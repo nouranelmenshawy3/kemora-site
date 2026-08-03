@@ -139,6 +139,6 @@ export const workEn: WorkItem[] = [
     workType: 'sample',
     published: true,
     permissionNote:
-      'TODO: garment carries a small embroidered brand mark. Confirm the client has approved public display before keeping this live.',
+      'Owner confirmed permission to display the visible client mark on 3 August 2026. Keep the permission record on file.',
   },
 ]

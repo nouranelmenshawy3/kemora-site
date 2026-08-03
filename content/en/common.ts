@@ -10,14 +10,34 @@ export const commonEn: CommonContent = {
     { key: 'sampling', label: 'Sampling' },
     { key: 'fabrics', label: 'Fabrics & Finishes' },
     { key: 'howItWorks', label: 'How It Works' },
+    { key: 'international', label: 'International' },
     { key: 'europeanBrands', label: 'European Brands' },
     { key: 'selectedWork', label: 'Selected Work' },
+    { key: 'guides', label: 'Guides' },
+    { key: 'about', label: 'About' },
+    { key: 'faq', label: 'FAQ' },
+    { key: 'contact', label: 'Contact' },
+  ],
+  footerNav: [
+    { key: 'home', label: 'Home' },
+    { key: 'manufacturerEgypt', label: 'Manufacturer in Egypt' },
+    { key: 'privateLabel', label: 'Private Label' },
+    { key: 'lowMoq', label: 'Low MOQ Manufacturing' },
+    { key: 'products', label: 'Products' },
+    { key: 'sampling', label: 'Sampling' },
+    { key: 'fabrics', label: 'Fabrics & Finishes' },
+    { key: 'howItWorks', label: 'How It Works' },
+    { key: 'international', label: 'International Manufacturing' },
+    { key: 'europeanBrands', label: 'European Brands' },
+    { key: 'selectedWork', label: 'Selected Work' },
+    { key: 'startBrand', label: 'Start a Clothing Brand' },
+    { key: 'guides', label: 'Manufacturing Guides' },
     { key: 'about', label: 'About' },
     { key: 'faq', label: 'FAQ' },
     { key: 'contact', label: 'Contact' },
   ],
   brandTagline:
-    'Private-label garment manufacturing and product development from Egypt, for fashion brands in Europe and the Middle East.',
+    'Private-label clothing manufacturing and product development from Egypt for brands in Europe, the UK, the USA, the Middle East and other international markets.',
   skipToContent: 'Skip to main content',
   languageSwitch: {
     label: 'Language',
@@ -25,7 +45,7 @@ export const commonEn: CommonContent = {
     toArabic: 'العربية',
   },
   cta: {
-    startProject: 'Start Your Project',
+    startProject: 'Discuss Your Project',
     requestSample: 'Request a Sample',
     sendDesign: 'Send Your Design',
     bookMeeting: 'Book a Meeting',
@@ -43,14 +63,14 @@ export const commonEn: CommonContent = {
   capabilityDisclaimer: publishedCopy.capabilityDisclaimer.en,
   footer: {
     about:
-      'Kemora is an Egypt-based private-label garment manufacturing and product-development partner. We develop and produce to each brand’s own designs — we do not sell a ready-made collection.',
+      'Kemora coordinates private-label clothing development and production in Egypt through certified partner factories, from first sample to branded packing and export support.',
     navHeading: 'Navigation',
     contactHeading: 'Contact',
     emailLabel: 'Email',
     whatsappLabel: 'WhatsApp',
     rights: 'All rights reserved.',
     privacy: 'Privacy Policy',
-    locations: 'Egypt · Poland',
+    locations: 'Egypt-based · International service',
     status: 'Currently accepting new projects',
   },
   form: {
@@ -85,13 +105,17 @@ export const commonEn: CommonContent = {
     message: 'Message',
     messagePlaceholder:
       'Tell us about the product, fabric, fit or quantity you have in mind. Anything you are unsure about is fine to leave open.',
+    messageOptional: 'optional if files are attached',
+    messageHint: 'Add a short note, or attach at least one design, reference image or PDF.',
+    projectDetailsRequired:
+      'Please add a short message or attach at least one design, reference image or PDF.',
     consent:
       'I consent to Kemora processing my details solely to respond to this enquiry, as described in the',
     consentLink: 'Privacy Policy',
     submit: 'Send Enquiry',
     sending: 'Sending…',
     success: 'Thank you — your enquiry has been sent.',
-    successDetail: 'We typically respond within one business day.',
+    successDetail: 'We will reply using the contact details you provided.',
     error:
       'Something went wrong and your enquiry was not sent. Please try again, or email us directly at info@kemoratex.com.',
     attachmentTooLargeError:

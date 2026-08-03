@@ -14,6 +14,7 @@ export default function Footer({
   whatsappHref: string
 }) {
   const privacyHref = privacyPath(locale)
+  const footerLinks = common.footerNav ?? common.nav
 
   return (
     <footer data-header-theme="dark" className="bg-primary texture-dark">
@@ -34,8 +35,8 @@ export default function Footer({
             <p className="mb-4 text-xs font-bold uppercase tracking-widest text-white/60">
               {common.footer.navHeading}
             </p>
-            <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
-              {common.nav.map(({ key, label }) => (
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3 lg:grid-cols-2">
+              {footerLinks.map(({ key, label }) => (
                 <li key={key}>
                   <Link
                     href={path(key, locale)}

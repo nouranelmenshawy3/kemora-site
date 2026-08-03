@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
   const email = clean(body.email)
   const message = clean(body.message)
 
-  if (!name || !email || !message || !body.consent) {
+  if (!name || !email || !body.consent) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
   }
 
@@ -102,6 +102,13 @@ export async function POST(request: NextRequest) {
   const attachmentResult = validateAttachments(body.attachments)
   if (!attachmentResult.ok) {
     return NextResponse.json({ error: 'Invalid or oversized attachments' }, { status: 400 })
+  }
+
+  if (!message && attachmentResult.files.length === 0) {
+    return NextResponse.json(
+      { error: 'A message or at least one attachment is required' },
+      { status: 400 }
+    )
   }
 
   if (!process.env.RESEND_API_KEY) {
@@ -129,6 +136,7 @@ export async function POST(request: NextRequest) {
     timeStyle: 'short',
     timeZone: 'Africa/Cairo',
   })
+  const messageForEmail = message || 'No written message was provided. Please review the attachments.'
 
   const text = [
     'New Kemora website enquiry',
@@ -137,7 +145,7 @@ export async function POST(request: NextRequest) {
     `Submitted: ${submittedAt} Africa/Cairo`,
     '',
     'Message:',
-    message,
+    messageForEmail,
   ].join('\n')
 
   const html = `
@@ -151,7 +159,7 @@ export async function POST(request: NextRequest) {
         .join('')}
       <p style="margin:4px 0;"><strong>Submitted:</strong> ${escapeHtml(submittedAt)} Africa/Cairo</p>
       <hr style="border: 0; border-top: 1px solid #e2ddd6; margin: 20px 0;" />
-      <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
+      <p style="white-space: pre-wrap;">${escapeHtml(messageForEmail)}</p>
     </div>
   `
 

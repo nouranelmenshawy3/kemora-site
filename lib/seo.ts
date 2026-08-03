@@ -21,11 +21,17 @@ export const topicsEn = [
   'sample development and pattern making',
   'clothing manufacturer for European brands',
   'clothing manufacturer for Middle East brands',
+  'clothing manufacturer for UK brands',
+  'clothing manufacturer for USA brands',
+  'certified clothing production partners',
+  'international garment export coordination',
   'T-shirt and polo shirt manufacturing',
   'hoodie and sweatshirt manufacturing',
   'loungewear and pyjama manufacturing',
   'abaya and modest wear manufacturing',
   'activewear manufacturing',
+  'streetwear manufacturing',
+  'resortwear manufacturing',
   'uniform manufacturing',
 ]
 
@@ -37,6 +43,7 @@ export const topicsAr = [
   'تصنيع ملابس بعلامة تجارية خاصة',
   'تصنيع عينة ملابس',
   'مصنع ملابس بكميات قليلة',
+  'مصنع ملابس MOQ منخفض',
   'بدء براند ملابس',
   'مصنع تيشيرتات في مصر',
   'تصنيع هوديز وسويت شيرت',
@@ -44,6 +51,9 @@ export const topicsAr = [
   'مصنع عبايات في مصر',
   'تصنيع ملابس محتشمة',
   'تصنيع ملابس رياضية',
+  'تصنيع ستريت وير',
+  'تصنيع ريسورت وير',
+  'تنسيق تصدير الملابس',
 ]
 
 /* ------------------------------------------------------------------ */
@@ -69,10 +79,12 @@ export const organizationSchema = {
   image: abs(siteConfig.ogImage),
   email: siteConfig.email,
   description:
-    'Kemora is an Egypt-based private-label garment manufacturing and product-development partner for fashion brands in the Middle East and Europe.',
+    'Kemora is an Egypt-based private-label clothing manufacturing and product-development partner coordinating certified production facilities, sampling, branding, packing and international export support.',
   areaServed: [
     { '@type': 'Place', name: 'Middle East' },
     { '@type': 'Place', name: 'European Union' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'United States' },
     { '@type': 'Country', name: 'Egypt' },
     { '@type': 'Country', name: 'Saudi Arabia' },
     { '@type': 'Country', name: 'United Arab Emirates' },
@@ -94,7 +106,7 @@ export const organizationSchema = {
       contactType: 'sales',
       email: siteConfig.email,
       telephone: `+${contactConfig.whatsappPrimary}`,
-      availableLanguage: ['Arabic', 'English', 'Polish'],
+      availableLanguage: ['Arabic', 'English'],
     },
   ],
 }
@@ -167,9 +179,60 @@ export const serviceSchema = (locale: Locale) => ({
   areaServed: [
     { '@type': 'Place', name: 'Middle East' },
     { '@type': 'Place', name: 'European Union' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'United States' },
   ],
   description:
     locale === 'ar'
-      ? 'تطوير المنتجات، اختيار الخامات، تطوير العينات، التصنيع، الطباعة والتطريز، الليبلات والتغليف ومراقبة الجودة للبراندات.'
-      : 'Product development, fabric sourcing, sample development, private-label production, printing and embroidery, labels, packaging and quality control for fashion brands.',
+      ? 'تطوير المنتجات، اختيار الخامات، تطوير العينات، التصنيع عبر مصانع شريكة معتمدة، الطباعة والتطريز، الليبلات والتغليف ومراقبة الجودة ودعم التصدير للبراندات.'
+      : 'Product development, fabric sourcing, sampling, production through certified partner factories, printing and embroidery, labels, packaging, quality follow-up and export support for fashion brands.',
+})
+
+export const articleSchema = ({
+  locale,
+  path,
+  headline,
+  description,
+}: {
+  locale: Locale
+  path: string
+  headline: string
+  description: string
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${abs(path)}#article`,
+  headline,
+  description,
+  inLanguage: locale,
+  mainEntityOfPage: { '@id': `${abs(path)}#webpage` },
+  author: { '@id': `${siteConfig.url}/#organization` },
+  publisher: { '@id': `${siteConfig.url}/#organization` },
+  image: abs(siteConfig.ogImage),
+})
+
+export const productManufacturingServiceSchema = ({
+  locale,
+  path,
+  name,
+  description,
+}: {
+  locale: Locale
+  path: string
+  name: string
+  description: string
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${abs(path)}#service`,
+  name,
+  description,
+  serviceType: locale === 'ar' ? 'تصنيع ملابس بنظام Private Label' : 'Private-label clothing manufacturing',
+  provider: { '@id': `${siteConfig.url}/#organization` },
+  areaServed: [
+    { '@type': 'Place', name: 'Middle East' },
+    { '@type': 'Place', name: 'Europe' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'United States' },
+  ],
 })

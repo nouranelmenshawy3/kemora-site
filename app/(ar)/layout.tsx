@@ -11,11 +11,11 @@ import '../globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'مصنع ملابس برايفت ليبل في مصر | Kemora',
+    default: 'مصنع ملابس للبراندات في مصر | Kemora',
     template: '%s | Kemora',
   },
   description:
-    'Kemora شركة مقرها مصر لتصنيع ملابس برايفت ليبل وتطوير المنتجات للبراندات في الشرق الأوسط وأوروبا.',
+    'Kemora شريك لتطوير وتصنيع ملابس Private Label في مصر للبراندات الدولية، مع عينات ومصانع شريكة معتمدة ودعم للتصدير.',
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,

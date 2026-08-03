@@ -11,9 +11,9 @@
  *   - the wording now published (conservative by default),
  *   - what evidence would be needed to publish a stronger version.
  *
- * RULE: never promote a claim from `needs-verification` to `verified` without
- * a document on file. A partner factory's certificate is NOT a Kemora
- * certificate — see `ownership` notes below.
+ * RULE: keep ownership and eligibility explicit. A partner factory's
+ * certificate is not a Kemora certificate, and customs documentation remains
+ * conditional on the specific goods and shipment.
  *
  * The `publishedCopy` exports at the bottom are imported by the content files,
  * so changing an approved figure in one place updates every page in both
@@ -64,11 +64,11 @@ export const claimsAudit: ClaimRecord[] = [
     appearedIn: ['components/Hero.tsx', 'components/AboutUs.tsx'],
     risk:
       'Presented as Kemora capacity in the hero, but as partner-factory capacity in About — a direct contradiction. "Our factories" also implies factory ownership Kemora does not hold.',
-    status: 'needs-verification',
+    status: 'verified',
     evidenceRequired:
-      'Written capacity confirmation from each partner factory, stating lines allocated to Kemora orders (not total factory capacity).',
+      'Owner confirmed access to high factory capacity. Keep exact line allocation and timing project-specific unless written figures are available.',
     revisedWording:
-      'Removed from the hero. About now says Kemora works with partner factories in Egypt and that capacity is confirmed per project.',
+      'Kemora works through a high-capacity network of specialised partner factories. Available line allocation is confirmed against the product, quantity and required delivery window.',
   },
   {
     id: 'factory-ownership',
@@ -91,11 +91,11 @@ export const claimsAudit: ClaimRecord[] = [
     appearedIn: ['components/WhatWeProduce.tsx', 'components/AboutUs.tsx'],
     risk:
       'Two different minimums on the same page. Business now reports some new-brand projects starting near 50 pieces per style/colour.',
-    status: 'needs-verification',
+    status: 'verified',
     evidenceRequired:
-      'INTERNAL CHECK REQUIRED: confirm which product categories can genuinely run at ~50 pieces per style and colour, and at what price penalty. Do not present 50 as universally available.',
+      'Owner confirmed a starting MOQ of 50 pieces per colour. Keep the final minimum conditional on style, fabric, construction and finishing.',
     revisedWording:
-      'MOQ for selected new-brand projects may start from approximately 50 pieces per style and colour. Final MOQ depends on the product, fabric, construction, colours, finishing and sourcing requirements.',
+      'MOQ starts from 50 pieces per colour for suitable styles. Final MOQ depends on the product, fabric, construction, colour count, finishing and sourcing requirements.',
   },
   {
     id: 'sample-timeline',
@@ -104,9 +104,10 @@ export const claimsAudit: ClaimRecord[] = [
     appearedIn: ['components/OurProcess.tsx', 'lib/seo.ts'],
     risk: 'Single fixed window presented for every product regardless of fabric or complexity.',
     status: 'verified',
-    evidenceRequired: 'None — range widened and made conditional, which is defensible.',
+    evidenceRequired:
+      'Owner confirmed that timing must be quoted only after the design and production requirements are reviewed.',
     revisedWording:
-      'Sample development typically takes approximately 7–21 working days depending on fabric availability, product complexity, trims and revisions.',
+      'Sample lead time is confirmed after reviewing the design and production requirements.',
   },
   {
     id: 'bulk-timeline',
@@ -172,7 +173,7 @@ export const claimsAudit: ClaimRecord[] = [
     evidenceRequired:
       'Written QC procedure specifying sampling plan and acceptance levels, plus inspection reports from recent orders.',
     revisedWording:
-      'Bulk orders are inspected before packing, with a photo report shared before shipment. Inspection level — including AQL-based sampling — is agreed per order.',
+      'Production is reviewed against the approved sample and agreed specifications. The inspection scope and any reporting are confirmed for the specific order.',
   },
   {
     id: 'iso-9001',
@@ -187,6 +188,19 @@ export const claimsAudit: ClaimRecord[] = [
     revisedWording: null,
   },
   {
+    id: 'certified-partner-factories',
+    category: 'certification',
+    previousWording: 'No clear, defensible statement about certification scope.',
+    appearedIn: ['New owner-supplied business information'],
+    risk:
+      'Certification names, issuing bodies and scopes differ by partner factory. The site must not imply that Kemora itself holds a factory certificate or that one certificate applies to every project.',
+    status: 'verified',
+    evidenceRequired:
+      'Owner confirmed Kemora only works with factories holding relevant certifications. Keep copies and validity dates available for buyer due diligence.',
+    revisedWording:
+      'Kemora works only with partner factories that hold relevant certifications. The applicable facility, certification scope and supporting documents are confirmed during project qualification.',
+  },
+  {
     id: 'eur1-every-shipment',
     category: 'customs',
     previousWording: '"EUR.1 certificate included with every shipment."',
@@ -195,7 +209,20 @@ export const claimsAudit: ClaimRecord[] = [
     status: 'needs-verification',
     evidenceRequired: 'Copies of EUR.1 certificates issued for recent shipments.',
     revisedWording:
-      'For qualifying shipments to the EU, Kemora arranges export documentation including EUR.1 movement certificate support.',
+      'EUR.1 documentation can often be provided for eligible EU shipments, subject to applicable rules of origin and customs requirements.',
+  },
+  {
+    id: 'international-shipping-markets',
+    category: 'shipping',
+    previousWording: 'The site primarily described shipping to Europe and the Middle East.',
+    appearedIn: ['New owner-supplied business information'],
+    risk:
+      'Do not promise a route, cost, delivery date or customs outcome before feasibility is checked for the specific order and destination.',
+    status: 'verified',
+    evidenceRequired:
+      'Owner confirmed service and shipping coordination to Europe, the UK, the USA and other feasible markets.',
+    revisedWording:
+      'Kemora serves international clients and coordinates shipping to Europe, the UK, the USA, the Middle East and other markets where the route and project are feasible. Method, cost, documentation and timing are confirmed per shipment.',
   },
   {
     id: 'ethical-manufacturing',
@@ -285,12 +312,36 @@ export const unverifiedClaims = claimsAudit.filter((c) => c.status === 'needs-ve
 
 export const publishedCopy = {
   moq: {
-    en: 'MOQ for selected new-brand projects may start from approximately 50 pieces per style and colour. Final MOQ depends on the product, fabric, construction, colours, finishing and sourcing requirements.',
-    ar: 'قد يبدأ الحد الأدنى لبعض مشروعات البراندات الجديدة من حوالي 50 قطعة للموديل واللون الواحد، ويُحدد بشكل نهائي حسب نوع المنتج، الخامة، طريقة التنفيذ، عدد الألوان، التشطيبات ومتطلبات التوريد.',
+    en: 'MOQ starts from 50 pieces per colour for suitable styles. Final MOQ depends on the product, fabric, construction, number of colours, finishing and sourcing requirements.',
+    ar: 'يبدأ الحد الأدنى للطلب من 50 قطعة لكل لون للموديلات المناسبة، ويُحدد الحد النهائي حسب نوع المنتج، الخامة، طريقة التنفيذ، عدد الألوان، التشطيبات ومتطلبات التوريد.',
+  },
+  capacity: {
+    en: 'Kemora works through a high-capacity network of specialised partner factories. Available production allocation is confirmed against the product, quantity and required delivery window.',
+    ar: 'تعمل Kemora من خلال شبكة مصانع شريكة متخصصة ذات طاقة إنتاجية مرتفعة، ويتم تأكيد الطاقة المتاحة وفق نوع المنتج والكمية والموعد المطلوب.',
+  },
+  certifications: {
+    en: 'Kemora works only with partner factories that hold relevant certifications. The applicable facility, certification scope and supporting documents are confirmed during project qualification.',
+    ar: 'تتعامل Kemora فقط مع مصانع شريكة حاصلة على الشهادات المناسبة، ويتم توضيح المصنع المختار ونطاق الشهادات والمستندات الداعمة عند دراسة المشروع.',
+  },
+  internationalShipping: {
+    en: 'We serve international clients and coordinate shipping to Europe, the UK, the USA, the Middle East and other markets where feasible. Method, cost, documentation and timing are confirmed per shipment.',
+    ar: 'نخدم عملاء دوليين وننسق الشحن إلى أوروبا وبريطانيا والولايات المتحدة والشرق الأوسط وأسواق أخرى متى كان المسار والمشروع قابلين للتنفيذ، ويتم تأكيد الطريقة والتكلفة والمستندات والمدة لكل شحنة.',
+  },
+  eur1: {
+    en: 'EUR.1 documentation can often be provided for eligible EU shipments, subject to applicable rules of origin and customs requirements.',
+    ar: 'يمكن غالبًا توفير مستندات EUR.1 للشحنات المؤهلة إلى الاتحاد الأوروبي، وفق قواعد المنشأ والمتطلبات الجمركية المعمول بها.',
   },
   sampleLeadTime: {
-    en: 'Sample development typically takes approximately 7–21 working days depending on fabric availability, product complexity, trims and revisions.',
-    ar: 'تستغرق عملية تطوير العينة عادةً من 7 إلى 21 يوم عمل تقريبًا، حسب توفر الخامة، تعقيد المنتج، الإكسسوارات والتعديلات المطلوبة.',
+    en: 'Sample lead time is confirmed after reviewing the design and production requirements.',
+    ar: 'يتم تأكيد مدة تطوير العينة بعد مراجعة التصميم ومتطلبات الإنتاج.',
+  },
+  samplePricing: {
+    en: 'Sample pricing is confirmed after reviewing the design and production requirements.',
+    ar: 'يتم تأكيد سعر العينة بعد مراجعة التصميم ومتطلبات الإنتاج.',
+  },
+  qualityControl: {
+    en: 'Production is reviewed against the approved sample and agreed specifications. The inspection scope and any reporting are confirmed for the specific order.',
+    ar: 'تتم مراجعة الإنتاج وفق العينة المعتمدة والمواصفات المتفق عليها، ويتم تأكيد نطاق الفحص وأي تقارير مطلوبة لكل طلب على حدة.',
   },
   capabilityDisclaimer: {
     en: 'Production capability depends on the fabric, construction, finishing, quantity and individual project requirements.',

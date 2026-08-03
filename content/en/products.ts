@@ -386,6 +386,131 @@ export const productCategoriesEn: ProductCategory[] = [
     ],
   },
   {
+    slug: 'streetwear',
+    name: 'Streetwear',
+    summary: 'Oversized tees, heavyweight sweats, joggers and branded co-ords.',
+    title: 'Streetwear',
+    metaTitle: 'Streetwear Manufacturer in Egypt | Private Label | Kemora',
+    metaDescription:
+      'Private-label streetwear manufacturing in Egypt for fashion brands: oversized T-shirts, heavyweight hoodies, sweatshirts, joggers, co-ords, labels and packaging.',
+    h1: 'Private-Label Streetwear Manufacturing',
+    intro:
+      'Streetwear is defined by proportion, fabric weight and finishing as much as by the garment type. An oversized T-shirt or heavyweight hoodie needs a deliberate shoulder, body width, length, rib and print placement — not simply a standard pattern sized up.',
+    items: [
+      'Oversized and boxy T-shirts',
+      'Heavyweight hoodies',
+      'Crew-neck sweatshirts',
+      'Relaxed joggers and sweatpants',
+      'Zip hoodies',
+      'Matching streetwear co-ords',
+      'Selected overshirts and lightweight outerwear',
+    ],
+    fabrics: [
+      'Midweight and heavyweight cotton jersey',
+      'Cotton-rich French terry',
+      'Brushed fleece',
+      'Cotton rib for necks, cuffs and waistbands',
+      'Twill and selected woven fabrics for overshirts',
+    ],
+    finishing: [
+      'Screen and digital printing',
+      'Embroidery',
+      'Heat transfer artwork',
+      'Woven or printed neck labels',
+      'Size and care labels',
+      'Hang tags, stickers and individual polybags',
+    ],
+    developmentNotes: [
+      {
+        title: 'Oversized fit needs its own pattern',
+        body: 'A standard T-shirt graded larger usually becomes long rather than intentionally oversized. Shoulder drop, sleeve width, body width and length are balanced together on the sample.',
+      },
+      {
+        title: 'Fabric weight changes the silhouette',
+        body: 'A boxy tee in light jersey collapses differently from one in heavyweight cotton. The intended drape and structure should be agreed before pattern approval.',
+      },
+      {
+        title: 'Artwork placement is measured',
+        body: 'Print and embroidery are positioned from fixed garment points and approved by size. A visual mock-up alone is not enough to control placement across the full size range.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the MOQ for custom streetwear?',
+        answer:
+          'Suitable streetwear styles can start from 50 pieces per colour. Fabric weight, custom dyeing, artwork method, trims and the number of colourways can raise the final minimum.',
+      },
+      {
+        question: 'Can you develop an oversized fit from a reference image?',
+        answer:
+          'Yes. Send front, back and detail references plus the target base size. We define the shoulder drop, width, length and sleeve proportion through pattern and sample development.',
+      },
+    ],
+  },
+  {
+    slug: 'resortwear',
+    name: 'Resortwear',
+    summary: 'Lightweight dresses, co-ords, skirts, tops and relaxed warm-weather pieces.',
+    title: 'Resortwear',
+    metaTitle: 'Resortwear Manufacturer in Egypt | Private Label | Kemora',
+    metaDescription:
+      'Private-label resortwear manufacturing in Egypt: lightweight dresses, co-ords, skirts, tops and trousers developed for drape, opacity, fit and branded finishing.',
+    h1: 'Private-Label Resortwear Manufacturing',
+    intro:
+      'Resortwear needs to look effortless while still being controlled in wear. Drape, opacity, lining, strap construction, elastic recovery and warm-weather comfort are reviewed together so the sample works beyond a campaign photograph.',
+    items: [
+      'Lightweight dresses',
+      'Matching top and skirt co-ords',
+      'Relaxed shirt and trouser sets',
+      'Draped jersey tops',
+      'Long skirts',
+      'Wide-leg trousers',
+      'Selected cover-ups and overshirts',
+    ],
+    fabrics: [
+      'Viscose and viscose-blend jersey',
+      'Lightweight stretch jersey',
+      'Linen and linen blends',
+      'Poplin and lightweight woven cotton',
+      'Satin and fluid woven fabrics',
+      'Lining fabrics where required',
+    ],
+    finishing: [
+      'Narrow hems and clean internal finishing',
+      'Elasticated waists',
+      'Concealed zips where suitable',
+      'Adjustable or fixed straps',
+      'Woven labels, care labels and hang tags',
+      'Individual folding and packing',
+    ],
+    developmentNotes: [
+      {
+        title: 'Drape has to be sampled in the real fabric',
+        body: 'Two fabrics with the same composition can fall very differently. The intended silhouette is approved in the selected construction and weight, not from a swatch description alone.',
+      },
+      {
+        title: 'Opacity and lining are commercial decisions',
+        body: 'Light colours and fluid fabrics may need lining or a different weight. This affects cost, heat comfort and fit, so it is decided during sampling rather than after production.',
+      },
+      {
+        title: 'Co-ord colour matching must be controlled',
+        body: 'A top and skirt made from different fabric constructions can reflect colour differently. Matching pieces are sourced and approved together when the set is intended to read as one colour.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can you develop a resortwear co-ord from photos?',
+        answer:
+          'Yes. Front, back and detail references are useful, along with notes on intended fit, length, opacity and fabric feel. A physical sample then confirms the drape and construction.',
+      },
+      {
+        question: 'Do you manufacture swimwear or burkinis?',
+        answer:
+          'Technical swimwear and burkini capability is assessed separately because chlorine resistance, stretch recovery, lining and performance testing may be required. Send the specification so feasibility can be confirmed before any claim or quotation.',
+      },
+    ],
+  },
+  {
     slug: 'puffer-jackets-outerwear',
     name: 'Puffer Jackets & Outerwear',
     summary: 'Quilted jackets, padded outerwear and selected lightweight jacket styles.',

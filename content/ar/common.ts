@@ -10,13 +10,32 @@ export const commonAr: CommonContent = {
     { key: 'sampling', label: 'تطوير العينات' },
     { key: 'fabrics', label: 'الخامات والتشطيبات' },
     { key: 'howItWorks', label: 'خطوات العمل' },
+    { key: 'international', label: 'التصنيع والتصدير الدولي' },
     { key: 'selectedWork', label: 'نماذج من الأعمال' },
+    { key: 'guides', label: 'أدلة التصنيع' },
+    { key: 'about', label: 'من نحن' },
+    { key: 'faq', label: 'الأسئلة الشائعة' },
+    { key: 'contact', label: 'تواصل معنا' },
+  ],
+  footerNav: [
+    { key: 'home', label: 'الرئيسية' },
+    { key: 'manufacturerEgypt', label: 'مصنع ملابس في مصر' },
+    { key: 'privateLabel', label: 'التصنيع بنظام Private Label' },
+    { key: 'lowMoq', label: 'تصنيع بحد أدنى منخفض' },
+    { key: 'products', label: 'المنتجات' },
+    { key: 'sampling', label: 'تطوير العينات' },
+    { key: 'fabrics', label: 'الخامات والتشطيبات' },
+    { key: 'howItWorks', label: 'خطوات العمل' },
+    { key: 'international', label: 'التصنيع والتصدير الدولي' },
+    { key: 'selectedWork', label: 'نماذج من الأعمال' },
+    { key: 'startBrand', label: 'ابدأ براند ملابس' },
+    { key: 'guides', label: 'أدلة التصنيع' },
     { key: 'about', label: 'من نحن' },
     { key: 'faq', label: 'الأسئلة الشائعة' },
     { key: 'contact', label: 'تواصل معنا' },
   ],
   brandTagline:
-    'تصنيع ملابس بنظام Private Label وتطوير منتجات من مصر، للبراندات في الشرق الأوسط وأوروبا.',
+    'تصنيع ملابس بنظام Private Label وتطوير منتجات من مصر للبراندات في الشرق الأوسط وأوروبا وبريطانيا والولايات المتحدة وأسواق دولية أخرى.',
   skipToContent: 'الانتقال إلى المحتوى الرئيسي',
   languageSwitch: {
     label: 'اللغة',
@@ -24,7 +43,7 @@ export const commonAr: CommonContent = {
     toArabic: 'العربية',
   },
   cta: {
-    startProject: 'ابدأ مشروعك',
+    startProject: 'ناقش مشروعك معنا',
     requestSample: 'اطلب عينة',
     sendDesign: 'أرسل تصميمك أو الصور المرجعية',
     bookMeeting: 'احجز مكالمة',
@@ -42,14 +61,14 @@ export const commonAr: CommonContent = {
   capabilityDisclaimer: publishedCopy.capabilityDisclaimer.ar,
   footer: {
     about:
-      'Kemora شركة مقرها مصر متخصصة في تصنيع الملابس بنظام Private Label وتطوير المنتجات. ننفّذ الإنتاج وفق تصميمات كل براند، ولا نبيع مجموعة جاهزة.',
+      'تنسق Kemora تطوير وتصنيع الملابس بنظام Private Label في مصر من خلال مصانع شريكة حاصلة على الشهادات المناسبة، من أول عينة حتى التغليف ودعم التصدير.',
     navHeading: 'روابط الموقع',
     contactHeading: 'التواصل',
     emailLabel: 'البريد الإلكتروني',
     whatsappLabel: 'واتساب',
     rights: 'جميع الحقوق محفوظة.',
     privacy: 'سياسة الخصوصية',
-    locations: 'مصر · بولندا',
+    locations: 'مقرنا في مصر · نخدم أسواقًا دولية',
     status: 'نستقبل مشروعات جديدة حاليًا',
   },
   form: {
@@ -84,13 +103,17 @@ export const commonAr: CommonContent = {
     message: 'الرسالة',
     messagePlaceholder:
       'اكتب لنا عن المنتج، الخامة، القَصّة أو الكمية التي تفكر فيها. لا مشكلة إذا كانت بعض التفاصيل غير محددة بعد.',
+    messageOptional: 'اختيارية عند إرفاق ملفات',
+    messageHint: 'أضف ملاحظة قصيرة، أو أرفق تصميمًا أو صورة مرجعية أو ملف PDF واحدًا على الأقل.',
+    projectDetailsRequired:
+      'يرجى إضافة رسالة قصيرة أو إرفاق تصميم أو صورة مرجعية أو ملف PDF واحد على الأقل.',
     consent:
       'أوافق على معالجة Kemora لبياناتي بغرض الرد على هذا الطلب فقط، وفقًا لما هو موضح في',
     consentLink: 'سياسة الخصوصية',
     submit: 'إرسال الطلب',
     sending: 'جارٍ الإرسال…',
     success: 'شكرًا لك — تم إرسال طلبك بنجاح.',
-    successDetail: 'نرد عادةً خلال يوم عمل واحد.',
+    successDetail: 'سنرد باستخدام بيانات التواصل التي أرسلتها.',
     error:
       'حدث خطأ ولم يتم إرسال الطلب. يرجى المحاولة مرة أخرى، أو مراسلتنا مباشرة على info@kemoratex.com.',
     attachmentTooLargeError:

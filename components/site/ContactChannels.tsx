@@ -82,7 +82,7 @@ export default function ContactChannels({
           {isAr ? 'لغات التواصل' : 'Languages'}
         </p>
         <p className="text-sm leading-relaxed text-k-muted">
-          {isAr ? 'العربية · الإنجليزية · البولندية' : 'Arabic · English · Polish'}
+          {isAr ? 'العربية · الإنجليزية' : 'Arabic · English'}
         </p>
       </div>
     </div>

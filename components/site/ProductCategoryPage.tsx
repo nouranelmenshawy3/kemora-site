@@ -10,6 +10,7 @@ import {
   webPageSchema,
   breadcrumbSchema,
   faqSchema,
+  productManufacturingServiceSchema,
 } from '@/lib/seo'
 
 import Navbar from './Navbar'
@@ -120,6 +121,12 @@ export default function ProductCategoryPage({
       description: category.metaDescription,
     }),
     breadcrumbSchema(crumbs),
+    productManufacturingServiceSchema({
+      locale,
+      path: currentPath,
+      name: category.h1,
+      description: category.metaDescription,
+    }),
   ]
   if (category.faqs.length > 0) structuredData.push(faqSchema(category.faqs))
 

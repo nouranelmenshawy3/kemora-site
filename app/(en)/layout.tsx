@@ -14,11 +14,11 @@ import '../globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Private-Label Garment Manufacturing from Egypt | Kemora',
+    default: 'Private Label Clothing Manufacturer in Egypt | Kemora',
     template: '%s | Kemora',
   },
   description:
-    'Kemora provides private-label garment manufacturing from Egypt for fashion brands in the Middle East and Europe.',
+    'Kemora provides private-label clothing manufacturing in Egypt for international fashion brands, with sampling, certified production partners and export support.',
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,

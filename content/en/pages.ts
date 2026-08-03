@@ -7,7 +7,7 @@ const wa = whatsappLink('en')
 
 const primaryCtas = [
   {
-    label: 'Start Your Project',
+    label: 'Discuss Your Project',
     href: path('contact', 'en'),
     variant: 'primary' as const,
     event: analyticsEvents.sampleRequestClick,
@@ -27,20 +27,20 @@ const primaryCtas = [
 
 export const homeEn: PageContent = {
   routeKey: 'home',
-  metaTitle: 'Private-Label Garment Manufacturing from Egypt | Kemora',
+  metaTitle: 'Private Label Clothing Manufacturer Egypt | Kemora',
   metaDescription:
-    'Private-label garment manufacturing from Egypt for fashion brands in the Middle East and Europe: product development, sampling, labels, packaging and QC.',
-  ogTitle: 'Private-Label Garment Manufacturing from Egypt | Kemora',
+    'Private-label clothing manufacturer in Egypt for international brands. MOQ from 50 pieces per colour, sampling, sourcing, branding, packaging, QC and export support.',
+  ogTitle: 'Private Label Clothing Manufacturer in Egypt | Kemora',
   ogDescription:
-    'We develop and manufacture to your brand’s own designs — fabric sourcing, sampling, production, labels, packaging and quality control.',
+    'Develop and manufacture under your own label with MOQ from 50 pieces per colour, certified production partners and international export support.',
   breadcrumbLabel: 'Home',
   hero: {
-    eyebrow: 'Egypt · Middle East · Europe',
-    h1: 'Private-label garment manufacturing from Egypt',
+    eyebrow: 'Made in Egypt · Built for international brands',
+    h1: 'Private-label clothing manufacturing in Egypt',
     lead:
-      'Kemora helps fashion brands develop and manufacture their own garments in Egypt — from fabric sourcing and sampling to private-label production, labels, packaging and quality control.',
+      'Kemora develops and manufactures custom clothing for fashion brands — from sourcing and sampling to private-label production, branding, packaging, quality control and export support.',
     supporting:
-      'Send a reference photo, sketch, sample or tech pack. We will tell you what is realistic, what needs to be decided, and how to move toward a production-ready sample.',
+      'MOQ starts from 50 pieces per colour for suitable styles. Send a reference photo, sketch, sample or tech pack and we will turn it into a clear production brief.',
     backgroundImage: {
       src: '/egypt-factory.jpeg',
       alt: 'Garment production machine working on dark fabric in an Egyptian factory',
@@ -48,7 +48,7 @@ export const homeEn: PageContent = {
     },
     ctas: [
       {
-        label: 'Start Your Project',
+        label: 'Discuss Your Project',
         href: path('contact', 'en'),
         variant: 'primary',
         event: analyticsEvents.sampleRequestClick,
@@ -67,10 +67,10 @@ export const homeEn: PageContent = {
       },
     ],
     highlights: [
-      'No ready-made catalogue',
-      'Samples before bulk production',
-      'Labels and packaging available',
-      'Client designs kept confidential',
+      'MOQ from 50 pieces per colour',
+      'Certified partner factories',
+      'High production capacity',
+      'International shipping support',
     ],
   },
   sections: [
@@ -114,8 +114,7 @@ export const homeEn: PageContent = {
         },
         {
           title: 'Quality control and shipping',
-          body:
-            'Orders are inspected before packing with a photo report shared before shipment, and we coordinate export documentation and freight.',
+          body: `${publishedCopy.qualityControl.en} We also coordinate export documentation and freight.`,
           href: path('howItWorks', 'en'),
         },
       ],
@@ -147,7 +146,7 @@ export const homeEn: PageContent = {
       ],
       ctas: [
         {
-          label: 'Start Your Project',
+          label: 'Discuss Your Project',
           href: path('contact', 'en'),
           variant: 'primary',
           event: analyticsEvents.sampleRequestClick,
@@ -181,23 +180,6 @@ export const homeEn: PageContent = {
       tone: 'muted',
     },
     {
-      kind: 'steps',
-      eyebrow: 'Sampling',
-      heading: 'How a sample is developed',
-      lead:
-        'The sample is where the product is actually decided. Bulk production only starts once you have approved it.',
-      items: [
-        { title: 'Design review', body: 'We go through your designs, references or existing sample and confirm what is being made.' },
-        { title: 'Fabric selection', body: 'We propose fabrics by weight, composition and hand feel against your target price.' },
-        { title: 'Pattern development', body: 'A pattern is made to your measurements and intended fit.' },
-        { title: 'Sample development', body: 'The physical sample is cut and sewn.' },
-        { title: 'Client review', body: 'You review the sample and send specific comments and measurements.' },
-        { title: 'Revisions', body: 'Adjustments are made and, where needed, a revised sample is produced.' },
-        { title: 'Approval', body: 'The approved sample becomes the reference for bulk production.' },
-      ],
-      note: publishedCopy.sampleLeadTime.en,
-    },
-    {
       kind: 'fabrics',
       eyebrow: 'Fabrics & Finishes',
       heading: 'Fabrics, printing, labels and packaging',
@@ -216,56 +198,35 @@ export const homeEn: PageContent = {
       limit: 6,
     },
     {
-      kind: 'steps',
-      eyebrow: 'How It Works',
-      heading: 'From first conversation to shipment',
-      items: [
-        { title: 'Initial consultation', body: 'We discuss the product, quantity, target price and timing.' },
-        { title: 'Design review', body: 'We review what you have and identify anything still to be decided.' },
-        { title: 'Fabric selection', body: 'Fabric and trims are proposed and confirmed.' },
-        { title: 'Sample development', body: 'A physical sample is produced for your approval.' },
-        { title: 'Client approval', body: 'You approve the sample and the final specification is documented.' },
-        { title: 'Bulk production', body: 'Production runs against the approved sample and specification.' },
-        { title: 'Quality control', body: 'Garments are inspected before packing and a photo report is shared.' },
-        { title: 'Packing and shipping', body: 'Orders are packed to your packing list and freight is coordinated.' },
-      ],
-      note:
-        'Exact timing is confirmed after we review your project. Production begins only after the sample and order details are approved.',
-      tone: 'dark',
-    },
-    {
       kind: 'cards',
       eyebrow: 'Why Kemora',
       heading: 'Why brands work with us',
       columns: 3,
       items: [
         {
-          title: 'Egyptian manufacturing, closer to both markets',
-          body:
-            'Egypt sits within short shipping distance of both the Gulf and Europe, which shortens restock cycles compared with sourcing from East Asia.',
-          href: path('europeanBrands', 'en'),
-        },
-        {
-          title: 'EU documentation support for eligible shipments',
-          body:
-            'EUR.1 documentation support may be available for eligible EU shipments, subject to applicable rules of origin and customs requirements.',
-          href: path('europeanBrands', 'en'),
-        },
-        {
-          title: 'Arabic, English and Polish',
-          body:
-            'You can work with us in your own language, in your own working hours, whether you are in Riyadh, Cairo, Dubai or Warsaw.',
-          href: path('contact', 'en'),
-        },
-        {
-          title: 'Built for smaller first orders',
+          title: 'MOQ from 50 pieces per colour',
           body: publishedCopy.moq.en,
-          href: path('startBrand', 'en'),
+          href: path('lowMoq', 'en'),
         },
         {
-          title: 'One point of contact',
+          title: 'Certified production partners',
+          body: publishedCopy.certifications.en,
+          href: path('manufacturerEgypt', 'en'),
+        },
+        {
+          title: 'Capacity that can scale',
+          body: publishedCopy.capacity.en,
+          href: path('manufacturerEgypt', 'en'),
+        },
+        {
+          title: 'International export coordination',
+          body: publishedCopy.internationalShipping.en,
+          href: path('international', 'en'),
+        },
+        {
+          title: 'One accountable point of contact',
           body:
-            'Fabric, trims, printing, labels and packaging are coordinated by us rather than by you across several suppliers.',
+            'Product development, fabric, trims, printing, labels, packaging, quality follow-up and freight coordination stay connected through one team.',
           href: path('howItWorks', 'en'),
         },
         {
@@ -309,6 +270,14 @@ export const homeEn: PageContent = {
           answer:
             'No. Client designs and project details are confidential, and we do not publish brand names or designs without written permission.',
         },
+        {
+          question: 'Do you work with certified factories?',
+          answer: publishedCopy.certifications.en,
+        },
+        {
+          question: 'Where can you ship?',
+          answer: publishedCopy.internationalShipping.en,
+        },
       ],
     },
     {
@@ -333,6 +302,8 @@ export const homeEn: PageContent = {
     },
     { question: 'What is the minimum order quantity?', answer: publishedCopy.moq.en },
     { question: 'How long does a sample take?', answer: publishedCopy.sampleLeadTime.en },
+    { question: 'Do you work with certified factories?', answer: publishedCopy.certifications.en },
+    { question: 'Where can you ship?', answer: publishedCopy.internationalShipping.en },
   ],
 }
 
@@ -342,15 +313,15 @@ export const homeEn: PageContent = {
 
 export const privateLabelEn: PageContent = {
   routeKey: 'privateLabel',
-  metaTitle: 'What Is Private Label Manufacturing? | Kemora',
+  metaTitle: 'Private Label Clothing Manufacturer in Egypt | Kemora',
   metaDescription:
-    'Private label means garments made to your own designs and sold under your brand. How Kemora develops a product from a reference image to bulk production.',
+    'Custom private-label clothing manufacturing in Egypt: product development, sampling, sourcing, branding, packaging, QC and export support for fashion brands.',
   breadcrumbLabel: 'Private Label',
   hero: {
     eyebrow: 'Private Label',
-    h1: 'What is private label manufacturing?',
+    h1: 'Private-label clothing manufacturing for your brand',
     lead:
-      'Private label means the product is developed specifically for your brand and sold under your name. Kemora does not sell a fixed, ready-made factory collection — there is no catalogue to order from.',
+      'Your garment is developed to your design, fit, fabric, colours and branding, then produced under your own label. Kemora does not sell a fixed ready-made collection.',
     ctas: primaryCtas,
   },
   sections: [
@@ -466,15 +437,15 @@ export const privateLabelEn: PageContent = {
 
 export const productsEn: PageContent = {
   routeKey: 'products',
-  metaTitle: 'Products We Manufacture | Private Label Clothing | Kemora',
+  metaTitle: 'Clothing Products We Manufacture in Egypt | Kemora',
   metaDescription:
-    'T-shirts, hoodies, joggers, pyjamas, loungewear, dresses, abayas, activewear, puffer jackets and uniforms — produced to your own designs in Egypt.',
+    'Private-label T-shirts, hoodies, loungewear, modest wear, activewear, streetwear, resortwear, puffer jackets and uniforms manufactured in Egypt.',
   breadcrumbLabel: 'Products',
   hero: {
     eyebrow: 'Products',
     h1: 'What we manufacture',
     lead:
-      'Knitted and woven garments across everyday basics, loungewear, women’s wear, modest wear, activewear, puffer jackets and uniforms — all produced to your own designs.',
+      'Knitted and woven garments across basics, loungewear, women’s wear, modest wear, activewear, streetwear, resortwear, outerwear and uniforms — all made to your brand specification.',
     ctas: primaryCtas,
   },
   sections: [
@@ -515,7 +486,7 @@ export const samplingEn: PageContent = {
   routeKey: 'sampling',
   metaTitle: 'Clothing Sample Development | Sampling Process | Kemora',
   metaDescription:
-    'How Kemora develops clothing samples: design review, fabric selection, patterns, sampling and approval. Typically 7–21 working days.',
+    'Develop a clothing sample in Egypt from a reference image, sketch, tech pack or physical garment. Timing and pricing are confirmed after design review.',
   breadcrumbLabel: 'Sampling',
   hero: {
     eyebrow: 'Sampling',
@@ -600,9 +571,8 @@ export const samplingEn: PageContent = {
       columns: 2,
       items: [
         {
-          title: 'Samples are paid',
-          body:
-            'Sample development is charged. It covers pattern work, fabric, trims and the labour of producing a single unit, which is far higher per piece than bulk.',
+          title: 'Sample pricing is project-specific',
+          body: publishedCopy.samplePricing.en,
         },
         {
           title: 'The cost depends on the product',
@@ -638,7 +608,7 @@ export const fabricsPageEn: PageContent = {
   routeKey: 'fabrics',
   metaTitle: 'Fabrics & Finishes | Clothing Manufacturing | Kemora',
   metaDescription:
-    'Common fabrics we work with — combed cotton jersey, interlock, piqué, French terry, fleece, rib, viscose, poplin, satin and linen blends.',
+    'Compare garment fabrics, GSM, stretch and hand feel, plus printing, embroidery, labels, trims, hang tags and private-label packaging options.',
   breadcrumbLabel: 'Fabrics & Finishes',
   hero: {
     eyebrow: 'Fabrics & Finishes',
@@ -674,7 +644,7 @@ export const howItWorksEn: PageContent = {
   routeKey: 'howItWorks',
   metaTitle: 'How It Works | Clothing Production Process | Kemora',
   metaDescription:
-    'From consultation and design review to fabric selection, sampling, approval, production, quality control, packing and shipping.',
+    'Kemora’s clothing production process: brief review, sourcing, sample development, approval, certified factory allocation, bulk production, QC and export support.',
   breadcrumbLabel: 'How It Works',
   hero: {
     eyebrow: 'How It Works',
@@ -715,12 +685,11 @@ export const howItWorksEn: PageContent = {
         {
           title: 'Bulk production',
           body:
-            'Production runs against the approved sample and documented specification. Timing is confirmed at this point, once quantity and fabric are known.',
+            'A suitably certified partner factory is allocated for the product. Production runs against the approved sample and documented specification, with timing confirmed once quantity and fabric are known.',
         },
         {
           title: 'Quality control',
-          body:
-            'Garments are inspected before packing and a photo report is shared with you before shipment.',
+          body: publishedCopy.qualityControl.en,
         },
         {
           title: 'Packing',
@@ -752,14 +721,18 @@ export const howItWorksEn: PageContent = {
             'Shipments to European markets are coordinated by air or sea depending on order size, urgency and destination. Routing, documentation requirements and expected transit timing are confirmed per shipment.',
         },
         {
-          title: 'EU origin-documentation support',
+          title: 'UK and USA',
           body:
-            'EUR.1 documentation support may be available for eligible EU shipments, subject to applicable rules of origin and customs requirements.',
+            'Orders can be coordinated to the UK and the USA where the product, route and shipment are feasible. Freight method, import responsibilities, documentation and timing are confirmed before production.',
+        },
+        {
+          title: 'EU origin-documentation support',
+          body: publishedCopy.eur1.en,
         },
         {
           title: 'Export documentation',
           body:
-            'For qualifying shipments we arrange the export documentation, including EUR.1 movement certificate support where the goods are eligible.',
+            'Commercial invoice, packing list and other applicable export documents are coordinated for the confirmed route. Requirements vary by destination and shipment.',
         },
       ],
       tone: 'muted',
@@ -772,6 +745,474 @@ export const howItWorksEn: PageContent = {
       tone: 'dark',
     },
   ],
+}
+
+/* ------------------------------------------------------------------ */
+/*  CLOTHING MANUFACTURER IN EGYPT                                    */
+/* ------------------------------------------------------------------ */
+
+const manufacturerEgyptFaqEn = [
+  {
+    question: 'Is Kemora a clothing manufacturer in Egypt?',
+    answer:
+      'Kemora is an Egypt-based clothing manufacturing and product-development partner. We coordinate each project through a suitably specialised partner factory rather than forcing every product into one facility.',
+  },
+  {
+    question: 'What is the minimum order quantity?',
+    answer: publishedCopy.moq.en,
+  },
+  {
+    question: 'Do the factories hold certifications?',
+    answer: publishedCopy.certifications.en,
+  },
+  {
+    question: 'Can production scale after a first order?',
+    answer: publishedCopy.capacity.en,
+  },
+  {
+    question: 'Can Kemora manufacture for international brands?',
+    answer: publishedCopy.internationalShipping.en,
+  },
+  {
+    question: 'Do I need a tech pack?',
+    answer:
+      'No. A reference image, sketch or physical sample is enough to start. We identify the missing decisions before quoting sample development.',
+  },
+]
+
+export const manufacturerEgyptEn: PageContent = {
+  routeKey: 'manufacturerEgypt',
+  metaTitle: 'Clothing Manufacturer in Egypt for Fashion Brands | Kemora',
+  metaDescription:
+    'Egypt-based clothing manufacturing for international brands. MOQ from 50 pieces per colour, certified partner factories, high capacity, sampling, QC and export support.',
+  ogTitle: 'Clothing Manufacturing in Egypt for International Brands | Kemora',
+  ogDescription:
+    'Develop custom garments in Egypt with certified production partners, flexible opening quantities and one team from sampling to export.',
+  breadcrumbLabel: 'Clothing Manufacturer in Egypt',
+  hero: {
+    eyebrow: 'Manufacturing in Egypt',
+    h1: 'A clothing manufacturing partner in Egypt',
+    lead:
+      'Kemora connects fashion brands with the right production capability in Egypt, then coordinates product development, sampling, bulk production, quality follow-up, branding, packing and export support.',
+    supporting:
+      'We work through specialised partner factories with relevant certifications, giving suitable projects a practical path from a 50-piece-per-colour opening run to higher-volume repeat production.',
+    ctas: primaryCtas,
+    highlights: [
+      'MOQ from 50 pieces per colour',
+      'Certified factory network',
+      'High production capacity',
+      'International export support',
+    ],
+  },
+  sections: [
+    {
+      kind: 'prose',
+      heading: 'The right facility for the product',
+      paragraphs: [
+        'A clothing manufacturer is only useful when its machinery, technicians and sourcing suit the garment being developed. A jersey T-shirt, a padded jacket and a structured uniform need different production strengths.',
+        'Kemora reviews the product first, then matches it to a relevant partner factory in Egypt. This lets the brand keep one commercial and production contact while the technical work is placed where it can be executed properly.',
+      ],
+    },
+    {
+      kind: 'cards',
+      heading: 'What Kemora coordinates',
+      columns: 3,
+      items: [
+        {
+          title: 'Product development',
+          body: 'Design review, construction decisions, fit direction and a written development brief.',
+          href: path('privateLabel', 'en'),
+        },
+        {
+          title: 'Fabric and trim sourcing',
+          body: 'Fabric, GSM, stretch, colour, zips, elastics and trims selected for the product and price point.',
+          href: path('fabrics', 'en'),
+        },
+        {
+          title: 'Sample development',
+          body: 'Pattern and physical sample development before the brand commits to bulk production.',
+          href: path('sampling', 'en'),
+        },
+        {
+          title: 'Private-label production',
+          body: 'Bulk production under your labels, following the approved sample and specification.',
+          href: path('privateLabel', 'en'),
+        },
+        {
+          title: 'Brand presentation',
+          body: 'Printing, embroidery, labels, hang tags, polybags and packaging coordinated to the agreed brief.',
+          href: path('fabrics', 'en'),
+        },
+        {
+          title: 'QC and export support',
+          body: 'Production follow-up, pre-packing checks, applicable export documents and freight coordination.',
+          href: path('international', 'en'),
+        },
+      ],
+    },
+    {
+      kind: 'cards',
+      eyebrow: 'Buyer Assurance',
+      heading: 'How we reduce production risk',
+      columns: 2,
+      items: [
+        {
+          title: 'Relevant factory certification',
+          body: publishedCopy.certifications.en,
+        },
+        {
+          title: 'Approval before bulk',
+          body:
+            'The physical sample, measurements, materials, colours, trims, labels and packing details are approved before production starts.',
+        },
+        {
+          title: 'Capacity matched to the order',
+          body: publishedCopy.capacity.en,
+        },
+        {
+          title: 'Quality checks defined per project',
+          body: publishedCopy.qualityControl.en,
+        },
+        {
+          title: 'Confidential product development',
+          body: publishedCopy.confidentiality.en,
+        },
+        {
+          title: 'Destination-aware export planning',
+          body: publishedCopy.internationalShipping.en,
+        },
+      ],
+      tone: 'muted',
+    },
+    {
+      kind: 'productGrid',
+      heading: 'Explore production categories',
+      lead:
+        'Each page covers product-specific fabrics, construction decisions, finishing options and sampling questions.',
+      note: publishedCopy.capabilityDisclaimer.en,
+    },
+    {
+      kind: 'faq',
+      heading: 'Questions about manufacturing in Egypt',
+      items: manufacturerEgyptFaqEn,
+    },
+    {
+      kind: 'cta',
+      heading: 'Send your product brief',
+      body:
+        'Share the product, quantity by colour, target market and any design files. We will tell you what is feasible and what needs to be clarified.',
+      ctas: primaryCtas,
+      tone: 'dark',
+    },
+  ],
+  faqForSchema: manufacturerEgyptFaqEn,
+}
+
+/* ------------------------------------------------------------------ */
+/*  LOW MOQ MANUFACTURING                                              */
+/* ------------------------------------------------------------------ */
+
+const lowMoqFaqEn = [
+  {
+    question: 'What does MOQ from 50 pieces per colour mean?',
+    answer:
+      'For suitable styles, one colour can start from 50 pieces split across the agreed size range. A second colour normally creates a second 50-piece minimum because fabric and production setup are managed by colour.',
+  },
+  {
+    question: 'Is 50 pieces available for every garment?',
+    answer:
+      'No. Fifty pieces per colour is a starting point for suitable styles. Technical construction, custom fabric, specialist trims, printing setup or factory requirements may create a higher minimum.',
+  },
+  {
+    question: 'Can I order many styles at 50 pieces each?',
+    answer:
+      'It may be possible, but a focused first collection is usually more economical. Each style creates separate pattern, sample, sourcing and production setup work.',
+  },
+  {
+    question: 'Does low MOQ mean ready-made white label stock?',
+    answer:
+      'No. Kemora develops custom private-label garments to your specification. The product is sampled before bulk production; we do not relabel a stock catalogue.',
+  },
+  {
+    question: 'Can repeat orders be larger?',
+    answer:
+      'Yes. The partner-factory network has high production capacity. Available line allocation, timing and pricing are reconfirmed for each repeat order.',
+  },
+]
+
+export const lowMoqEn: PageContent = {
+  routeKey: 'lowMoq',
+  metaTitle: 'Low MOQ Clothing Manufacturer: From 50 Pieces | Kemora',
+  metaDescription:
+    'Low MOQ private-label clothing manufacturing in Egypt from 50 pieces per colour for suitable styles, with sample development, branding, packaging and scale-up support.',
+  breadcrumbLabel: 'Low MOQ Manufacturing',
+  hero: {
+    eyebrow: 'Lower Opening Quantities',
+    h1: 'Low MOQ clothing manufacturing from 50 pieces per colour',
+    lead:
+      'Launch a focused private-label collection without committing to oversized opening inventory. Suitable styles can start from 50 pieces per colour, split across an agreed size range.',
+    supporting:
+      'The final minimum is confirmed after we review the fabric, construction, colour count, trims, branding and production method.',
+    ctas: primaryCtas,
+    highlights: [
+      'Custom development, not stock blanks',
+      'Sample approval before production',
+      'Brand labels and packaging',
+      'Capacity for repeat orders',
+    ],
+  },
+  sections: [
+    {
+      kind: 'prose',
+      heading: 'A lower MOQ still needs a production-ready brief',
+      paragraphs: [
+        'Low MOQ does not remove the technical work behind a garment. Pattern development, fabric selection, colour matching, labels, printing and packing still have to be decided and approved.',
+        'The best small first run is usually a focused product with controlled colours and trims. That keeps setup costs proportionate and gives the brand a cleaner test of fit, quality and customer demand.',
+      ],
+    },
+    {
+      kind: 'cards',
+      heading: 'What can raise the minimum',
+      columns: 3,
+      items: [
+        {
+          title: 'Custom fabric or colour',
+          body: 'A mill may require a larger fabric order than the garment quantity itself needs.',
+        },
+        {
+          title: 'Complex construction',
+          body: 'Outerwear, tailored pieces and technical activewear require more setup and specialist operations.',
+        },
+        {
+          title: 'Multiple colourways',
+          body: 'Each colour is planned separately, so adding colours increases the total more quickly than adding sizes.',
+        },
+        {
+          title: 'Custom trims',
+          body: 'Zips, hardware, elastics, drawcords and moulded components can have supplier minimums.',
+        },
+        {
+          title: 'Print and embroidery setup',
+          body: 'Artwork method, number of colours and placement affect setup cost and minimum efficiency.',
+        },
+        {
+          title: 'Special testing or finishing',
+          body: 'Performance testing, specialist washes or compliance documents are scoped and quoted separately.',
+        },
+      ],
+      tone: 'muted',
+    },
+    {
+      kind: 'steps',
+      heading: 'Plan a commercially sensible first order',
+      items: [
+        {
+          title: 'Choose one hero product',
+          body: 'Start with the product that most clearly represents the brand rather than launching every idea at once.',
+        },
+        {
+          title: 'Limit the opening colours',
+          body: 'One or two strong colourways usually create a better opening order than several very small colour splits.',
+        },
+        {
+          title: 'Agree the size split',
+          body: 'The per-colour quantity is divided across sizes according to your customer and target market.',
+        },
+        {
+          title: 'Approve one complete sample',
+          body: 'Fit, fabric, branding and finishing are approved together before the bulk quantity is committed.',
+        },
+        {
+          title: 'Document the specification',
+          body: 'Measurements, materials, colours, labels and packing are written down so a repeat can be controlled.',
+        },
+        {
+          title: 'Scale from real demand',
+          body: 'Repeat quantities can grow once sales data, customer feedback and preferred colourways are clearer.',
+        },
+      ],
+    },
+    {
+      kind: 'cards',
+      heading: 'Useful next steps',
+      columns: 3,
+      items: [
+        {
+          title: 'Starting a clothing brand',
+          body: 'Plan a focused first collection and understand what needs to be decided before sampling.',
+          href: path('startBrand', 'en'),
+        },
+        {
+          title: 'How MOQ is calculated',
+          body: 'Read the detailed guide to colour, fabric, trim and production minimums.',
+          href: path('guideMoq', 'en'),
+        },
+        {
+          title: 'Sample development',
+          body: 'See how your design becomes a physical approval sample.',
+          href: path('sampling', 'en'),
+        },
+      ],
+    },
+    {
+      kind: 'faq',
+      heading: 'Low MOQ questions',
+      items: lowMoqFaqEn,
+    },
+    {
+      kind: 'cta',
+      heading: 'Check whether your style can start at 50 pieces per colour',
+      body:
+        'Send a reference image, product type, colour count, size range and destination. We will confirm the realistic minimum for that brief.',
+      ctas: primaryCtas,
+      tone: 'dark',
+    },
+  ],
+  faqForSchema: lowMoqFaqEn,
+}
+
+/* ------------------------------------------------------------------ */
+/*  INTERNATIONAL MANUFACTURING                                       */
+/* ------------------------------------------------------------------ */
+
+const internationalFaqEn = [
+  {
+    question: 'Which markets can Kemora ship to?',
+    answer: publishedCopy.internationalShipping.en,
+  },
+  {
+    question: 'Does Kemora arrange customs clearance in my country?',
+    answer:
+      'Import clearance and duties depend on the agreed Incoterm and destination. We coordinate export-side documents and freight, then confirm which responsibilities sit with Kemora, the forwarder and the buyer before shipment.',
+  },
+  {
+    question: 'Can EUR.1 documentation be provided for EU shipments?',
+    answer: publishedCopy.eur1.en,
+  },
+  {
+    question: 'How are shipping costs and timing confirmed?',
+    answer:
+      'After the packed volume, weight, destination and preferred method are known. Courier, air freight and sea freight are compared where practical; no fixed transit promise is made before a route is quoted.',
+  },
+  {
+    question: 'Can samples be sent internationally?',
+    answer:
+      'Yes, where courier service is available. Sample courier cost and any destination charges are quoted or handled according to the agreed arrangement.',
+  },
+]
+
+export const internationalEn: PageContent = {
+  routeKey: 'international',
+  metaTitle: 'International Private Label Clothing Manufacturing | Kemora',
+  metaDescription:
+    'Private-label clothing manufacturing in Egypt for Europe, the UK, USA and Middle East, with sampling, QC, export documentation and shipping coordination.',
+  breadcrumbLabel: 'International Manufacturing',
+  hero: {
+    eyebrow: 'International Clients',
+    h1: 'Private-label clothing manufacturing for international brands',
+    lead:
+      'Develop and produce garments in Egypt with one team coordinating the sample, certified production partner, quality follow-up, packing, export documents and freight.',
+    supporting:
+      'Kemora serves Europe, the UK, the USA, the Middle East and other markets where the product and shipping route are feasible.',
+    ctas: primaryCtas,
+    highlights: [
+      'Europe and UK',
+      'USA',
+      'Middle East',
+      'Other feasible markets',
+    ],
+  },
+  sections: [
+    {
+      kind: 'cards',
+      heading: 'Support shaped around the destination',
+      columns: 2,
+      items: [
+        {
+          title: 'European Union',
+          body:
+            'Sampling, production, packing lists and freight coordination for EU destinations, with eligible EUR.1 documentation assessed per product and shipment.',
+          href: path('europeanBrands', 'en'),
+        },
+        {
+          title: 'United Kingdom',
+          body:
+            'Sample courier and bulk freight coordination to the UK where feasible, with documentation and import responsibilities confirmed before shipment.',
+        },
+        {
+          title: 'United States',
+          body:
+            'Product development and shipment coordination for US-bound projects where the garment, quantity and route are practical. No customs treatment is assumed in advance.',
+        },
+        {
+          title: 'Middle East',
+          body:
+            'Arabic or English project communication and freight coordination for Gulf and regional markets, with route, documents and timing confirmed per shipment.',
+        },
+      ],
+    },
+    {
+      kind: 'steps',
+      heading: 'How an international order is prepared',
+      items: [
+        {
+          title: 'Confirm destination early',
+          body: 'The sales market affects sizing, labels, packing, documentation and freight planning.',
+        },
+        {
+          title: 'Develop and approve the sample',
+          body: 'A physical sample establishes fit, material, construction and finishing before bulk production.',
+        },
+        {
+          title: 'Allocate the right factory',
+          body: 'A relevant certified partner is selected for the product, quantity, quality requirements and timing.',
+        },
+        {
+          title: 'Confirm packing data',
+          body: 'Carton count, dimensions, gross weight and packing list are prepared after production and packing details are known.',
+        },
+        {
+          title: 'Prepare export documents',
+          body: 'Commercial and packing documentation is coordinated for the route, plus eligible origin documents where applicable.',
+        },
+        {
+          title: 'Book the agreed method',
+          body: 'Courier, air or sea is selected according to shipment size, urgency, destination and quoted cost.',
+        },
+      ],
+    },
+    {
+      kind: 'checklist',
+      heading: 'Include this in an international enquiry',
+      items: [
+        'Destination country and postcode or port, if known',
+        'Product references, sketch, sample or tech pack',
+        'Quantity by style and colour',
+        'Size range and target customer',
+        'Required labels, language, packaging and carton marks',
+        'Target launch date rather than an assumed factory deadline',
+        'Any compliance or certification documents your buyer requires',
+        'Preferred Incoterm or freight arrangement, if already decided',
+      ],
+      note:
+        'Import rules, duties, labelling obligations and product-specific compliance remain the buyer’s responsibility unless a different scope is agreed in writing.',
+      tone: 'muted',
+    },
+    {
+      kind: 'faq',
+      heading: 'International order questions',
+      items: internationalFaqEn,
+    },
+    {
+      kind: 'cta',
+      heading: 'Tell us where the order needs to go',
+      body:
+        'Send the product, quantity and destination. We will assess manufacturing and shipment feasibility together.',
+      ctas: primaryCtas,
+      tone: 'dark',
+    },
+  ],
+  faqForSchema: internationalFaqEn,
 }
 
 /* ------------------------------------------------------------------ */
@@ -791,8 +1232,7 @@ const europeanBrandsFaqEn = [
   },
   {
     question: 'Can you support EUR.1 documentation for EU shipments?',
-    answer:
-      'EUR.1 documentation support may be available for eligible EU shipments, subject to applicable rules of origin and customs requirements. Eligibility is confirmed per product and per shipment.',
+    answer: publishedCopy.eur1.en,
   },
   {
     question: 'Which products can be developed for European brands?',
@@ -801,8 +1241,15 @@ const europeanBrandsFaqEn = [
   },
   {
     question: 'How is shipping handled?',
-    answer:
-      'Kemora coordinates freight and export documentation with your forwarder or ours. Routing, courier or freight method, cost and timing are confirmed for the specific shipment.',
+    answer: publishedCopy.internationalShipping.en,
+  },
+  {
+    question: 'What is the starting MOQ?',
+    answer: publishedCopy.moq.en,
+  },
+  {
+    question: 'Do you work with certified factories?',
+    answer: publishedCopy.certifications.en,
   },
 ]
 
@@ -859,19 +1306,17 @@ export const europeanBrandsEn: PageContent = {
         {
           title: 'Production coordination',
           body:
-            'Bulk production follows the approved sample and documented specification, with timing confirmed after quantity and fabric are known.',
+            'A suitably certified partner factory is selected for the product. Bulk production follows the approved sample and documented specification.',
           href: path('howItWorks', 'en'),
         },
         {
           title: 'Quality follow-up',
-          body:
-            'Garments are checked before packing, and a photo report can be shared before shipment.',
+          body: publishedCopy.qualityControl.en,
           href: path('howItWorks', 'en'),
         },
         {
           title: 'Export documentation',
-          body:
-            'Commercial invoices, packing lists and eligible origin-documentation support are coordinated per shipment.',
+          body: publishedCopy.eur1.en,
           href: path('howItWorks', 'en'),
         },
       ],
@@ -943,8 +1388,7 @@ export const europeanBrandsEn: PageContent = {
         },
         {
           title: 'Develop a sample',
-          body:
-            'A paid sample is produced so you can review fit, fabric, colour, trims and finishing before bulk.',
+          body: `A physical sample is produced so you can review fit, fabric, colour, trims and finishing before bulk. ${publishedCopy.samplePricing.en}`,
         },
         {
           title: 'Approve specification',
@@ -953,8 +1397,7 @@ export const europeanBrandsEn: PageContent = {
         },
         {
           title: 'Produce and check',
-          body:
-            'Production follows the approved sample, with quality follow-up and a photo report before packing where agreed.',
+          body: publishedCopy.qualityControl.en,
         },
         {
           title: 'Coordinate shipping',
@@ -1143,6 +1586,417 @@ export const startBrandEn: PageContent = {
 }
 
 /* ------------------------------------------------------------------ */
+/*  GUIDES                                                             */
+/* ------------------------------------------------------------------ */
+
+export const guidesEn: PageContent = {
+  routeKey: 'guides',
+  metaTitle: 'Clothing Manufacturing Guides for Fashion Brands | Kemora',
+  metaDescription:
+    'Practical guides to clothing MOQ, reference images, fabrics, sampling and starting a private-label fashion brand, written for real production decisions.',
+  breadcrumbLabel: 'Guides',
+  hero: {
+    eyebrow: 'Manufacturing Guides',
+    h1: 'Clear answers before you start production',
+    lead:
+      'Practical guidance for founders and buying teams planning samples, fabrics, quantities and private-label production.',
+    supporting:
+      'These guides explain the decisions that affect feasibility, price, minimums and quality — without pretending every project works the same way.',
+    ctas: primaryCtas,
+  },
+  sections: [
+    {
+      kind: 'cards',
+      heading: 'Start with the question you have now',
+      columns: 3,
+      items: [
+        {
+          title: 'How clothing MOQ is calculated',
+          body: 'Understand why colour, fabric, trims and production setup affect the real minimum order.',
+          href: path('guideMoq', 'en'),
+        },
+        {
+          title: 'How to send useful reference images',
+          body: 'Turn screenshots and inspiration into a brief a pattern and sampling team can act on.',
+          href: path('guideReferenceBrief', 'en'),
+        },
+        {
+          title: 'French terry vs brushed fleece',
+          body: 'Compare construction, warmth, weight, season and the products each fabric suits.',
+          href: path('guideFleece', 'en'),
+        },
+        {
+          title: 'Starting a clothing brand',
+          body: 'Plan a focused first collection and avoid the decisions that make small launches unnecessarily expensive.',
+          href: path('startBrand', 'en'),
+        },
+        {
+          title: 'Clothing sample development',
+          body: 'See the full path from design review and pattern work to a sample approved for production.',
+          href: path('sampling', 'en'),
+        },
+        {
+          title: 'Fabric and finishing options',
+          body: 'Compare common fabric constructions, GSM, printing, embroidery, labels and packaging.',
+          href: path('fabrics', 'en'),
+        },
+      ],
+    },
+    {
+      kind: 'cta',
+      heading: 'Need an answer about your actual product?',
+      body:
+        'A guide can explain the principle. A reference image and quantity let us answer for your specific project.',
+      ctas: primaryCtas,
+      tone: 'dark',
+    },
+  ],
+}
+
+const guideMoqFaqEn = [
+  {
+    question: 'Does MOQ apply per style or per colour?',
+    answer:
+      'Both can matter, but colour is often the practical driver because fabric, dyeing and production setup are planned separately by colour. Kemora’s starting point is 50 pieces per colour for suitable styles.',
+  },
+  {
+    question: 'Can sizes be mixed within the minimum?',
+    answer:
+      'Usually yes. The per-colour quantity can be split across an agreed size range, provided no special size requires different fabric width, trims or construction.',
+  },
+  {
+    question: 'Why can a custom fabric raise MOQ?',
+    answer:
+      'The fabric mill may require a minimum knitting, weaving or dyeing quantity that is larger than the fabric needed for 50 garments. That supplier minimum becomes part of the garment minimum.',
+  },
+]
+
+export const guideMoqEn: PageContent = {
+  routeKey: 'guideMoq',
+  metaTitle: 'How Is Clothing MOQ Calculated? A Practical Guide | Kemora',
+  metaDescription:
+    'Learn how clothing MOQ is affected by colour, fabric, trims, printing, construction and size range, plus how to plan a lower-risk first production run.',
+  breadcrumbLabel: 'How Clothing MOQ Is Calculated',
+  hero: {
+    eyebrow: 'Guide · MOQ',
+    h1: 'How clothing MOQ is actually calculated',
+    lead:
+      'Minimum order quantity is not an arbitrary number. It comes from the smallest practical fabric, trim and production setup needed to make the garment consistently.',
+    supporting: publishedCopy.moq.en,
+    ctas: primaryCtas,
+  },
+  sections: [
+    {
+      kind: 'prose',
+      heading: 'Start with style, colour and fabric — not one headline number',
+      paragraphs: [
+        'A factory may be able to cut and sew 50 pieces, but the selected fabric, zip supplier or printing method may have a larger setup minimum. That is why a credible manufacturer reviews the complete product before confirming MOQ.',
+        'For suitable styles, Kemora starts from 50 pieces per colour. Sizes can normally be mixed within that colour quantity, while each additional colour creates its own fabric and production planning requirement.',
+      ],
+    },
+    {
+      kind: 'cards',
+      heading: 'The six main MOQ drivers',
+      columns: 3,
+      items: [
+        {
+          title: 'Fabric availability',
+          body: 'Locally available stock fabric can support a lower opening quantity than a custom-knit, custom-woven or specially dyed fabric.',
+        },
+        {
+          title: 'Colour count',
+          body: 'Each colour needs separate fabric planning, cutting control and production setup. More colours normally increase total order quantity.',
+        },
+        {
+          title: 'Garment complexity',
+          body: 'A basic jersey tee needs fewer specialist operations than padded outerwear, tailoring or high-support activewear.',
+        },
+        {
+          title: 'Trims and hardware',
+          body: 'Custom zips, elastics, snaps, moulded hardware, drawcords and branded tapes may have their own supplier minimums.',
+        },
+        {
+          title: 'Decoration',
+          body: 'Embroidery digitising, screen setup, transfer sheets and print colour count affect the economical batch size.',
+        },
+        {
+          title: 'Packaging and labels',
+          body: 'Woven labels, hang tags, printed bags and custom boxes can have separate minimums even when garment production is lower.',
+        },
+      ],
+      tone: 'muted',
+    },
+    {
+      kind: 'checklist',
+      heading: 'How to keep a first MOQ manageable',
+      items: [
+        'Start with fewer styles and make each one commercially meaningful',
+        'Use one or two opening colours instead of splitting demand across many colourways',
+        'Choose a proven fabric construction before developing a custom textile',
+        'Use standard-quality trims where they do not weaken the design',
+        'Combine the final size split only after identifying the target customer',
+        'Approve artwork placement and colours before print setup begins',
+        'Plan labels and packaging at the same time as the garment',
+        'Confirm sample pricing before committing to the bulk order',
+      ],
+      note:
+        'Lower MOQ usually means a higher unit cost because development and setup are spread across fewer garments. The useful comparison is total launch risk, not unit price alone.',
+    },
+    {
+      kind: 'cards',
+      heading: 'Continue planning your first order',
+      columns: 3,
+      items: [
+        {
+          title: 'Low MOQ manufacturing',
+          body: 'See how Kemora handles suitable opening runs from 50 pieces per colour.',
+          href: path('lowMoq', 'en'),
+        },
+        {
+          title: 'Sampling before bulk',
+          body: 'Understand why fit, fabric and finishing must be approved before production.',
+          href: path('sampling', 'en'),
+        },
+        {
+          title: 'Start a clothing brand',
+          body: 'Turn an initial product idea into a focused, production-ready first collection.',
+          href: path('startBrand', 'en'),
+        },
+      ],
+    },
+    { kind: 'faq', heading: 'Questions about clothing MOQ', items: guideMoqFaqEn },
+    {
+      kind: 'cta',
+      heading: 'Get the realistic MOQ for your product',
+      body:
+        'Send the style, colour count, size range, branding and target market. We will assess the complete brief rather than quoting a number in isolation.',
+      ctas: primaryCtas,
+      tone: 'dark',
+    },
+  ],
+  faqForSchema: guideMoqFaqEn,
+}
+
+const referenceBriefFaqEn = [
+  {
+    question: 'Can I use photos from another brand as a reference?',
+    answer:
+      'You can use references to explain silhouette, fit or details, but your product should not copy protected artwork, branding or distinctive design elements. Tell us what you want to keep, change and make original.',
+  },
+  {
+    question: 'Is one photo enough?',
+    answer:
+      'One photo is enough to start a conversation, but front, back and detail views produce a more accurate first brief. Missing information is listed before sampling.',
+  },
+  {
+    question: 'Do I need measurements?',
+    answer:
+      'Not for the first message. A target size, intended fit and any key measurements are helpful. A full measurement chart is developed or confirmed before the sample is approved.',
+  },
+]
+
+export const guideReferenceBriefEn: PageContent = {
+  routeKey: 'guideReferenceBrief',
+  metaTitle: 'How to Send Clothing Reference Images to a Manufacturer | Kemora',
+  metaDescription:
+    'Learn what reference images, measurements, fabric notes, quantities and branding details help a clothing manufacturer create a useful sampling brief.',
+  breadcrumbLabel: 'How to Send Reference Images',
+  hero: {
+    eyebrow: 'Guide · Product Brief',
+    h1: 'How to send reference images a manufacturer can use',
+    lead:
+      'A good reference brief does not need to look technical. It needs to make clear what you like, what you want changed and which details matter most.',
+    supporting:
+      'A screenshot is enough to begin; a few organised notes can prevent an unnecessary sample revision later.',
+    ctas: primaryCtas,
+  },
+  sections: [
+    {
+      kind: 'steps',
+      heading: 'Build a useful brief in six steps',
+      items: [
+        {
+          title: 'Show the overall silhouette',
+          body: 'Include the clearest full-garment front view you have, then a back or side view if available.',
+        },
+        {
+          title: 'Mark the details that matter',
+          body: 'Crop or annotate necklines, pockets, seams, closures, cuffs, waistbands and other important construction details.',
+        },
+        {
+          title: 'Describe the intended fit',
+          body: 'Use practical words such as fitted, straight, oversized, cropped, high-waisted or floor-length, plus the target base size.',
+        },
+        {
+          title: 'Explain the fabric direction',
+          body: 'Say whether it should feel light, structured, soft, brushed, fluid, compressive or breathable, even if you do not know the fabric name.',
+        },
+        {
+          title: 'List what must change',
+          body: 'Be explicit about longer sleeves, a higher neckline, different pocket shape, added lining or original branding.',
+        },
+        {
+          title: 'Add the commercial facts',
+          body: 'Include quantity by colour, size range, target market, launch date and any target price you are working toward.',
+        },
+      ],
+    },
+    {
+      kind: 'checklist',
+      heading: 'The ideal first message includes',
+      items: [
+        'Product name and intended customer',
+        'Front, back and detail reference images where available',
+        'What you like in each image and what should change',
+        'Target fit and base size',
+        'Fabric feel, weight or season',
+        'Quantity per colour and planned number of colours',
+        'Printing, embroidery, labels, trims and packaging',
+        'Destination market and target launch timing',
+      ],
+      note:
+        'Do not worry about answering everything perfectly. The purpose of the first review is to identify what is known, what is missing and which decisions affect feasibility or price.',
+      tone: 'muted',
+    },
+    {
+      kind: 'cards',
+      heading: 'What happens after you send it',
+      columns: 3,
+      items: [
+        {
+          title: 'Feasibility review',
+          body: 'We identify construction risks, missing views and details that need clarification.',
+          href: path('privateLabel', 'en'),
+        },
+        {
+          title: 'Fabric direction',
+          body: 'Suitable fabric constructions, GSM and finishing options are proposed for the intended result.',
+          href: path('fabrics', 'en'),
+        },
+        {
+          title: 'Sample development brief',
+          body: 'Once the product is clear enough, pattern and sample development can be quoted and started.',
+          href: path('sampling', 'en'),
+        },
+      ],
+    },
+    { kind: 'faq', heading: 'Reference-image questions', items: referenceBriefFaqEn },
+    {
+      kind: 'cta',
+      heading: 'Send the references you already have',
+      body:
+        'Attach up to five images or PDFs in the enquiry form. A short note is enough; we will ask the production questions that follow.',
+      ctas: primaryCtas,
+      tone: 'dark',
+    },
+  ],
+  faqForSchema: referenceBriefFaqEn,
+}
+
+const fleeceFaqEn = [
+  {
+    question: 'Which is warmer: French terry or brushed fleece?',
+    answer:
+      'Brushed fleece is generally warmer because the inside loops are brushed into a soft insulating pile. Actual warmth still depends on GSM, fibre blend and garment construction.',
+  },
+  {
+    question: 'Can both fabrics be used for hoodies and joggers?',
+    answer:
+      'Yes. French terry suits lighter or trans-seasonal sets, while brushed fleece is common for colder-weather hoodies, sweatshirts and joggers.',
+  },
+  {
+    question: 'Does higher GSM always mean better quality?',
+    answer:
+      'No. GSM describes weight, not fibre quality, recovery, pilling, colourfastness or construction. The right weight depends on the product and intended season.',
+  },
+]
+
+export const guideFleeceEn: PageContent = {
+  routeKey: 'guideFleece',
+  metaTitle: 'French Terry vs Brushed Fleece for Clothing Brands | Kemora',
+  metaDescription:
+    'Compare French terry and brushed fleece by construction, warmth, GSM, drape, season and product use before developing hoodies, sweatshirts or joggers.',
+  breadcrumbLabel: 'French Terry vs Brushed Fleece',
+  hero: {
+    eyebrow: 'Guide · Fabrics',
+    h1: 'French terry vs brushed fleece',
+    lead:
+      'Both are common sweat fabrics, but they do not create the same garment. The inside finish changes warmth, bulk, drape and the season the product suits.',
+    ctas: primaryCtas,
+  },
+  sections: [
+    {
+      kind: 'cards',
+      heading: 'The practical difference',
+      columns: 2,
+      items: [
+        {
+          title: 'French terry',
+          body:
+            'Smooth knit face with visible loops on the inside. It feels substantial without a fluffy pile and is often chosen for lighter hoodies, sweatshirts, joggers and year-round co-ords.',
+          points: ['Commonly 240–350 gsm', 'More breathable', 'Cleaner looped inside', 'Good for trans-seasonal products'],
+        },
+        {
+          title: 'Brushed fleece',
+          body:
+            'The inside loops are brushed into a soft raised pile. It feels warmer and fuller, making it common for winter hoodies, sweatshirts and heavier joggers.',
+          points: ['Commonly 280–400 gsm', 'Warmer hand feel', 'Soft brushed inside', 'Good for colder seasons'],
+        },
+      ],
+    },
+    {
+      kind: 'checklist',
+      heading: 'Choose based on the finished product',
+      items: [
+        'Target season and selling climate',
+        'Desired garment weight and retail positioning',
+        'Oversized, regular or fitted silhouette',
+        'Need for breathability versus insulation',
+        'Rib weight and recovery at cuffs and waistband',
+        'Expected shrinkage, pilling and wash behaviour',
+        'Printing or embroidery method',
+        'Colour matching between body fabric, rib and trims',
+      ],
+      note:
+        'Final composition, GSM, colour, shrinkage and surface finish should be confirmed on the selected fabric and physical sample rather than assumed from the fabric name alone.',
+      tone: 'muted',
+    },
+    {
+      kind: 'cards',
+      heading: 'Related production pages',
+      columns: 3,
+      items: [
+        {
+          title: 'Hoodies, sweatshirts and joggers',
+          body: 'See product-specific construction, rib, drawcord and development decisions.',
+          href: productCategoryPath('hoodies-sweatshirts-joggers', 'en'),
+        },
+        {
+          title: 'Fabric and finishing options',
+          body: 'Compare more garment fabrics plus printing, embroidery, labels and packing.',
+          href: path('fabrics', 'en'),
+        },
+        {
+          title: 'Sample development',
+          body: 'Approve the actual fabric, fit and finishing before a bulk order starts.',
+          href: path('sampling', 'en'),
+        },
+      ],
+    },
+    { kind: 'faq', heading: 'French terry and fleece questions', items: fleeceFaqEn },
+    {
+      kind: 'cta',
+      heading: 'Compare fabrics for your product',
+      body:
+        'Send the garment, season, target weight and reference images. We will recommend suitable constructions to sample.',
+      ctas: primaryCtas,
+      tone: 'dark',
+    },
+  ],
+  faqForSchema: fleeceFaqEn,
+}
+
+/* ------------------------------------------------------------------ */
 /*  ABOUT                                                              */
 /* ------------------------------------------------------------------ */
 
@@ -1150,13 +2004,13 @@ export const aboutEn: PageContent = {
   routeKey: 'about',
   metaTitle: 'About Kemora | Garment Manufacturing Partner in Egypt',
   metaDescription:
-    'Kemora is an Egypt-based garment manufacturing and product-development partner serving brands in Europe and the Middle East.',
+    'Meet Kemora, an Egypt-based private-label clothing manufacturing partner coordinating certified factories, product development, QC and international export support.',
   breadcrumbLabel: 'About',
   hero: {
     eyebrow: 'About Kemora',
     h1: 'An Egypt-based manufacturing and product-development partner',
     lead:
-      'We develop and produce garments for fashion brands in the Middle East and Europe, working with manufacturing and sourcing partners in Egypt according to what each project requires.',
+      'We develop and produce garments for international fashion brands through specialised, certified partner factories in Egypt selected for each project.',
     ctas: primaryCtas,
   },
   sections: [
@@ -1166,7 +2020,7 @@ export const aboutEn: PageContent = {
       paragraphs: [
         'Kemora is based in Egypt and works with manufacturing and sourcing partners rather than operating a single facility. Different products need different capabilities: a jersey T-shirt, a satin pyjama set and a supportive sports bra are not efficiently made in the same place. Matching a product to the right facility is part of the job.',
         'Our role covers product development, fabric and trim sourcing, pattern and sample development, production coordination, quality follow-up and shipping coordination. For the brand, that means one point of contact instead of managing a chain of suppliers from another country.',
-        'Kemora grew out of long-standing family relationships with garment manufacturers in Cairo. That access is what makes it practical for us to run smaller development-heavy projects that a large factory would not usually take on directly.',
+        'We only work with partner factories that hold relevant certifications. Our network gives projects access to high production capacity while still allowing suitable first runs to start from 50 pieces per colour.',
       ],
     },
     {
@@ -1187,7 +2041,7 @@ export const aboutEn: PageContent = {
        
         {
           title: 'We work in your language',
-          body: 'Arabic, English and Polish, within your working hours.',
+          body: 'We communicate in Arabic and English, with clear written updates from sampling through shipping.',
         },
         {
           title: 'We say when something will not work',
@@ -1198,36 +2052,32 @@ export const aboutEn: PageContent = {
           title: 'We keep client work confidential',
           body: publishedCopy.confidentiality.en,
         },
+        {
+          title: 'We coordinate international delivery',
+          body: publishedCopy.internationalShipping.en,
+        },
       ],
       tone: 'muted',
     },
     {
       kind: 'cards',
-      heading: 'The team',
-      columns: 2,
-      // TODO [BUSINESS INPUT REQUIRED] — see claims.ts `team-locations`.
-      // The previous site gave three inconsistent versions of who the founders
-      // are and where they are based. Confirm names, roles and locations, then
-      // update this single list — it is now the only place the team is defined.
+      heading: 'How the Kemora team supports a project',
+      columns: 3,
       items: [
         {
-          title: 'Youssif Elmenshawy — Client relations',
+          title: 'Client and product brief',
           body:
-            'Based in Poland. First point of contact for quotes, project scoping and European clients.',
+            'One commercial contact keeps the design brief, quotations, approvals and project decisions organised.',
         },
         {
-          title: 'Nouran Elmenshawy — Production',
+          title: 'Production follow-up in Egypt',
           body:
-            'Based in Egypt. Coordinates sampling, production follow-up and quality checks with partner factories.',
+            'The Egypt team coordinates sampling, factory allocation, production follow-up and quality checks with the selected facility.',
         },
         {
-          title: 'Abdalla Elmenshawy — Logistics',
-          body: 'Based in Poland. Coordinates shipping and delivery between Egypt and Europe.',
-        },
-        {
-          title: 'Cairo production team',
+          title: 'Export and shipment coordination',
           body:
-            'Asma Elmahde and Mirna Elmenshawy work with the partner factories on samples, production follow-up and quality control.',
+            'Packing information, export paperwork and freight details are coordinated for the confirmed destination and route.',
         },
       ],
     },
@@ -1296,8 +2146,15 @@ const faqItemsEn = [
   },
   {
     question: 'Can you ship internationally?',
-    answer:
-      'Yes. We coordinate shipping to the Middle East and Europe by air or sea depending on the order size and urgency, and prepare the export documentation. Routing and transit time are confirmed per shipment.',
+    answer: publishedCopy.internationalShipping.en,
+  },
+  {
+    question: 'Do you work with certified factories?',
+    answer: publishedCopy.certifications.en,
+  },
+  {
+    question: 'Can you provide EUR.1 documentation?',
+    answer: publishedCopy.eur1.en,
   },
   {
     question: 'Do you share other clients’ designs?',
@@ -1308,7 +2165,7 @@ const faqItemsEn = [
 
 export const faqEn: PageContent = {
   routeKey: 'faq',
-  metaTitle: 'Frequently Asked Questions | Kemora',
+  metaTitle: 'Clothing Manufacturing FAQ: MOQ, Samples & Shipping | Kemora',
   metaDescription:
     'Answers about private label manufacturing, MOQ, sample timelines, fabrics, labels and packaging, printing, pricing, shipping and confidentiality.',
   breadcrumbLabel: 'FAQ',
@@ -1337,13 +2194,13 @@ export const faqEn: PageContent = {
 
 export const contactEn: PageContent = {
   routeKey: 'contact',
-  metaTitle: 'Contact Kemora | Start Your Private-Label Project',
+  metaTitle: 'Request a Clothing Manufacturing Quote | Kemora',
   metaDescription:
-    'Send your designs or reference images, request a sample or message Kemora on WhatsApp. WhatsApp is optional; email is enough to start.',
+    'Request a private-label clothing quote from Egypt. Send up to five reference files, your quantity and target market. WhatsApp and a tech pack are optional.',
   breadcrumbLabel: 'Contact',
   hero: {
     eyebrow: 'Contact',
-    h1: 'Start your project',
+    h1: 'Discuss your clothing project',
     lead:
       'Send us what you have. A reference photo is enough, WhatsApp is optional, and you do not need a tech pack to get a useful answer.',
     ctas: [
@@ -1366,9 +2223,16 @@ export const pagesEn = {
   sampling: samplingEn,
   fabrics: fabricsPageEn,
   howItWorks: howItWorksEn,
+  manufacturerEgypt: manufacturerEgyptEn,
+  lowMoq: lowMoqEn,
+  international: internationalEn,
   europeanBrands: europeanBrandsEn,
   selectedWork: selectedWorkEn,
   startBrand: startBrandEn,
+  guides: guidesEn,
+  guideMoq: guideMoqEn,
+  guideReferenceBrief: guideReferenceBriefEn,
+  guideFleece: guideFleeceEn,
   about: aboutEn,
   faq: faqEn,
   contact: contactEn,

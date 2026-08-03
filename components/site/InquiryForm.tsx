@@ -43,6 +43,7 @@ export default function InquiryForm({
   const [status, setStatus] = useState<Status>('idle')
   const [errorDetail, setErrorDetail] = useState<string | null>(null)
   const [fileError, setFileError] = useState<string | null>(null)
+  const [projectError, setProjectError] = useState<string | null>(null)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
   const fileRef = useRef<HTMLInputElement>(null)
 
@@ -76,12 +77,27 @@ export default function InquiryForm({
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setStatus('sending')
+    const formEl = event.currentTarget
+
+    if (!formEl.reportValidity()) {
+      setStatus('idle')
+      return
+    }
+
     setErrorDetail(null)
     setFileError(null)
+    setProjectError(null)
 
-    const formEl = event.currentTarget
     const data = new FormData(formEl)
+    const message = String(data.get('message') ?? '').trim()
+
+    if (!message && selectedFiles.length === 0) {
+      setStatus('idle')
+      setProjectError(t.projectDetailsRequired)
+      return
+    }
+
+    setStatus('sending')
 
     let attachments: { filename: string; content: string }[] = []
     try {
@@ -107,7 +123,7 @@ export default function InquiryForm({
       productCategory: data.get('productCategory'),
       quantity: data.get('quantity'),
       hasDesigns: data.get('hasDesigns'),
-      message: data.get('message'),
+      message,
       consent: data.get('consent') === 'on',
       attachments,
     }
@@ -127,6 +143,7 @@ export default function InquiryForm({
       setStatus('success')
       formEl.reset()
       setSelectedFiles([])
+      setProjectError(null)
     } catch (error) {
       setStatus('error')
       setErrorDetail(error instanceof Error ? error.message : null)
@@ -338,6 +355,7 @@ export default function InquiryForm({
           aria-describedby="files-hint"
           onChange={(event) => {
             const incomingFiles = Array.from(event.currentTarget.files ?? [])
+            if (incomingFiles.length > 0) setProjectError(null)
             setSelectedFiles((currentFiles) => {
               const seen = new Set(currentFiles.map(fileKey))
               const nextFiles = [...currentFiles]
@@ -423,16 +441,29 @@ export default function InquiryForm({
 
       <div>
         <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-primary">
-          {t.message} <span className="text-accent">*</span>
+          {t.message}{' '}
+          <span className="font-normal text-k-muted">({t.messageOptional})</span>
         </label>
         <textarea
           id="message"
           name="message"
-          required
           rows={5}
           placeholder={t.messagePlaceholder}
+          aria-describedby="message-hint"
+          aria-invalid={projectError ? true : undefined}
+          onChange={(event) => {
+            if (event.currentTarget.value.trim()) setProjectError(null)
+          }}
           className={`${fieldClass} resize-y`}
         />
+        <p id="message-hint" className="mt-1 text-xs text-k-muted">
+          {t.messageHint}
+        </p>
+        {projectError && (
+          <p role="alert" className="mt-1.5 text-sm text-red-600">
+            {projectError}
+          </p>
+        )}
       </div>
 
       <div className="flex items-start gap-3">

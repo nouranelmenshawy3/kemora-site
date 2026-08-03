@@ -15,6 +15,7 @@ import {
   breadcrumbSchema,
   faqSchema,
   serviceSchema,
+  articleSchema,
 } from '@/lib/seo'
 import type { Crumb } from '../ui/Breadcrumbs'
 
@@ -81,6 +82,20 @@ export default function SitePage({
   ]
 
   if (isHome) structuredData.push(serviceSchema(locale))
+  if (
+    page.routeKey === 'guideMoq' ||
+    page.routeKey === 'guideReferenceBrief' ||
+    page.routeKey === 'guideFleece'
+  ) {
+    structuredData.push(
+      articleSchema({
+        locale,
+        path: currentPath,
+        headline: page.hero.h1,
+        description: page.metaDescription,
+      })
+    )
+  }
   if (crumbs.length > 1) structuredData.push(breadcrumbSchema(crumbs))
   // FAQ schema is emitted only when the FAQs are actually rendered on the page.
   if (page.faqForSchema?.length) structuredData.push(faqSchema(page.faqForSchema))
