@@ -8,7 +8,7 @@ import { path, type Locale } from '@/lib/i18n'
 import type { CommonContent } from '@/content/types'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import TrackedLink from '../ui/TrackedLink'
-import { analyticsEvents } from '@/lib/site'
+import { analyticsEvents, meetingRequestHref } from '@/lib/site'
 
 export default function Navbar({
   locale,
@@ -66,7 +66,7 @@ export default function Navbar({
   }, [menuOpen])
 
   // Nav is dense with 10 entries — show a primary subset on desktop.
-  const primaryKeys = ['privateLabel', 'products', 'sampling', 'fabrics', 'selectedWork', 'about'] as const
+  const primaryKeys = ['privateLabel', 'products', 'sampling', 'selectedWork'] as const
   const desktopLinks = common.nav.filter((n) =>
     (primaryKeys as readonly string[]).includes(n.key)
   )
@@ -111,7 +111,7 @@ export default function Navbar({
           <span className="ltr-inline">KEMORA</span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6">
           {desktopLinks.map(({ key, label }) => {
             const href = path(key, locale)
             const active = isActiveHref(href)
@@ -136,11 +136,11 @@ export default function Navbar({
         <div className="hidden lg:flex items-center gap-4 shrink-0">
           <LanguageSwitcher locale={locale} labels={common.languageSwitch} onDark={onDark} />
           <TrackedLink
-            href={path('contact', locale)}
-            event={analyticsEvents.sampleRequestClick}
+            href={meetingRequestHref(locale)}
+            event={analyticsEvents.meetingBookingClick}
             className="inline-flex items-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
           >
-            {common.cta.requestSample}
+            {common.cta.bookMeeting}
           </TrackedLink>
         </div>
 
@@ -209,12 +209,12 @@ export default function Navbar({
               {common.cta.whatsapp}
             </TrackedLink>
             <TrackedLink
-              href={path('contact', locale)}
-              event={analyticsEvents.sampleRequestClick}
+              href={meetingRequestHref(locale)}
+              event={analyticsEvents.meetingBookingClick}
               onNavigate={() => setMenuOpen(false)}
               className="flex w-full items-center justify-center rounded-md bg-accent px-4 py-3.5 font-semibold text-white"
             >
-              {common.cta.requestSample}
+              {common.cta.bookMeeting}
             </TrackedLink>
           </div>
         </div>

@@ -1,6 +1,11 @@
 import type { CommonContent } from '@/content/types'
 import type { Locale } from '@/lib/i18n'
-import { siteConfig, contactConfig, analyticsEvents } from '@/lib/site'
+import {
+  siteConfig,
+  contactConfig,
+  analyticsEvents,
+  meetingRequestHref,
+} from '@/lib/site'
 import TrackedLink from '../ui/TrackedLink'
 
 export default function ContactChannels({
@@ -24,6 +29,37 @@ export default function ContactChannels({
           ? 'واتساب عادةً أسرع طريقة، خصوصًا لإرسال الصور المرجعية.'
           : 'WhatsApp is usually fastest, especially for sending reference images.'}
       </p>
+
+      <TrackedLink
+        href={meetingRequestHref(locale)}
+        event={analyticsEvents.meetingBookingClick}
+        className="flex items-start gap-4 rounded-xl border border-accent/30 bg-accent/[0.06] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-md"
+      >
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent text-white">
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.7}
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 2v3m8-3v3M3.5 9h17M5 4h14a1.5 1.5 0 011.5 1.5v14A1.5 1.5 0 0119 21H5a1.5 1.5 0 01-1.5-1.5v-14A1.5 1.5 0 015 4z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 13h3v3H8z" />
+          </svg>
+        </span>
+        <span>
+          <span className="mb-0.5 block text-xs font-medium uppercase tracking-wide text-accent">
+            {isAr ? 'مكالمة تعريفية' : 'Production consultation'}
+          </span>
+          <span className="block text-sm font-semibold text-primary">{common.cta.bookMeeting}</span>
+          <span className="mt-1 block text-xs leading-relaxed text-k-muted">
+            {isAr
+              ? 'اختر موعدًا مناسبًا وسنؤكد التفاصيل عبر البريد الإلكتروني.'
+              : 'Choose a suitable time and we will confirm the details by email.'}
+          </span>
+        </span>
+      </TrackedLink>
 
       <TrackedLink
         href={whatsappHref}

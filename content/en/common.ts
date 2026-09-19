@@ -124,6 +124,22 @@ export const commonEn: CommonContent = {
     optional: 'optional',
     noTechPackNote:
       'No tech pack? That is completely normal for a first collection — a photo or sketch is enough to begin.',
+    inquiryType: 'How would you like to start?',
+    projectEnquiry: 'Send a project enquiry',
+    consultationRequest: 'Request a production consultation',
+    consultationNote:
+      'Choose a preferred date and time window. We will confirm the exact meeting time by email after reviewing your project details.',
+    preferredMeetingDate: 'Preferred meeting date',
+    preferredMeetingTime: 'Preferred time window',
+    meetingTimeOptions: [
+      { value: 'morning', label: 'Morning · 09:00–12:00' },
+      { value: 'afternoon', label: 'Afternoon · 12:00–17:00' },
+      { value: 'evening', label: 'Evening · 17:00–20:00' },
+      { value: 'flexible', label: 'Flexible' },
+    ],
+    timezone: 'Your time zone',
+    timezonePlaceholder: 'e.g. Europe/Warsaw or GMT+2',
+    requestMeeting: 'Request Consultation',
   },
   breadcrumbHome: 'Home',
 }

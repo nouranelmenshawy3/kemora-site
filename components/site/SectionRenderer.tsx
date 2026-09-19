@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Suspense } from 'react'
 import type { Section, CommonContent, ProductCategory, Fabric, WorkItem } from '@/content/types'
 import { productCategoryPath, type Locale } from '@/lib/i18n'
 import AnimateIn from '../ui/AnimateIn'
@@ -741,17 +742,25 @@ export default function SectionRenderer({
 
     case 'contactForm':
       return (
-        <section data-header-theme="light" className="py-20 sm:py-24 bg-white">
+        <section id="inquiry-form" data-header-theme="light" className="scroll-mt-24 py-20 sm:py-24 bg-white">
           <div className={container}>
             <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
               <div className="lg:col-span-3">
                 <h2 className="text-2xl font-bold text-primary">{ctx.common.form.heading}</h2>
                 <p className="mt-3 mb-8 leading-relaxed text-k-muted">{ctx.common.form.lead}</p>
-                <InquiryForm
-                  locale={ctx.locale}
-                  common={ctx.common}
-                  categories={ctx.categories}
-                />
+                <Suspense
+                  fallback={
+                    <div className="rounded-2xl border border-k-border bg-sand/40 p-8 text-sm text-k-muted">
+                      {ctx.locale === 'ar' ? 'جارٍ تحميل نموذج التواصل…' : 'Loading enquiry form…'}
+                    </div>
+                  }
+                >
+                  <InquiryForm
+                    locale={ctx.locale}
+                    common={ctx.common}
+                    categories={ctx.categories}
+                  />
+                </Suspense>
               </div>
               <div className="lg:col-span-2">
                 <ContactChannels

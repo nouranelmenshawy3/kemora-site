@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useRef, type FormEvent } from 'react'
+import { useEffect, useState, useRef, type FormEvent } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { track } from '@vercel/analytics'
 import type { CommonContent, ProductCategory } from '@/content/types'
 import {
@@ -14,6 +15,7 @@ import { privacyPath, type Locale } from '@/lib/i18n'
 import { analyticsEvents } from '@/lib/site'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
+type InquiryType = 'project' | 'meeting'
 
 const MAX_FILES = CONTACT_ATTACHMENT_MAX_FILES
 const MAX_TOTAL_MB = CONTACT_ATTACHMENT_MAX_TOTAL_MB
@@ -40,7 +42,9 @@ export default function InquiryForm({
   categories: ProductCategory[]
 }) {
   const t = common.form
+  const searchParams = useSearchParams()
   const [status, setStatus] = useState<Status>('idle')
+  const [inquiryType, setInquiryType] = useState<InquiryType>('project')
   const [errorDetail, setErrorDetail] = useState<string | null>(null)
   const [fileError, setFileError] = useState<string | null>(null)
   const [projectError, setProjectError] = useState<string | null>(null)
@@ -48,6 +52,10 @@ export default function InquiryForm({
   const fileRef = useRef<HTMLInputElement>(null)
 
   const privacyHref = privacyPath(locale)
+
+  useEffect(() => {
+    if (searchParams.get('intent') === 'meeting') setInquiryType('meeting')
+  }, [searchParams])
 
   async function readFiles(): Promise<{ filename: string; content: string }[]> {
     const files = selectedFiles
@@ -120,6 +128,10 @@ export default function InquiryForm({
       whatsapp: data.get('whatsapp'),
       country: data.get('country'),
       preferredLanguage: data.get('preferredLanguage'),
+      inquiryType,
+      preferredMeetingDate: data.get('preferredMeetingDate'),
+      preferredMeetingTime: data.get('preferredMeetingTime'),
+      timezone: data.get('timezone'),
       productCategory: data.get('productCategory'),
       quantity: data.get('quantity'),
       hasDesigns: data.get('hasDesigns'),
@@ -138,6 +150,7 @@ export default function InquiryForm({
 
       track(analyticsEvents.contactFormSubmit, {
         locale,
+        intent: inquiryType,
         category: String(payload.productCategory ?? ''),
       })
       setStatus('success')
@@ -177,6 +190,89 @@ export default function InquiryForm({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      <fieldset>
+        <legend className="mb-2 text-sm font-semibold text-primary">{t.inquiryType}</legend>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {([
+            { value: 'project', label: t.projectEnquiry },
+            { value: 'meeting', label: t.consultationRequest },
+          ] as const).map((option) => {
+            const selected = inquiryType === option.value
+            return (
+              <label
+                key={option.value}
+                className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3.5 text-sm font-semibold transition-all ${
+                  selected
+                    ? 'border-accent bg-accent/[0.07] text-primary shadow-sm'
+                    : 'border-k-border bg-white text-k-muted hover:border-accent/40'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="inquiryType"
+                  value={option.value}
+                  checked={selected}
+                  onChange={() => setInquiryType(option.value)}
+                  className="h-4 w-4 shrink-0 accent-[#C4622D]"
+                />
+                <span>{option.label}</span>
+              </label>
+            )
+          })}
+        </div>
+      </fieldset>
+
+      {inquiryType === 'meeting' && (
+        <div className="rounded-2xl border border-accent/25 bg-accent/[0.055] p-5 sm:p-6">
+          <p className="mb-5 text-sm leading-relaxed text-k-muted">{t.consultationNote}</p>
+          <div className="grid gap-5 sm:grid-cols-3">
+            <div>
+              <label htmlFor="preferredMeetingDate" className="mb-1.5 block text-sm font-semibold text-primary">
+                {t.preferredMeetingDate} <span className="text-accent">*</span>
+              </label>
+              <input
+                id="preferredMeetingDate"
+                name="preferredMeetingDate"
+                type="date"
+                required
+                min={new Date().toISOString().slice(0, 10)}
+                className={fieldClass}
+              />
+            </div>
+            <div>
+              <label htmlFor="preferredMeetingTime" className="mb-1.5 block text-sm font-semibold text-primary">
+                {t.preferredMeetingTime} <span className="text-accent">*</span>
+              </label>
+              <select
+                id="preferredMeetingTime"
+                name="preferredMeetingTime"
+                required
+                defaultValue=""
+                className={fieldClass}
+              >
+                <option value="" disabled>{t.preferredMeetingTime}</option>
+                {t.meetingTimeOptions.map((option) => (
+                  <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="timezone" className="mb-1.5 block text-sm font-semibold text-primary">
+                {t.timezone} <span className="text-accent">*</span>
+              </label>
+              <input
+                id="timezone"
+                name="timezone"
+                type="text"
+                required
+                placeholder={t.timezonePlaceholder}
+                className={fieldClass}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       <p className="rounded-lg border border-k-border bg-sand/50 px-4 py-3 text-sm text-k-muted">
         {t.noTechPackNote}
       </p>
@@ -508,7 +604,7 @@ export default function InquiryForm({
             {t.sending}
           </>
         ) : (
-          t.submit
+          inquiryType === 'meeting' ? t.requestMeeting : t.submit
         )}
       </button>
 

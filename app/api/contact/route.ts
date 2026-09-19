@@ -18,6 +18,10 @@ interface ContactPayload {
   whatsapp?: string
   country?: string
   preferredLanguage?: string
+  inquiryType?: string
+  preferredMeetingDate?: string
+  preferredMeetingTime?: string
+  timezone?: string
   productCategory?: string
   quantity?: string
   hasDesigns?: string
@@ -89,6 +93,10 @@ export async function POST(request: NextRequest) {
   const name = clean(body.name)
   const email = clean(body.email)
   const message = clean(body.message)
+  const inquiryType = clean(body.inquiryType) === 'meeting' ? 'meeting' : 'project'
+  const preferredMeetingDate = clean(body.preferredMeetingDate)
+  const preferredMeetingTime = clean(body.preferredMeetingTime)
+  const timezone = clean(body.timezone)
 
   if (!name || !email || !body.consent) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -97,6 +105,15 @@ export async function POST(request: NextRequest) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!emailRegex.test(email)) {
     return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
+  }
+
+  if (
+    inquiryType === 'meeting' &&
+    (!/^\d{4}-\d{2}-\d{2}$/.test(preferredMeetingDate) ||
+      !['morning', 'afternoon', 'evening', 'flexible'].includes(preferredMeetingTime) ||
+      !timezone)
+  ) {
+    return NextResponse.json({ error: 'Missing meeting preferences' }, { status: 400 })
   }
 
   const attachmentResult = validateAttachments(body.attachments)
@@ -124,6 +141,10 @@ export async function POST(request: NextRequest) {
     ['WhatsApp', clean(body.whatsapp) || notProvided],
     ['Country', clean(body.country) || notProvided],
     ['Preferred language', clean(body.preferredLanguage) || notProvided],
+    ['Enquiry type', inquiryType === 'meeting' ? 'Production consultation' : 'Project enquiry'],
+    ['Preferred meeting date', preferredMeetingDate || notProvided],
+    ['Preferred time window', preferredMeetingTime || notProvided],
+    ['Client time zone', timezone || notProvided],
     ['Product category', clean(body.productCategory) || notProvided],
     ['Estimated quantity', clean(body.quantity) || notProvided],
     ['Has designs', clean(body.hasDesigns) || notProvided],
@@ -139,7 +160,7 @@ export async function POST(request: NextRequest) {
   const messageForEmail = message || 'No written message was provided. Please review the attachments.'
 
   const text = [
-    'New Kemora website enquiry',
+    inquiryType === 'meeting' ? 'New Kemora consultation request' : 'New Kemora website enquiry',
     '',
     ...fields.map(([label, value]) => `${label}: ${value}`),
     `Submitted: ${submittedAt} Africa/Cairo`,
@@ -150,7 +171,7 @@ export async function POST(request: NextRequest) {
 
   const html = `
     <div style="font-family: Arial, sans-serif; color: #0f1923; line-height: 1.55;">
-      <h2 style="margin: 0 0 16px;">New Kemora website enquiry</h2>
+      <h2 style="margin: 0 0 16px;">${inquiryType === 'meeting' ? 'New Kemora consultation request' : 'New Kemora website enquiry'}</h2>
       ${fields
         .map(
           ([label, value]) =>
@@ -174,7 +195,10 @@ export async function POST(request: NextRequest) {
         from: CONTACT_FROM_EMAIL,
         to: [CONTACT_TO_EMAIL],
         reply_to: email,
-        subject: `New Kemora enquiry from ${name}`,
+        subject:
+          inquiryType === 'meeting'
+            ? `Consultation request from ${name}`
+            : `New Kemora enquiry from ${name}`,
         text,
         html,
         ...(attachmentResult.files.length > 0

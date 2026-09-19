@@ -54,6 +54,10 @@ export function whatsappLink(locale: Locale, message?: string): string {
   return `https://wa.me/${whatsappNumberFor(locale)}?text=${encodeURIComponent(text)}`
 }
 
+/** Branded, on-site consultation request flow. */
+export const meetingRequestHref = (locale: Locale): string =>
+  `${locale === 'ar' ? '/ar/contact' : '/contact'}?intent=meeting#inquiry-form`
+
 /**
  * Analytics event names (Vercel Analytics custom events).
  * Documented in docs/ANALYTICS.md — keep the two in sync.
