@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { path, privacyPath, type Locale } from '@/lib/i18n'
 import type { CommonContent } from '@/content/types'
-import { siteConfig, contactConfig, analyticsEvents } from '@/lib/site'
+import { siteConfig, contactConfig, analyticsEvents, technologyPartner } from '@/lib/site'
 import TrackedLink from '../ui/TrackedLink'
 
 export default function Footer({
@@ -29,6 +29,40 @@ export default function Footer({
               <span className="h-1.5 w-1.5 rounded-full bg-green-400" aria-hidden="true" />
               {common.footer.status}
             </p>
+            <TrackedLink
+              href={technologyPartner.partnershipUrl}
+              external
+              event={analyticsEvents.technologyPartnerClick}
+              eventData={{ placement: 'footer', locale }}
+              className="group mt-5 inline-flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 transition-all hover:border-accent/40 hover:bg-white/[0.07]"
+              ariaLabel={
+                locale === 'ar'
+                  ? 'اكتشف شراكة Kemora وWhyTech التقنية'
+                  : 'Explore the Kemora and WhyTech technology partnership'
+              }
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-accent/15 text-accent-light">
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l4-4 4 4M12 5v10" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13v5h14v-5" />
+                </svg>
+              </span>
+              <span>
+                <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-white/35">
+                  {locale === 'ar' ? 'الشريك التقني' : 'Technology partner'}
+                </span>
+                <span className="ltr-inline mt-0.5 block text-sm font-semibold text-white/80 group-hover:text-white">
+                  KEMORA × WhyTech ↗
+                </span>
+              </span>
+            </TrackedLink>
           </div>
 
           <nav aria-label={common.footer.navHeading} className="lg:col-span-4">

@@ -1,6 +1,6 @@
 import type { PageContent } from '../types'
 import { path, productCategoryPath } from '@/lib/i18n'
-import { whatsappLink, analyticsEvents } from '@/lib/site'
+import { whatsappLink, analyticsEvents, technologyPartner } from '@/lib/site'
 import { publishedCopy } from '@/lib/claims'
 
 const wa = whatsappLink('ar')
@@ -159,6 +159,38 @@ export const homeAr: PageContent = {
       ],
       tone: 'muted',
       reverse: true,
+    },
+    {
+      kind: 'partnerSpotlight',
+      eyebrow: 'الشريك التقني',
+      heading: 'تصنيع المنتج هو البداية — وابنِ حوله عالمًا رقميًا متكاملًا.',
+      lead:
+        'تتولى Kemora تطوير وتصنيع منتجاتك، ومن خلال تعاوننا مع WhyTech يمكنك أيضًا بناء الجانب الرقمي لبراندك — من الموقع والمتجر الإلكتروني إلى الأنظمة التي تدعم نمو أعمالك.',
+      capabilities: [
+        'مواقع البراندات والمتاجر الإلكترونية',
+        'تطبيقات ويب وموبايل مخصصة',
+        'أنظمة الأعمال والربط بين المنصات',
+        'مساعدات الذكاء الاصطناعي وأتمتة سير العمل',
+      ],
+      offerTitle: 'عرض تفضيلي لبراندات Kemora',
+      offerBody:
+        'البراندات المؤهلة والمُحالة من خلال Kemora تستفيد من أسعار شراكة تفضيلية لدى WhyTech. تُؤكَّد الشروط النهائية بعد مناقشة نطاق المشروع وتأكيد الإحالة.',
+      ctas: [
+        {
+          label: 'اكتشف شراكة Kemora × WhyTech',
+          href: technologyPartner.partnershipUrl,
+          variant: 'primary',
+          event: analyticsEvents.technologyPartnerClick,
+          external: true,
+        },
+        {
+          label: 'ابدأ مشروعك الرقمي',
+          href: technologyPartner.inquiryUrl,
+          variant: 'secondary',
+          event: analyticsEvents.technologyPartnerClick,
+          external: true,
+        },
+      ],
     },
     {
       kind: 'checklist',

@@ -578,6 +578,90 @@ export default function SectionRenderer({
       )
     }
 
+    case 'partnerSpotlight':
+      return (
+        <section
+          data-header-theme="dark"
+          className="relative overflow-hidden bg-primary py-20 texture-dark sm:py-24"
+        >
+          <div
+            className="pointer-events-none absolute -end-24 -top-24 h-80 w-80 rounded-full border border-accent/20"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute -end-10 top-12 h-48 w-48 rounded-full border border-white/10"
+            aria-hidden="true"
+          />
+          <div className={container}>
+            <AnimateIn>
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] shadow-2xl shadow-black/20 backdrop-blur-sm">
+                <div className="border-b border-white/10 px-6 py-5 sm:px-8 lg:px-10">
+                  <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="inline-flex w-fit items-center gap-2 rounded-full border border-accent/35 bg-accent/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-accent-light">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                      {section.eyebrow}
+                    </p>
+                    <div
+                      className="ltr-inline flex items-center gap-3 text-white"
+                      aria-label="Kemora and WhyTech"
+                    >
+                      <span className="text-sm font-bold tracking-[0.22em] sm:text-base">KEMORA</span>
+                      <span className="text-xl font-light text-accent" aria-hidden="true">
+                        ×
+                      </span>
+                      <span className="text-lg font-bold tracking-tight sm:text-xl">WhyTech</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-12 lg:gap-14 lg:px-10 lg:py-14">
+                  <div className="lg:col-span-7">
+                    <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl lg:leading-[1.12]">
+                      {section.heading}
+                    </h2>
+                    <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">
+                      {section.lead}
+                    </p>
+
+                    <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                      {section.ctas.map((cta) => (
+                        <CtaButton key={cta.label} cta={cta} onDark />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="lg:col-span-5">
+                    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                      {section.capabilities.map((capability, i) => (
+                        <li
+                          key={capability}
+                          className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-4 py-3.5 text-sm font-medium text-white/80"
+                        >
+                          <span
+                            className="ltr-inline flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-[10px] font-bold text-accent-light"
+                            aria-hidden="true"
+                          >
+                            {String(i + 1).padStart(2, '0')}
+                          </span>
+                          <span>{capability}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-4 rounded-xl border border-accent/30 bg-accent/10 p-5">
+                      <p className="font-bold text-white">{section.offerTitle}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-white/60">
+                        {section.offerBody}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </section>
+      )
+
     case 'cta':
       return null
 

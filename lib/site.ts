@@ -28,6 +28,18 @@ export const contactConfig = {
   whatsappPrimaryDisplay: '+48 575 379 875',
 }
 
+/**
+ * Official digital-technology partner for brands referred through Kemora.
+ * The partnership page explains the offer before sending visitors into the
+ * WhyTech enquiry flow, where the `source=kemora` parameter preserves referral
+ * context.
+ */
+export const technologyPartner = {
+  name: 'WhyTech',
+  partnershipUrl: 'https://whytechglobal.com/partners/kemora',
+  inquiryUrl: 'https://whytechglobal.com/contact?source=kemora',
+}
+
 export const whatsappNumberFor = (locale: Locale): string =>
   (locale === 'ar' ? contactConfig.whatsappRegional : null) ?? contactConfig.whatsappPrimary
 
@@ -54,4 +66,5 @@ export const analyticsEvents = {
   meetingBookingClick: 'meeting_booking_click',
   languageSwitch: 'language_switch',
   designUploadIntent: 'design_upload_intent',
+  technologyPartnerClick: 'technology_partner_click',
 } as const

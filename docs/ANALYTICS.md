@@ -12,6 +12,7 @@
 | `meeting_booking_click` | A "Book a Meeting" / "احجز مكالمة" CTA is clicked | — | Reserved — **see note below** |
 | `language_switch` | Language switcher is used | `from`, `to` | `LanguageSwitcher` |
 | `design_upload_intent` | User attaches files to the inquiry form | `count` | `InquiryForm` |
+| `technology_partner_click` | A visitor opens the Kemora × WhyTech partnership or referral flow | `placement`, `locale` on the footer link; no properties on homepage CTAs | `SectionRenderer`, `Footer` |
 
 ## Notes
 

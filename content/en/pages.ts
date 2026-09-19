@@ -1,6 +1,6 @@
 import type { PageContent } from '../types'
 import { path, productCategoryPath } from '@/lib/i18n'
-import { whatsappLink, analyticsEvents } from '@/lib/site'
+import { whatsappLink, analyticsEvents, technologyPartner } from '@/lib/site'
 import { publishedCopy } from '@/lib/claims'
 
 const wa = whatsappLink('en')
@@ -159,6 +159,38 @@ export const homeEn: PageContent = {
       ],
       tone: 'muted',
       reverse: true,
+    },
+    {
+      kind: 'partnerSpotlight',
+      eyebrow: 'Technology Partner',
+      heading: 'Your collection is only the beginning.',
+      lead:
+        'Kemora can bring your products to life. Through our collaboration with WhyTech, you can also build the digital world around your brand — from the first website to the systems that support growth.',
+      capabilities: [
+        'Brand and e-commerce websites',
+        'Custom web and mobile applications',
+        'Business systems and integrations',
+        'AI assistants and workflow automation',
+      ],
+      offerTitle: 'A preferred offer for Kemora brands',
+      offerBody:
+        'Eligible brands referred through Kemora receive preferential WhyTech partner pricing. Final conditions are confirmed after the project scope and referral are discussed.',
+      ctas: [
+        {
+          label: 'Explore Kemora × WhyTech',
+          href: technologyPartner.partnershipUrl,
+          variant: 'primary',
+          event: analyticsEvents.technologyPartnerClick,
+          external: true,
+        },
+        {
+          label: 'Start a Digital Project',
+          href: technologyPartner.inquiryUrl,
+          variant: 'secondary',
+          event: analyticsEvents.technologyPartnerClick,
+          external: true,
+        },
+      ],
     },
     {
       kind: 'checklist',

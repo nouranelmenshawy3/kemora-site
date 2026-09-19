@@ -172,6 +172,16 @@ export type Section =
       reverse?: boolean
     }
   | {
+      kind: 'partnerSpotlight'
+      eyebrow: string
+      heading: string
+      lead: string
+      capabilities: string[]
+      offerTitle: string
+      offerBody: string
+      ctas: Cta[]
+    }
+  | {
       kind: 'cta'
       heading: string
       body?: string
