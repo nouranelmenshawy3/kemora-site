@@ -102,6 +102,9 @@ export default function SitePage({
 
   return (
     <>
+      <a href="#main" className="skip-link">
+        {common.skipToContent}
+      </a>
       <JsonLd data={structuredData} />
 
       <Navbar

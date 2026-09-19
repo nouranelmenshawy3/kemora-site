@@ -662,8 +662,82 @@ export default function SectionRenderer({
         </section>
       )
 
-    case 'cta':
-      return null
+    case 'cta': {
+      const isDark = tone === 'dark'
+
+      return (
+        <section data-header-theme={sectionTheme} className={`relative overflow-hidden ${wrapper}`}>
+          {isDark && (
+            <>
+              <div
+                className="pointer-events-none absolute -end-28 -top-28 h-80 w-80 rounded-full border border-accent/20"
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute -end-6 top-10 h-52 w-52 rounded-full border border-white/10"
+                aria-hidden="true"
+              />
+            </>
+          )}
+
+          <div className={container}>
+            <AnimateIn>
+              <div
+                className={`relative overflow-hidden rounded-3xl border px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14 ${
+                  isDark
+                    ? 'border-white/10 bg-white/[0.045] shadow-2xl shadow-black/20'
+                    : 'border-k-border bg-sand/60 shadow-xl shadow-black/[0.05]'
+                }`}
+              >
+                <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
+                  <div className="max-w-3xl">
+                    <p className="mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                      <span className="h-px w-8 bg-accent" aria-hidden="true" />
+                      {ctx.locale === 'ar' ? 'الخطوة التالية' : 'Next step'}
+                    </p>
+                    <h2
+                      className={`text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl ${
+                        isDark ? 'text-white' : 'text-primary'
+                      }`}
+                    >
+                      {section.heading}
+                    </h2>
+                    {section.body && (
+                      <p
+                        className={`mt-5 max-w-2xl text-base leading-relaxed sm:text-lg ${
+                          isDark ? 'text-white/60' : 'text-k-muted'
+                        }`}
+                      >
+                        {section.body}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:max-w-sm lg:justify-end">
+                    {section.ctas.map((cta) => (
+                      <CtaButton key={cta.label} cta={cta} onDark={isDark} />
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className={`mt-10 h-px w-full ${isDark ? 'bg-white/10' : 'bg-k-border'}`}
+                  aria-hidden="true"
+                />
+                <div
+                  className={`mt-5 flex items-center justify-between gap-6 text-xs font-medium uppercase tracking-[0.16em] ${
+                    isDark ? 'text-white/30' : 'text-k-muted/70'
+                  }`}
+                >
+                  <span className="ltr-inline">KEMORA</span>
+                  <span>{ctx.locale === 'ar' ? 'من الفكرة إلى الإنتاج' : 'From idea to production'}</span>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </section>
+      )
+    }
 
     case 'contactForm':
       return (

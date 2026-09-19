@@ -77,6 +77,11 @@
     animation: heroFadeUp 0.9s 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
   }
 
+  .hero-image-drift {
+    animation: heroImageDrift 18s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+
   @keyframes heroFadeUp {
     from {
       opacity: 0;
@@ -85,6 +90,32 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes heroImageDrift {
+    from {
+      transform: scale(1.015);
+    }
+    to {
+      transform: scale(1.06);
+    }
+  }
+
+  .whatsapp-pulse {
+    animation: whatsappPulse 2.8s ease-out infinite;
+  }
+
+  @keyframes whatsappPulse {
+    0%,
+    45% {
+      opacity: 0.35;
+      transform: scale(1);
+    }
+    80%,
+    100% {
+      opacity: 0;
+      transform: scale(1.28);
     }
   }
 
@@ -98,6 +129,26 @@
       rgba(255, 255, 255, 0.015) 25px
     );
   }
+}
+
+.skip-link {
+  position: fixed;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  border-radius: 0.5rem;
+  background: #fbfaf7;
+  color: #0f1923;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 /*

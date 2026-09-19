@@ -37,7 +37,7 @@ export default function Hero({
           fill
           priority={isHome}
           sizes="100vw"
-          className="object-cover"
+          className={`object-cover ${isHome ? 'hero-image-drift' : ''}`}
           style={
             hero.backgroundImage.objectPosition
               ? { objectPosition: hero.backgroundImage.objectPosition }
@@ -71,7 +71,7 @@ export default function Hero({
         <div className={isHome ? 'max-w-3xl' : 'max-w-3xl'}>
           {hero.eyebrow && (
             <p
-              className={`mb-4 text-xs font-bold uppercase tracking-[0.2em] ${
+              className={`hero-enter mb-4 text-xs font-bold uppercase tracking-[0.2em] ${
                 isHome ? 'text-accent' : 'text-accent'
               }`}
             >
@@ -80,7 +80,7 @@ export default function Hero({
           )}
 
           <h1
-            className={`font-bold tracking-tight ${
+            className={`hero-enter-delay-1 font-bold tracking-tight ${
               isHome
                 ? 'text-3xl leading-[1.2] text-white sm:text-4xl md:text-5xl'
                 : 'text-3xl leading-tight text-white sm:text-4xl'
@@ -90,7 +90,7 @@ export default function Hero({
           </h1>
 
           <p
-            className={`mt-5 leading-relaxed ${
+            className={`hero-enter-delay-2 mt-5 leading-relaxed ${
               isHome ? 'max-w-2xl text-base text-white/70 sm:text-lg' : 'text-base text-white/65'
             }`}
           >
@@ -99,7 +99,7 @@ export default function Hero({
 
           {hero.supporting && (
             <p
-              className={`mt-4 text-sm leading-relaxed ${
+              className={`hero-enter-delay-2 mt-4 text-sm leading-relaxed ${
                 isHome ? 'max-w-2xl text-white/50' : 'text-white/50'
               }`}
             >
@@ -108,7 +108,7 @@ export default function Hero({
           )}
 
           {visibleCtas.length > 0 && (
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="hero-enter-delay-3 mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               {visibleCtas.map((cta) => (
                 <CtaButton key={cta.label} cta={cta} onDark={isDark} />
               ))}
@@ -117,7 +117,7 @@ export default function Hero({
 
           {hero.highlights && hero.highlights.length > 0 && (
             <ul
-              className={`mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t pt-6 text-sm ${
+              className={`hero-enter-delay-3 mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t pt-6 text-sm ${
                 isDark ? 'border-white/10 text-white/60' : 'border-k-border text-k-muted'
               }`}
             >

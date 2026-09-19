@@ -147,6 +147,9 @@ export default function ProductCategoryPage({
 
   return (
     <>
+      <a href="#main" className="skip-link">
+        {common.skipToContent}
+      </a>
       <JsonLd data={structuredData} />
 
       <Navbar
