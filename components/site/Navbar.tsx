@@ -66,7 +66,7 @@ export default function Navbar({
   }, [menuOpen])
 
   // Nav is dense with 10 entries — show a primary subset on desktop.
-  const primaryKeys = ['privateLabel', 'products', 'sampling', 'selectedWork'] as const
+  const primaryKeys = ['privateLabel', 'products', 'sampling', 'fabrics', 'selectedWork', 'about'] as const
   const desktopLinks = common.nav.filter((n) =>
     (primaryKeys as readonly string[]).includes(n.key)
   )
@@ -88,6 +88,9 @@ export default function Navbar({
   const mobileButtonClass = onDark
     ? 'text-white hover:bg-white/10'
     : 'text-primary hover:bg-sand'
+  const meetingButtonClass = onDark
+    ? 'border-white/30 text-white hover:border-white/60 hover:bg-white/10'
+    : 'border-accent/50 text-primary hover:border-accent hover:bg-accent/[0.06]'
 
   return (
     <header ref={headerRef} className={headerClass}>
@@ -111,7 +114,7 @@ export default function Navbar({
           <span className="ltr-inline">KEMORA</span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-4 xl:gap-6">
+        <div className="hidden xl:flex items-center gap-4 2xl:gap-6">
           {desktopLinks.map(({ key, label }) => {
             const href = path(key, locale)
             const active = isActiveHref(href)
@@ -122,6 +125,8 @@ export default function Navbar({
                 href={href}
                 aria-current={active ? 'page' : undefined}
                 className={`relative py-2 text-sm font-medium transition-colors after:absolute after:start-0 after:bottom-0 after:h-0.5 after:w-full after:origin-start after:rounded-full after:bg-accent after:transition-transform ${
+                  key === 'fabrics' || key === 'about' ? 'hidden 2xl:inline-flex' : ''
+                } ${
                   active
                     ? `${activeDesktopLinkClass} after:scale-x-100`
                     : `${desktopLinkClass} after:scale-x-0 hover:after:scale-x-100`
@@ -133,18 +138,25 @@ export default function Navbar({
           })}
         </div>
 
-        <div className="hidden lg:flex items-center gap-4 shrink-0">
+        <div className="hidden xl:flex items-center gap-2 shrink-0">
           <LanguageSwitcher locale={locale} labels={common.languageSwitch} onDark={onDark} />
+          <TrackedLink
+            href={`${path('contact', locale)}#inquiry-form`}
+            event={analyticsEvents.sampleRequestClick}
+            className="inline-flex items-center rounded-lg bg-accent px-3.5 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-accent-dark 2xl:px-4 2xl:text-sm"
+          >
+            {common.cta.requestSample}
+          </TrackedLink>
           <TrackedLink
             href={meetingRequestHref(locale)}
             event={analyticsEvents.meetingBookingClick}
-            className="inline-flex items-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
+            className={`inline-flex items-center rounded-lg border px-3.5 py-2 text-[13px] font-semibold transition-colors 2xl:px-4 2xl:text-sm ${meetingButtonClass}`}
           >
             {common.cta.bookMeeting}
           </TrackedLink>
         </div>
 
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-3 xl:hidden">
           <LanguageSwitcher locale={locale} labels={common.languageSwitch} onDark={onDark} />
           <button
             type="button"
@@ -175,7 +187,7 @@ export default function Navbar({
       {menuOpen && (
         <div
           id="mobile-nav"
-          className="lg:hidden border-t border-k-border bg-white max-h-[calc(100vh-4rem)] overflow-y-auto"
+          className="xl:hidden border-t border-k-border bg-white max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
           <ul className="px-4 py-2">
             {common.nav.map(({ key, label }) => {
@@ -209,10 +221,18 @@ export default function Navbar({
               {common.cta.whatsapp}
             </TrackedLink>
             <TrackedLink
+              href={`${path('contact', locale)}#inquiry-form`}
+              event={analyticsEvents.sampleRequestClick}
+              onNavigate={() => setMenuOpen(false)}
+              className="flex w-full items-center justify-center rounded-md bg-accent px-4 py-3.5 font-semibold text-white"
+            >
+              {common.cta.requestSample}
+            </TrackedLink>
+            <TrackedLink
               href={meetingRequestHref(locale)}
               event={analyticsEvents.meetingBookingClick}
               onNavigate={() => setMenuOpen(false)}
-              className="flex w-full items-center justify-center rounded-md bg-accent px-4 py-3.5 font-semibold text-white"
+              className="flex w-full items-center justify-center rounded-md border border-accent/50 bg-white px-4 py-3.5 font-semibold text-primary"
             >
               {common.cta.bookMeeting}
             </TrackedLink>

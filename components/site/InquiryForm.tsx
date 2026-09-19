@@ -54,7 +54,7 @@ export default function InquiryForm({
   const privacyHref = privacyPath(locale)
 
   useEffect(() => {
-    if (searchParams.get('intent') === 'meeting') setInquiryType('meeting')
+    setInquiryType(searchParams.get('intent') === 'meeting' ? 'meeting' : 'project')
   }, [searchParams])
 
   async function readFiles(): Promise<{ filename: string; content: string }[]> {
