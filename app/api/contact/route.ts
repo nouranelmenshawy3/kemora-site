@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import {
   CONTACT_ATTACHMENT_MAX_FILES,
   CONTACT_ATTACHMENT_MAX_TOTAL_BYTES,
+  CONSULTATION_MIN_NOTICE_DAYS,
 } from '@/lib/contactLimits'
 
 interface Attachment {
@@ -51,6 +52,12 @@ function escapeHtml(value: string) {
 
 const clean = (value: unknown): string =>
   typeof value === 'string' ? value.trim().slice(0, MAX_FIELD_LENGTH) : ''
+
+function isoDateAfterDays(days: number) {
+  const date = new Date()
+  date.setUTCDate(date.getUTCDate() + days)
+  return date.toISOString().slice(0, 10)
+}
 
 /** Strip any path components so a filename cannot traverse or spoof a path. */
 const safeFilename = (name: string) =>
@@ -110,6 +117,7 @@ export async function POST(request: NextRequest) {
   if (
     inquiryType === 'meeting' &&
     (!/^\d{4}-\d{2}-\d{2}$/.test(preferredMeetingDate) ||
+      preferredMeetingDate < isoDateAfterDays(CONSULTATION_MIN_NOTICE_DAYS) ||
       !['morning', 'afternoon', 'evening', 'flexible'].includes(preferredMeetingTime) ||
       !timezone)
   ) {

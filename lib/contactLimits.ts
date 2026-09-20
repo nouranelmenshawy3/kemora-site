@@ -3,3 +3,5 @@ export const CONTACT_ATTACHMENT_MAX_TOTAL_MB = 3
 export const CONTACT_ATTACHMENT_MAX_TOTAL_BYTES = CONTACT_ATTACHMENT_MAX_TOTAL_MB * 1024 * 1024
 export const CONTACT_ATTACHMENT_ACCEPTED = 'image/png,image/jpeg,image/webp,application/pdf'
 
+/** Consultation requests need enough time for the team to review the project first. */
+export const CONSULTATION_MIN_NOTICE_DAYS = 2

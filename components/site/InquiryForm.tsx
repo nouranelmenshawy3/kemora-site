@@ -10,6 +10,7 @@ import {
   CONTACT_ATTACHMENT_MAX_FILES,
   CONTACT_ATTACHMENT_MAX_TOTAL_BYTES,
   CONTACT_ATTACHMENT_MAX_TOTAL_MB,
+  CONSULTATION_MIN_NOTICE_DAYS,
 } from '@/lib/contactLimits'
 import { privacyPath, type Locale } from '@/lib/i18n'
 import { analyticsEvents } from '@/lib/site'
@@ -21,6 +22,12 @@ const MAX_FILES = CONTACT_ATTACHMENT_MAX_FILES
 const MAX_TOTAL_MB = CONTACT_ATTACHMENT_MAX_TOTAL_MB
 const MAX_TOTAL_BYTES = CONTACT_ATTACHMENT_MAX_TOTAL_BYTES
 const ACCEPTED = CONTACT_ATTACHMENT_ACCEPTED
+
+function isoDateAfterDays(days: number) {
+  const date = new Date()
+  date.setUTCDate(date.getUTCDate() + days)
+  return date.toISOString().slice(0, 10)
+}
 
 const fieldClass =
   'w-full rounded-lg border border-k-border bg-sand/40 px-4 py-3 text-primary transition placeholder:text-k-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15'
@@ -235,7 +242,7 @@ export default function InquiryForm({
                 name="preferredMeetingDate"
                 type="date"
                 required
-                min={new Date().toISOString().slice(0, 10)}
+                min={isoDateAfterDays(CONSULTATION_MIN_NOTICE_DAYS)}
                 className={fieldClass}
               />
             </div>

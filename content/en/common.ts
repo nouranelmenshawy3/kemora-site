@@ -128,7 +128,7 @@ export const commonEn: CommonContent = {
     projectEnquiry: 'Send a project enquiry',
     consultationRequest: 'Request a production consultation',
     consultationNote:
-      'Choose a preferred date and time window. We will confirm the exact meeting time by email after reviewing your project details.',
+      'Consultations require at least two days’ notice so our team can review your project first. Choose a preferred date and time window, and we will confirm the exact meeting time by email.',
     preferredMeetingDate: 'Preferred meeting date',
     preferredMeetingTime: 'Preferred time window',
     meetingTimeOptions: [
