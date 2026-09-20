@@ -97,6 +97,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
   }
 
+  if (!body || typeof body !== 'object' || Array.isArray(body)) {
+    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
+  }
+
   const name = clean(body.name)
   const email = clean(body.email)
   const message = clean(body.message)
@@ -105,7 +109,7 @@ export async function POST(request: NextRequest) {
   const preferredMeetingTime = clean(body.preferredMeetingTime)
   const timezone = clean(body.timezone)
 
-  if (!name || !email || !body.consent) {
+  if (!name || !email || body.consent !== true) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
   }
 

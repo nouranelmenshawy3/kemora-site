@@ -65,6 +65,10 @@ export default function InquiryForm({
 
   useEffect(() => {
     setInquiryType(searchParams.get('intent') === 'meeting' ? 'meeting' : 'project')
+    setStatus('idle')
+    setErrorDetail(null)
+    setProjectError(null)
+    setFileError(null)
   }, [searchParams])
 
   async function readFiles(): Promise<{ filename: string; content: string }[]> {
@@ -194,6 +198,9 @@ export default function InquiryForm({
         </div>
         <p className="text-lg font-bold text-primary">{t.success}</p>
         <p className="mt-2 text-sm text-k-muted">{inquiryType === 'meeting' ? (locale === 'ar' ? 'وصل طلب المكالمة. سنراجع مشروعك ونؤكد الموعد ورابط الاجتماع بالإيميل. لم يتم تأكيد الموعد بعد.' : 'Your consultation request is received. We will review your project and email the confirmed time and meeting link. Your appointment is not confirmed yet.') : t.successDetail}</p>
+        <button type="button" onClick={() => setStatus('idle')} className="mt-5 rounded-md border border-k-border px-4 py-2.5 text-sm font-semibold text-primary hover:border-accent">
+          {locale === 'ar' ? 'إرسال طلب آخر' : 'Send another request'}
+        </button>
       </div>
     )
   }

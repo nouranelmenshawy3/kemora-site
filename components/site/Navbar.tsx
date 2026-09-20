@@ -39,9 +39,9 @@ export default function Navbar({ locale, common, whatsappHref }: {
     document.addEventListener('keydown', escape)
     return () => { document.removeEventListener('pointerdown', outside); document.removeEventListener('keydown', escape) }
   }, [open])
-  const links = (keys: RouteKey[], light = false) => keys.flatMap(key => entries.filter(item => item.key === key)).map((item, index) => (
+  const links = (keys: RouteKey[], light = false) => keys.flatMap(key => entries.filter(item => item.key === key)).map(item => (
     <Link key={item.key} href={path(item.key, locale)} onClick={close} aria-current={pathname === path(item.key, locale) ? 'page' : undefined}
-      className={`block rounded-md px-3 py-2.5 text-sm transition-colors ${light ? `text-primary hover:bg-sand/70 hover:text-accent-dark aria-[current=page]:bg-sand ${index === 4 ? 'mt-2 border-t border-k-border pt-4' : ''}` : 'text-white/85 hover:bg-white/5 hover:text-accent-light aria-[current=page]:text-accent-light'}`}>{item.label}</Link>
+      className={`block rounded-md px-3 py-2.5 text-sm transition-colors ${light ? 'text-primary hover:bg-sand/70 hover:text-accent-dark aria-[current=page]:bg-sand' : 'text-white/85 hover:bg-white/5 hover:text-accent-light aria-[current=page]:text-accent-light'}`}>{item.label}</Link>
   ))
   const desktopGroup = (group: typeof groups[number]) => (
     <div className="relative flex h-[76px] items-center">
@@ -50,8 +50,8 @@ export default function Navbar({ locale, common, whatsappHref }: {
         className="nav-label aria-expanded:text-white">
         {group.label}<svg className={`h-3 w-3 transition-transform ${open === group.id ? 'rotate-180' : ''}`} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
       </button>
-      {open === group.id && <div id={`nav-${group.id}`} className="absolute start-0 top-full max-h-[calc(100dvh-92px)] w-[288px] overflow-y-auto overscroll-contain rounded-b-lg border border-k-border bg-[#fdfcf9] p-2 text-primary shadow-[0_12px_28px_rgba(0,0,0,0.18)]">
-        {links(group.keys, true)}
+      {open === group.id && <div id={`nav-${group.id}`} className="absolute start-0 top-[calc(100%+8px)] max-h-[calc(100dvh-100px)] w-[288px] overflow-y-auto overscroll-contain rounded-xl border border-k-border bg-[#fdfcf9] p-2 text-primary shadow-[0_12px_28px_rgba(0,0,0,0.18)]">
+        {group.id === 'manufacturing' ? <>{links(group.keys.slice(0, 4), true)}<div className="mx-3 my-2 border-t border-k-border" />{links(group.keys.slice(4), true)}</> : links(group.keys, true)}
         {group.id === 'resources' && <Link href={`${path('home', locale)}#whytech`} onClick={close} className="mt-2 block border-t border-k-border px-3 py-3 text-sm font-medium text-accent-dark hover:bg-sand/70">{ar ? 'شريكنا التقني' : 'Technology partner'} · WhyTech ↗</Link>}
       </div>}
     </div>
