@@ -48,7 +48,7 @@ export const commonEn: CommonContent = {
     startProject: 'Discuss Your Project',
     requestSample: 'Request a Sample',
     sendDesign: 'Send Your Design',
-    bookMeeting: 'Book a Meeting',
+    bookMeeting: 'Request a Meeting',
     whatsapp: 'Contact Us on WhatsApp',
     contact: 'Contact Us',
     viewAll: 'View all',

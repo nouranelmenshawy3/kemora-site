@@ -117,6 +117,8 @@ export async function POST(request: NextRequest) {
   if (
     inquiryType === 'meeting' &&
     (!/^\d{4}-\d{2}-\d{2}$/.test(preferredMeetingDate) ||
+      Number.isNaN(Date.parse(`${preferredMeetingDate}T00:00:00Z`)) ||
+      new Date(`${preferredMeetingDate}T00:00:00Z`).toISOString().slice(0, 10) !== preferredMeetingDate ||
       preferredMeetingDate < isoDateAfterDays(CONSULTATION_MIN_NOTICE_DAYS) ||
       !['morning', 'afternoon', 'evening', 'flexible'].includes(preferredMeetingTime) ||
       !timezone)

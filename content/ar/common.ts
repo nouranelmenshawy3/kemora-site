@@ -46,7 +46,7 @@ export const commonAr: CommonContent = {
     startProject: 'ناقش مشروعك معنا',
     requestSample: 'اطلب عينة',
     sendDesign: 'أرسل تصميمك أو الصور المرجعية',
-    bookMeeting: 'احجز مكالمة',
+    bookMeeting: 'اطلب مكالمة',
     whatsapp: 'تواصل معنا عبر واتساب',
     contact: 'تواصل معنا',
     viewAll: 'عرض الكل',

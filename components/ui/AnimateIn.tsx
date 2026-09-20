@@ -16,24 +16,24 @@ export default function AnimateIn({ children, delay = 0, className = '' }: Anima
     if (!el) return
 
     // If the user prefers reduced motion, show content immediately.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 767px)').matches) {
       el.classList.add('in-view')
       return
     }
 
+    let timer: ReturnType<typeof setTimeout>
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          const timer = setTimeout(() => el.classList.add('in-view'), delay)
+          timer = setTimeout(() => el.classList.add('in-view'), Math.min(delay, 150))
           observer.disconnect()
-          return () => clearTimeout(timer)
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0, rootMargin: '120px 0px' }
     )
 
     observer.observe(el)
-    return () => observer.disconnect()
+    return () => { observer.disconnect(); clearTimeout(timer) }
   }, [delay])
 
   return (

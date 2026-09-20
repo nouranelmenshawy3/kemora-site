@@ -582,8 +582,9 @@ export default function SectionRenderer({
     case 'partnerSpotlight':
       return (
         <section
+          id="whytech"
           data-header-theme="dark"
-          className="relative overflow-hidden bg-primary py-20 texture-dark sm:py-24"
+          className="relative scroll-mt-20 overflow-hidden bg-[#102b30] py-14 sm:py-20"
         >
           <div
             className="pointer-events-none absolute -end-24 -top-24 h-80 w-80 rounded-full border border-accent/20"
@@ -595,7 +596,7 @@ export default function SectionRenderer({
           />
           <div className={container}>
             <AnimateIn>
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] shadow-2xl shadow-black/20 backdrop-blur-sm">
+              <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-[#214c4f] via-[#15343a] to-primary shadow-2xl shadow-black/20">
                 <div className="border-b border-white/10 px-6 py-5 sm:px-8 lg:px-10">
                   <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                     <p className="inline-flex w-fit items-center gap-2 rounded-full border border-accent/35 bg-accent/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-accent-light">
@@ -649,9 +650,9 @@ export default function SectionRenderer({
                       ))}
                     </ul>
 
-                    <div className="mt-4 rounded-xl border border-accent/30 bg-accent/10 p-5">
-                      <p className="font-bold text-white">{section.offerTitle}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-white/60">
+                    <div className="mt-4 rounded-xl border border-[#e6c9a1] bg-[#f2e5d8] p-5">
+                      <p className="font-bold text-primary">{section.offerTitle}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-[#51463b]">
                         {section.offerBody}
                       </p>
                     </div>

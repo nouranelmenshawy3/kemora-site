@@ -59,14 +59,16 @@ export default function Navbar({
 
   // Prevent background scroll while the mobile menu is open.
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
+    if (!menuOpen) return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false)
     }
+    document.addEventListener('keydown', closeOnEscape)
+    return () => document.removeEventListener('keydown', closeOnEscape)
   }, [menuOpen])
 
   // Nav is dense with 10 entries — show a primary subset on desktop.
-  const primaryKeys = ['privateLabel', 'products', 'sampling', 'fabrics', 'selectedWork', 'about'] as const
+  const primaryKeys = ['products', 'sampling', 'selectedWork'] as const
   const desktopLinks = common.nav.filter((n) =>
     (primaryKeys as readonly string[]).includes(n.key)
   )
@@ -156,16 +158,17 @@ export default function Navbar({
           </TrackedLink>
         </div>
 
-        <div className="flex items-center gap-3 xl:hidden">
-          <LanguageSwitcher locale={locale} labels={common.languageSwitch} onDark={onDark} />
+        <div className="flex items-center gap-2">
+          <div className="xl:hidden"><LanguageSwitcher locale={locale} labels={common.languageSwitch} onDark={onDark} /></div>
           <button
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={locale === 'ar' ? (menuOpen ? 'إغلاق القائمة' : 'كل صفحات الموقع') : (menuOpen ? 'Close navigation menu' : 'All pages')}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
-            className={`p-2 -me-2 rounded-md transition-colors ${mobileButtonClass}`}
+            className={`flex items-center gap-2 p-2 rounded-md transition-colors ${mobileButtonClass}`}
           >
+            <span className="hidden text-sm font-semibold xl:inline">{locale === 'ar' ? 'كل الصفحات' : 'All pages'}</span>
             <svg
               className="w-6 h-6"
               fill="none"
@@ -187,9 +190,10 @@ export default function Navbar({
       {menuOpen && (
         <div
           id="mobile-nav"
-          className="xl:hidden border-t border-k-border bg-white max-h-[calc(100vh-4rem)] overflow-y-auto"
+          className="border-t border-k-border bg-white max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain shadow-xl"
         >
-          <ul className="px-4 py-2">
+          <ul className="mx-auto grid max-w-7xl px-4 py-2 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3">
+            <li><Link href={`${path('home', locale)}#whytech`} onClick={() => setMenuOpen(false)} className="block rounded-lg bg-sand px-3 py-3.5 font-semibold text-accent">{locale === 'ar' ? 'شراكة Kemora × WhyTech' : 'Kemora × WhyTech partnership'} ↗</Link></li>
             {common.nav.map(({ key, label }) => {
               const href = path(key, locale)
               const active = isActiveHref(href)
@@ -210,7 +214,7 @@ export default function Navbar({
               )
             })}
           </ul>
-          <div className="px-4 pb-6 pt-2 space-y-3">
+          <div className="mx-auto grid max-w-7xl gap-3 px-4 pb-6 pt-2 sm:grid-cols-3">
             <TrackedLink
               href={whatsappHref}
               external

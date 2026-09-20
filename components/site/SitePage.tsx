@@ -116,8 +116,17 @@ export default function SitePage({
 
       <main id="main">
         <Hero hero={page.hero} variant={isHome ? 'home' : 'page'} crumbs={crumbs} />
+        {isHome && (
+          <a href="#whytech" className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-b border-accent/20 bg-[#f2e5d8] px-5 py-4 text-center text-sm font-semibold text-primary hover:bg-[#ead8c6]">
+            <span className="ltr-inline">KEMORA × WhyTech</span>
+            <span>{locale === 'ar' ? 'موقعك وأنظمة براندك، بعرض خاص لعملاء Kemora' : 'Your brand’s website & systems. Preferred partner pricing.'}</span>
+            <span className="text-accent">{locale === 'ar' ? 'اكتشف الشراكة ←' : 'Explore the partnership →'}</span>
+          </a>
+        )}
         {children}
-        {page.sections.map((section, i) => (
+        {(isHome
+          ? [...page.sections.filter((section) => section.kind === 'partnerSpotlight'), ...page.sections.filter((section) => section.kind !== 'partnerSpotlight')]
+          : page.sections).map((section, i) => (
           <SectionRenderer key={`${section.kind}-${i}`} section={section} ctx={ctx} />
         ))}
       </main>

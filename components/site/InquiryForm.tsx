@@ -56,9 +56,12 @@ export default function InquiryForm({
   const [fileError, setFileError] = useState<string | null>(null)
   const [projectError, setProjectError] = useState<string | null>(null)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
+  const [clientTimezone, setClientTimezone] = useState('')
   const fileRef = useRef<HTMLInputElement>(null)
 
   const privacyHref = privacyPath(locale)
+
+  useEffect(() => { setClientTimezone(Intl.DateTimeFormat().resolvedOptions().timeZone) }, [])
 
   useEffect(() => {
     setInquiryType(searchParams.get('intent') === 'meeting' ? 'meeting' : 'project')
@@ -190,7 +193,7 @@ export default function InquiryForm({
           </svg>
         </div>
         <p className="text-lg font-bold text-primary">{t.success}</p>
-        <p className="mt-2 text-sm text-k-muted">{t.successDetail}</p>
+        <p className="mt-2 text-sm text-k-muted">{inquiryType === 'meeting' ? (locale === 'ar' ? 'وصل طلب المكالمة. سنراجع مشروعك ونؤكد الموعد ورابط الاجتماع بالإيميل. لم يتم تأكيد الموعد بعد.' : 'Your consultation request is received. We will review your project and email the confirmed time and meeting link. Your appointment is not confirmed yet.') : t.successDetail}</p>
       </div>
     )
   }
@@ -232,7 +235,7 @@ export default function InquiryForm({
       {inquiryType === 'meeting' && (
         <div className="rounded-2xl border border-accent/25 bg-accent/[0.055] p-5 sm:p-6">
           <p className="mb-5 text-sm leading-relaxed text-k-muted">{t.consultationNote}</p>
-          <div className="grid gap-5 sm:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="preferredMeetingDate" className="mb-1.5 block text-sm font-semibold text-primary">
                 {t.preferredMeetingDate} <span className="text-accent">*</span>
@@ -271,6 +274,8 @@ export default function InquiryForm({
                 id="timezone"
                 name="timezone"
                 type="text"
+                value={clientTimezone}
+                onChange={(event) => setClientTimezone(event.target.value)}
                 required
                 placeholder={t.timezonePlaceholder}
                 className={fieldClass}
@@ -420,7 +425,7 @@ export default function InquiryForm({
         </div>
       </div>
 
-      <fieldset>
+      <fieldset hidden={inquiryType === 'meeting'} disabled={inquiryType === 'meeting'}>
         <legend className="mb-2 text-sm font-semibold text-primary">{t.hasDesigns}</legend>
         <div className="grid gap-2 sm:grid-cols-2">
           {t.hasDesignsOptions.map((option, i) => (

@@ -4,7 +4,8 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+    scroll-padding-top: 5rem;
   }
 
   body {
@@ -149,6 +150,15 @@
 
 .skip-link:focus {
   transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-image-drift, .whatsapp-pulse { animation: none; }
+  .hero-enter, .hero-enter-delay-1, .hero-enter-delay-2, .hero-enter-delay-3 {
+    animation: none;
+  }
+  input, select, textarea { font-size: 16px; min-width: 0; }
 }
 
 /*
