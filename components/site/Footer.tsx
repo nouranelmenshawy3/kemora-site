@@ -108,13 +108,6 @@ export default function Footer({
                   {contactConfig.whatsappPrimaryDisplay}
                 </TrackedLink>
               </div>
-              <TrackedLink
-                href={path('contact', locale)}
-                event={analyticsEvents.sampleRequestClick}
-                className="mt-2 inline-flex rounded-lg bg-accent px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-accent-dark"
-              >
-                {common.cta.requestSample}
-              </TrackedLink>
             </div>
           </div>
         </div>

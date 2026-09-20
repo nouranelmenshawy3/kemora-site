@@ -96,9 +96,11 @@ function Note({ children, tone }: { children: React.ReactNode; tone?: string }) 
 export default function SectionRenderer({
   section,
   ctx,
+  compactCta = true,
 }: {
   section: Section
   ctx: RenderContext
+  compactCta?: boolean
 }) {
   const tone = 'tone' in section ? section.tone : undefined
   const wrapper = `py-20 sm:py-24 ${toneClasses[tone ?? 'default']}`
@@ -666,6 +668,22 @@ export default function SectionRenderer({
 
     case 'cta': {
       const isDark = tone === 'dark'
+
+      if (compactCta) {
+        return (
+          <section data-header-theme={sectionTheme} className={`border-b py-12 sm:py-14 ${isDark ? 'border-white/10 bg-primary' : 'border-k-border bg-white'}`}>
+            <div className={`${container} flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12`}>
+              <div className="max-w-2xl">
+                <h2 className={`text-2xl font-semibold tracking-tight sm:text-3xl ${headingColor(tone)}`}>{section.heading}</h2>
+                {section.body && <p className={`mt-3 text-sm leading-relaxed sm:text-base ${bodyColor(tone)}`}>{section.body}</p>}
+              </div>
+              <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+                {section.ctas.filter(cta => cta.variant !== 'whatsapp').map(cta => <CtaButton key={cta.label} cta={cta} onDark={isDark} />)}
+              </div>
+            </div>
+          </section>
+        )
+      }
 
       return (
         <section data-header-theme={sectionTheme} className={`relative overflow-hidden ${wrapper}`}>

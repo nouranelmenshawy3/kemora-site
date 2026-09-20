@@ -39,10 +39,23 @@ export default function Navbar({ locale, common, whatsappHref }: {
     document.addEventListener('keydown', escape)
     return () => { document.removeEventListener('pointerdown', outside); document.removeEventListener('keydown', escape) }
   }, [open])
-  const links = (keys: RouteKey[]) => entries.filter(item => keys.includes(item.key)).map(item => (
+  const links = (keys: RouteKey[], light = false) => keys.flatMap(key => entries.filter(item => item.key === key)).map((item, index) => (
     <Link key={item.key} href={path(item.key, locale)} onClick={close} aria-current={pathname === path(item.key, locale) ? 'page' : undefined}
-      className="rounded-md px-3 py-3 text-sm text-primary transition-colors hover:bg-sand hover:text-accent aria-[current=page]:text-accent">{item.label}</Link>
+      className={`block rounded-md px-3 py-2.5 text-sm transition-colors ${light ? `text-primary hover:bg-sand/70 hover:text-accent-dark aria-[current=page]:bg-sand ${index === 4 ? 'mt-2 border-t border-k-border pt-4' : ''}` : 'text-white/85 hover:bg-white/5 hover:text-accent-light aria-[current=page]:text-accent-light'}`}>{item.label}</Link>
   ))
+  const desktopGroup = (group: typeof groups[number]) => (
+    <div className="relative flex h-[76px] items-center">
+      <button type="button" aria-expanded={open === group.id} aria-controls={`nav-${group.id}`}
+        onClick={(event) => { trigger.current = event.currentTarget; setOpen(open === group.id ? null : group.id) }}
+        className="nav-label aria-expanded:text-white">
+        {group.label}<svg className={`h-3 w-3 transition-transform ${open === group.id ? 'rotate-180' : ''}`} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
+      </button>
+      {open === group.id && <div id={`nav-${group.id}`} className="absolute start-0 top-full max-h-[calc(100dvh-92px)] w-[288px] overflow-y-auto overscroll-contain rounded-b-lg border border-k-border bg-[#fdfcf9] p-2 text-primary shadow-[0_12px_28px_rgba(0,0,0,0.18)]">
+        {links(group.keys, true)}
+        {group.id === 'resources' && <Link href={`${path('home', locale)}#whytech`} onClick={close} className="mt-2 block border-t border-k-border px-3 py-3 text-sm font-medium text-accent-dark hover:bg-sand/70">{ar ? 'شريكنا التقني' : 'Technology partner'} · WhyTech ↗</Link>}
+      </div>}
+    </div>
+  )
   return (
     <header ref={header} className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/95 text-white backdrop-blur-md"
       onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) close() }}>
@@ -51,10 +64,10 @@ export default function Navbar({ locale, common, whatsappHref }: {
           <Image src="/kemora-mark.png" alt="" width={38} height={40} priority className="h-9 w-auto" /><span className="ltr-inline">KEMORA</span>
         </Link>
         <div className="hidden items-center gap-1 lg:flex xl:gap-3">
-          <button type="button" aria-expanded={open === 'manufacturing'} aria-controls="nav-manufacturing" onClick={(event) => { trigger.current = event.currentTarget; setOpen(open === 'manufacturing' ? null : 'manufacturing') }} className="nav-label">{groups[0].label}<span aria-hidden="true" className="text-xs">⌄</span></button>
+          {desktopGroup(groups[0])}
           <Link href={path('products', locale)} onClick={close} className="nav-label">{ar ? 'المنتجات' : 'Products'}</Link>
           <Link href={path('selectedWork', locale)} onClick={close} className="nav-label">{ar ? 'أعمالنا' : 'Our work'}</Link>
-          <button type="button" aria-expanded={open === 'resources'} aria-controls="nav-resources" onClick={(event) => { trigger.current = event.currentTarget; setOpen(open === 'resources' ? null : 'resources') }} className="nav-label">{groups[1].label}<span aria-hidden="true" className="text-xs">⌄</span></button>
+          {desktopGroup(groups[1])}
         </div>
         <div className="flex shrink-0 items-center gap-2 xl:gap-3">
           <LanguageSwitcher locale={locale} labels={common.languageSwitch} onNavigate={close} compact onDark />
@@ -65,24 +78,16 @@ export default function Navbar({ locale, common, whatsappHref }: {
           </button>
         </div>
       </nav>
-      {groups.map(group => open === group.id && (
-        <div key={group.id} id={`nav-${group.id}`} className="absolute inset-x-0 hidden border-y border-k-border bg-white text-primary shadow-xl lg:block">
-          <div className="mx-auto grid max-w-6xl grid-cols-[240px_1fr] gap-10 px-8 py-8">
-            <div className="border-e border-k-border pe-8"><p className="text-xs font-semibold uppercase tracking-widest text-accent">KEMORA</p><p className="mt-3 text-2xl font-semibold">{group.label}</p><p className="mt-3 text-sm leading-relaxed text-k-muted">{ar ? 'كل ما تحتاجه لتطوير مجموعة ملابس تحمل اسم براندك.' : 'Everything you need to develop a collection under your own label.'}</p></div>
-            <div><div className="grid grid-cols-2 gap-x-4">{links(group.keys)}</div>{group.id === 'resources' && <Link href={`${path('home', locale)}#whytech`} onClick={close} className="mt-3 block border-t border-k-border px-3 pt-4 text-sm font-semibold text-accent">{ar ? 'شريكنا التقني' : 'Our technology partner'} · WhyTech ↗</Link>}<div className="mt-4 xl:hidden"><LanguageSwitcher locale={locale} labels={common.languageSwitch} onNavigate={close} /></div></div>
-          </div>
-        </div>
-      ))}
       {open === 'mobile' && (
-        <div id="nav-mobile" className="max-h-[calc(100dvh-76px)] overflow-y-auto overscroll-contain border-t border-k-border bg-white px-5 pb-8 text-primary lg:hidden">
-          <div className="grid grid-cols-2 gap-3 border-b border-k-border py-5">
+        <div id="nav-mobile" className="max-h-[calc(100dvh-76px)] overflow-y-auto overscroll-contain border-t border-white/15 bg-[#192630] px-5 pb-8 text-white lg:hidden">
+          <div className="grid grid-cols-2 gap-3 border-b border-white/15 py-5">
             <TrackedLink href={`${path('contact', locale)}#inquiry-form`} event={analyticsEvents.sampleRequestClick} onNavigate={close} className="rounded-md bg-accent px-3 py-3 text-center text-sm font-semibold text-white">{common.cta.requestSample}</TrackedLink>
-            <TrackedLink href={meetingRequestHref(locale)} event={analyticsEvents.meetingBookingClick} onNavigate={close} className="rounded-md border border-k-border px-3 py-3 text-center text-sm font-semibold">{common.cta.bookMeeting}</TrackedLink>
+            <TrackedLink href={meetingRequestHref(locale)} event={analyticsEvents.meetingBookingClick} onNavigate={close} className="rounded-md border border-white/25 px-3 py-3 text-center text-sm font-semibold">{common.cta.bookMeeting}</TrackedLink>
           </div>
           <div className="grid grid-cols-2 py-3">{links(['home', 'products', 'selectedWork'])}</div>
-          {groups.map(group => <div key={group.id} className="border-t border-k-border py-4"><p className="px-3 text-xs font-bold uppercase tracking-widest text-accent">{group.label}</p><div className="mt-2 grid sm:grid-cols-2">{links(group.keys)}</div></div>)}
-          <Link href={`${path('home', locale)}#whytech`} onClick={close} className="block rounded-md bg-sand p-4 text-sm font-semibold">KEMORA × WhyTech ↗</Link>
-          <TrackedLink href={whatsappHref} external event={analyticsEvents.whatsappClick} onNavigate={close} className="mt-3 block p-3 text-center text-sm font-semibold text-[#128C7E]">{common.cta.whatsapp}</TrackedLink>
+          {groups.map(group => <div key={group.id} className="border-t border-white/15 py-4"><p className="px-3 text-xs font-bold uppercase tracking-widest text-accent-light">{group.label}</p><div className="mt-2 grid sm:grid-cols-2">{links(group.keys)}</div></div>)}
+          <Link href={`${path('home', locale)}#whytech`} onClick={close} className="block rounded-md bg-white/5 p-4 text-sm font-semibold">KEMORA × WhyTech ↗</Link>
+          <TrackedLink href={whatsappHref} external event={analyticsEvents.whatsappClick} onNavigate={close} className="mt-3 block p-3 text-center text-sm font-semibold text-[#6bd6b8]">{common.cta.whatsapp}</TrackedLink>
         </div>
       )}
     </header>

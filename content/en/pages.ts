@@ -38,7 +38,7 @@ export const homeEn: PageContent = {
     eyebrow: 'Made in Egypt · Built for international brands',
     h1: 'Private-label clothing manufacturing in Egypt',
     lead:
-      'Kemora develops and manufactures custom clothing for fashion brands — from sourcing and sampling to private-label production, branding, packaging, quality control and export support.',
+      'Kemora is an Egypt-based clothing development and manufacturing partner for new and established fashion brands. We manage fabric sourcing, sampling and production through certified partner factories, with quality control, your brand’s labels, packaging and international shipping support.',
     supporting:
       'MOQ starts from 50 pieces per colour for suitable styles. Send a reference photo, sketch, sample or tech pack and we will turn it into a clear production brief.',
     backgroundImage: {
@@ -314,9 +314,9 @@ export const homeEn: PageContent = {
     },
     {
       kind: 'cta',
-      heading: 'Send us your design or reference images',
+      heading: 'Ready to develop your collection?',
       body:
-        'Tell us what you want to make. If you are not sure where to start, that is a normal place to begin a conversation.',
+        'Share your idea, sketch or reference images. We’ll help you understand the next step.',
       ctas: primaryCtas,
       tone: 'dark',
     },

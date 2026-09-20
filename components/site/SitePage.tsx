@@ -121,7 +121,7 @@ export default function SitePage({
         {(isHome
           ? page.sections.filter((section) => section.kind === 'faq' || section.kind === 'cta')
           : page.sections).map((section, i) => (
-          <SectionRenderer key={`${section.kind}-${i}`} section={section} ctx={ctx} />
+          <SectionRenderer key={`${section.kind}-${i}`} section={section} ctx={ctx} compactCta />
         ))}
       </main>
 
