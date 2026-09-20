@@ -47,6 +47,21 @@
 }
 
 @layer utilities {
+  .nav-label {
+    @apply inline-flex items-center gap-2 rounded-md px-2 py-3 text-[13px] font-medium text-white/80 transition-colors hover:text-accent-light;
+  }
+  .editorial-container {
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
+  }
+  .editorial-eyebrow {
+    @apply text-[10px] font-bold uppercase tracking-[0.2em] text-accent sm:text-xs;
+  }
+  .editorial-heading {
+    @apply whitespace-pre-line text-3xl font-semibold leading-tight tracking-tight text-primary sm:text-4xl;
+  }
+  .editorial-link {
+    @apply inline-flex items-center gap-5 border-b border-accent/40 pb-2 text-sm font-semibold text-primary transition-colors hover:text-accent;
+  }
   /* Scroll-reveal animation */
   .reveal {
     opacity: 0;

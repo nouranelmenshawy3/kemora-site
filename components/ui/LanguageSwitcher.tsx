@@ -17,11 +17,13 @@ export default function LanguageSwitcher({
   labels,
   onDark = false,
   onNavigate,
+  compact = false,
 }: {
   locale: Locale
   labels: { toEnglish: string; toArabic: string }
   onDark?: boolean
   onNavigate?: () => void
+  compact?: boolean
 }) {
   const pathname = usePathname() || '/'
 
@@ -35,7 +37,7 @@ export default function LanguageSwitcher({
 
   return (
     <div className={`flex items-center gap-1 text-sm ${base}`}>
-      {options.map((option, i) => {
+      {options.filter(option => !compact || option.code !== locale).map((option, i) => {
         const isActive = option.code === locale
         const href = isActive ? pathname : alternatePath(pathname, option.code)
 
@@ -55,7 +57,7 @@ export default function LanguageSwitcher({
                 href={href}
                 lang={option.code}
                 hrefLang={option.code}
-                className="hover:text-accent transition-colors"
+                className="inline-flex min-h-11 items-center hover:text-accent transition-colors"
                 onClick={() => {
                   track(analyticsEvents.languageSwitch, { from: locale, to: option.code })
                   onNavigate?.()
