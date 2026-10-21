@@ -10,24 +10,16 @@ import {
   CONTACT_ATTACHMENT_MAX_FILES,
   CONTACT_ATTACHMENT_MAX_TOTAL_BYTES,
   CONTACT_ATTACHMENT_MAX_TOTAL_MB,
-  CONSULTATION_MIN_NOTICE_DAYS,
 } from '@/lib/contactLimits'
 import { privacyPath, type Locale } from '@/lib/i18n'
 import { analyticsEvents } from '@/lib/site'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
-type InquiryType = 'project' | 'meeting'
 
 const MAX_FILES = CONTACT_ATTACHMENT_MAX_FILES
 const MAX_TOTAL_MB = CONTACT_ATTACHMENT_MAX_TOTAL_MB
 const MAX_TOTAL_BYTES = CONTACT_ATTACHMENT_MAX_TOTAL_BYTES
 const ACCEPTED = CONTACT_ATTACHMENT_ACCEPTED
-
-function isoDateAfterDays(days: number) {
-  const date = new Date()
-  date.setUTCDate(date.getUTCDate() + days)
-  return date.toISOString().slice(0, 10)
-}
 
 const fieldClass =
   'w-full rounded-lg border border-k-border bg-sand/40 px-4 py-3 text-primary transition placeholder:text-k-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15'
@@ -51,20 +43,16 @@ export default function InquiryForm({
   const t = common.form
   const searchParams = useSearchParams()
   const [status, setStatus] = useState<Status>('idle')
-  const [inquiryType, setInquiryType] = useState<InquiryType>('project')
   const [errorDetail, setErrorDetail] = useState<string | null>(null)
   const [fileError, setFileError] = useState<string | null>(null)
   const [projectError, setProjectError] = useState<string | null>(null)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
-  const [clientTimezone, setClientTimezone] = useState('')
   const fileRef = useRef<HTMLInputElement>(null)
 
   const privacyHref = privacyPath(locale)
 
-  useEffect(() => { setClientTimezone(Intl.DateTimeFormat().resolvedOptions().timeZone) }, [])
 
   useEffect(() => {
-    setInquiryType(searchParams.get('intent') === 'meeting' ? 'meeting' : 'project')
     setStatus('idle')
     setErrorDetail(null)
     setProjectError(null)
@@ -142,10 +130,7 @@ export default function InquiryForm({
       whatsapp: data.get('whatsapp'),
       country: data.get('country'),
       preferredLanguage: data.get('preferredLanguage'),
-      inquiryType,
-      preferredMeetingDate: data.get('preferredMeetingDate'),
-      preferredMeetingTime: data.get('preferredMeetingTime'),
-      timezone: data.get('timezone'),
+      inquiryType: 'project',
       productCategory: data.get('productCategory'),
       quantity: data.get('quantity'),
       hasDesigns: data.get('hasDesigns'),
@@ -164,7 +149,7 @@ export default function InquiryForm({
 
       track(analyticsEvents.contactFormSubmit, {
         locale,
-        intent: inquiryType,
+        intent: 'project',
         category: String(payload.productCategory ?? ''),
       })
       setStatus('success')
@@ -197,7 +182,7 @@ export default function InquiryForm({
           </svg>
         </div>
         <p className="text-lg font-bold text-primary">{t.success}</p>
-        <p className="mt-2 text-sm text-k-muted">{inquiryType === 'meeting' ? (locale === 'ar' ? 'وصل طلب المكالمة. سنراجع مشروعك ونؤكد الموعد ورابط الاجتماع بالإيميل. لم يتم تأكيد الموعد بعد.' : 'Your consultation request is received. We will review your project and email the confirmed time and meeting link. Your appointment is not confirmed yet.') : t.successDetail}</p>
+        <p className="mt-2 text-sm text-k-muted">{t.successDetail}</p>
         <button type="button" onClick={() => setStatus('idle')} className="mt-5 rounded-md border border-k-border px-4 py-2.5 text-sm font-semibold text-primary hover:border-accent">
           {locale === 'ar' ? 'إرسال طلب آخر' : 'Send another request'}
         </button>
@@ -207,91 +192,6 @@ export default function InquiryForm({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
-      <fieldset>
-        <legend className="mb-2 text-sm font-semibold text-primary">{t.inquiryType}</legend>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {([
-            { value: 'project', label: t.projectEnquiry },
-            { value: 'meeting', label: t.consultationRequest },
-          ] as const).map((option) => {
-            const selected = inquiryType === option.value
-            return (
-              <label
-                key={option.value}
-                className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3.5 text-sm font-semibold transition-all ${
-                  selected
-                    ? 'border-accent bg-accent/[0.07] text-primary shadow-sm'
-                    : 'border-k-border bg-white text-k-muted hover:border-accent/40'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="inquiryType"
-                  value={option.value}
-                  checked={selected}
-                  onChange={() => setInquiryType(option.value)}
-                  className="h-4 w-4 shrink-0 accent-[#C4622D]"
-                />
-                <span>{option.label}</span>
-              </label>
-            )
-          })}
-        </div>
-      </fieldset>
-
-      {inquiryType === 'meeting' && (
-        <div className="rounded-2xl border border-accent/25 bg-accent/[0.055] p-5 sm:p-6">
-          <p className="mb-5 text-sm leading-relaxed text-k-muted">{t.consultationNote}</p>
-          <div className="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label htmlFor="preferredMeetingDate" className="mb-1.5 block text-sm font-semibold text-primary">
-                {t.preferredMeetingDate} <span className="text-accent">*</span>
-              </label>
-              <input
-                id="preferredMeetingDate"
-                name="preferredMeetingDate"
-                type="date"
-                required
-                min={isoDateAfterDays(CONSULTATION_MIN_NOTICE_DAYS)}
-                className={fieldClass}
-              />
-            </div>
-            <div>
-              <label htmlFor="preferredMeetingTime" className="mb-1.5 block text-sm font-semibold text-primary">
-                {t.preferredMeetingTime} <span className="text-accent">*</span>
-              </label>
-              <select
-                id="preferredMeetingTime"
-                name="preferredMeetingTime"
-                required
-                defaultValue=""
-                className={fieldClass}
-              >
-                <option value="" disabled>{t.preferredMeetingTime}</option>
-                {t.meetingTimeOptions.map((option) => (
-                  <option key={option.value} value={option.value}>{option.label}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="timezone" className="mb-1.5 block text-sm font-semibold text-primary">
-                {t.timezone} <span className="text-accent">*</span>
-              </label>
-              <input
-                id="timezone"
-                name="timezone"
-                type="text"
-                value={clientTimezone}
-                onChange={(event) => setClientTimezone(event.target.value)}
-                required
-                placeholder={t.timezonePlaceholder}
-                className={fieldClass}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
       <p className="rounded-lg border border-k-border bg-sand/50 px-4 py-3 text-sm text-k-muted">
         {t.noTechPackNote}
       </p>
@@ -432,7 +332,7 @@ export default function InquiryForm({
         </div>
       </div>
 
-      <fieldset hidden={inquiryType === 'meeting'} disabled={inquiryType === 'meeting'}>
+      <fieldset>
         <legend className="mb-2 text-sm font-semibold text-primary">{t.hasDesigns}</legend>
         <div className="grid gap-2 sm:grid-cols-2">
           {t.hasDesignsOptions.map((option, i) => (
@@ -623,7 +523,7 @@ export default function InquiryForm({
             {t.sending}
           </>
         ) : (
-          inquiryType === 'meeting' ? t.requestMeeting : t.submit
+          t.submit
         )}
       </button>
 

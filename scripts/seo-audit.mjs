@@ -1,7 +1,7 @@
 const baseUrl = process.env.AUDIT_BASE_URL || 'http://localhost:3001'
 const productionOrigin = 'https://www.kemoratex.com'
 const productionEmail = 'info@kemoratex.com'
-const productionWhatsApp = '48575379875'
+const productionWhatsApp = '201109309608'
 
 const failures = []
 const warnings = []

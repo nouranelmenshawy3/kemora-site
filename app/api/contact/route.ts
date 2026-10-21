@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import {
   CONTACT_ATTACHMENT_MAX_FILES,
   CONTACT_ATTACHMENT_MAX_TOTAL_BYTES,
-  CONSULTATION_MIN_NOTICE_DAYS,
 } from '@/lib/contactLimits'
 
 interface Attachment {
@@ -20,9 +19,6 @@ interface ContactPayload {
   country?: string
   preferredLanguage?: string
   inquiryType?: string
-  preferredMeetingDate?: string
-  preferredMeetingTime?: string
-  timezone?: string
   productCategory?: string
   quantity?: string
   hasDesigns?: string
@@ -52,12 +48,6 @@ function escapeHtml(value: string) {
 
 const clean = (value: unknown): string =>
   typeof value === 'string' ? value.trim().slice(0, MAX_FIELD_LENGTH) : ''
-
-function isoDateAfterDays(days: number) {
-  const date = new Date()
-  date.setUTCDate(date.getUTCDate() + days)
-  return date.toISOString().slice(0, 10)
-}
 
 /** Strip any path components so a filename cannot traverse or spoof a path. */
 const safeFilename = (name: string) =>
@@ -104,10 +94,9 @@ export async function POST(request: NextRequest) {
   const name = clean(body.name)
   const email = clean(body.email)
   const message = clean(body.message)
-  const inquiryType = clean(body.inquiryType) === 'meeting' ? 'meeting' : 'project'
-  const preferredMeetingDate = clean(body.preferredMeetingDate)
-  const preferredMeetingTime = clean(body.preferredMeetingTime)
-  const timezone = clean(body.timezone)
+  if (body.inquiryType && body.inquiryType !== 'project') {
+    return NextResponse.json({ error: 'Only project enquiries are available' }, { status: 400 })
+  }
 
   if (!name || !email || body.consent !== true) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -116,18 +105,6 @@ export async function POST(request: NextRequest) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!emailRegex.test(email)) {
     return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
-  }
-
-  if (
-    inquiryType === 'meeting' &&
-    (!/^\d{4}-\d{2}-\d{2}$/.test(preferredMeetingDate) ||
-      Number.isNaN(Date.parse(`${preferredMeetingDate}T00:00:00Z`)) ||
-      new Date(`${preferredMeetingDate}T00:00:00Z`).toISOString().slice(0, 10) !== preferredMeetingDate ||
-      preferredMeetingDate < isoDateAfterDays(CONSULTATION_MIN_NOTICE_DAYS) ||
-      !['morning', 'afternoon', 'evening', 'flexible'].includes(preferredMeetingTime) ||
-      !timezone)
-  ) {
-    return NextResponse.json({ error: 'Missing meeting preferences' }, { status: 400 })
   }
 
   const attachmentResult = validateAttachments(body.attachments)
@@ -155,10 +132,7 @@ export async function POST(request: NextRequest) {
     ['WhatsApp', clean(body.whatsapp) || notProvided],
     ['Country', clean(body.country) || notProvided],
     ['Preferred language', clean(body.preferredLanguage) || notProvided],
-    ['Enquiry type', inquiryType === 'meeting' ? 'Production consultation' : 'Project enquiry'],
-    ['Preferred meeting date', preferredMeetingDate || notProvided],
-    ['Preferred time window', preferredMeetingTime || notProvided],
-    ['Client time zone', timezone || notProvided],
+    ['Enquiry type', 'Project enquiry'],
     ['Product category', clean(body.productCategory) || notProvided],
     ['Estimated quantity', clean(body.quantity) || notProvided],
     ['Has designs', clean(body.hasDesigns) || notProvided],
@@ -174,7 +148,7 @@ export async function POST(request: NextRequest) {
   const messageForEmail = message || 'No written message was provided. Please review the attachments.'
 
   const text = [
-    inquiryType === 'meeting' ? 'New Kemora consultation request' : 'New Kemora website enquiry',
+    'New Kemora website enquiry',
     '',
     ...fields.map(([label, value]) => `${label}: ${value}`),
     `Submitted: ${submittedAt} Africa/Cairo`,
@@ -185,7 +159,7 @@ export async function POST(request: NextRequest) {
 
   const html = `
     <div style="font-family: Arial, sans-serif; color: #0f1923; line-height: 1.55;">
-      <h2 style="margin: 0 0 16px;">${inquiryType === 'meeting' ? 'New Kemora consultation request' : 'New Kemora website enquiry'}</h2>
+      <h2 style="margin: 0 0 16px;">New Kemora website enquiry</h2>
       ${fields
         .map(
           ([label, value]) =>
@@ -209,10 +183,7 @@ export async function POST(request: NextRequest) {
         from: CONTACT_FROM_EMAIL,
         to: [CONTACT_TO_EMAIL],
         reply_to: email,
-        subject:
-          inquiryType === 'meeting'
-            ? `Consultation request from ${name}`
-            : `New Kemora enquiry from ${name}`,
+        subject: `New Kemora enquiry from ${name}`,
         text,
         html,
         ...(attachmentResult.files.length > 0

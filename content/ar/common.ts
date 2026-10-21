@@ -46,7 +46,6 @@ export const commonAr: CommonContent = {
     startProject: 'ناقش مشروعك معنا',
     requestSample: 'اطلب عينة',
     sendDesign: 'أرسل تصميمك أو الصور المرجعية',
-    bookMeeting: 'اطلب مكالمة',
     whatsapp: 'تواصل معنا عبر واتساب',
     contact: 'تواصل معنا',
     viewAll: 'عرض الكل',
@@ -69,7 +68,7 @@ export const commonAr: CommonContent = {
     rights: 'جميع الحقوق محفوظة.',
     privacy: 'سياسة الخصوصية',
     locations: 'مقرنا في مصر · نخدم أسواقًا دولية',
-    status: 'نستقبل مشروعات جديدة حاليًا',
+    status: 'قدرة محدودة لاستقبال مشاريع جديدة',
   },
   form: {
     heading: 'أخبرنا عن مشروعك',
@@ -122,22 +121,6 @@ export const commonAr: CommonContent = {
     optional: 'اختياري',
     noTechPackNote:
       'لا يوجد لديك ملف تقني؟ هذا أمر طبيعي تمامًا في أول مجموعة — تكفي صورة أو رسم أولي للبدء.',
-    inquiryType: 'كيف تفضل أن تبدأ؟',
-    projectEnquiry: 'إرسال استفسار عن مشروع',
-    consultationRequest: 'طلب مكالمة استشارية للإنتاج',
-    consultationNote:
-      'نحتاج إلى مهلة يومين على الأقل لمراجعة تفاصيل مشروعك، لذلك لا تتوفر مكالمات في نفس اليوم. اختر التاريخ والفترة المناسبة وسنؤكد الموعد عبر البريد الإلكتروني.',
-    preferredMeetingDate: 'التاريخ المفضل للمكالمة',
-    preferredMeetingTime: 'الفترة الزمنية المفضلة',
-    meetingTimeOptions: [
-      { value: 'morning', label: 'صباحًا · 09:00–12:00' },
-      { value: 'afternoon', label: 'ظهرًا · 12:00–17:00' },
-      { value: 'evening', label: 'مساءً · 17:00–20:00' },
-      { value: 'flexible', label: 'مرن' },
-    ],
-    timezone: 'المنطقة الزمنية لديك',
-    timezonePlaceholder: 'مثال: Africa/Cairo أو GMT+2',
-    requestMeeting: 'طلب مكالمة استشارية',
   },
   breadcrumbHome: 'الرئيسية',
 }

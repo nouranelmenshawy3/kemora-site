@@ -28,6 +28,19 @@
 - Vercel Analytics custom events require the Pro plan to be visible in the dashboard. On Hobby the
   `track()` calls are no-ops — harmless, but worth knowing before checking for data.
 
+## WhyTech referral attribution
+
+- Both URLs in `technologyPartner` include `utm_source=kemora`, `utm_medium=referral`
+  and `utm_campaign=partnership`. The contact URL also keeps `source=kemora`.
+- `TrackedLink` allows referrer information only for those two exact partner URLs.
+  It keeps `rel="noopener"` and uses `referrerPolicy="strict-origin"`, so WhyTech can
+  receive the Kemora origin without the current page path, query string or form data.
+  Other external links retain `noreferrer` and an explicit `no-referrer` policy.
+- The outgoing `technology_partner_click` event belongs to Kemora's analytics.
+  WhyTech must enable its own analytics to view incoming referrals. Browser privacy
+  controls, analytics blockers and destination configuration can affect attribution;
+  these links do not identify individual visitors or guarantee every visit is counted.
+
 ## Verifying events locally
 
 `track()` is a no-op in development unless debug mode is on. To confirm wiring, check the Network tab

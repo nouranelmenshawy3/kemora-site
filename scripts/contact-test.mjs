@@ -36,13 +36,7 @@ function setup({ configured = true, delivery = 'ok' } = {}) {
   }
 }
 
-const dateAfter = (days) => {
-  const date = new Date()
-  date.setUTCDate(date.getUTCDate() + days)
-  return date.toISOString().slice(0, 10)
-}
 const project = { name: 'Website test', email: 'test@example.com', consent: true, message: 'Test project brief', inquiryType: 'project' }
-const meeting = { ...project, inquiryType: 'meeting', preferredMeetingDate: dateAfter(3), preferredMeetingTime: 'afternoon', timezone: 'Europe/Warsaw' }
 
 test('project enquiry reaches the email transport with correct routing', async () => {
   const app = setup()
@@ -56,14 +50,6 @@ test('project enquiry reaches the email transport with correct routing', async (
   assert.match(app.calls[0].body.subject, /New Kemora enquiry/)
 })
 
-test('meeting request includes the requested date, time and timezone', async () => {
-  const app = setup()
-  assert.equal((await app.send(meeting)).status, 200)
-  assert.match(app.calls[0].body.subject, /Consultation request/)
-  for (const value of [meeting.preferredMeetingDate, meeting.preferredMeetingTime, meeting.timezone]) {
-    assert.ok(app.calls[0].body.text.includes(value))
-  }
-})
 
 for (const [label, payload] of [
   ['null', null], ['array', []], ['string', 'invalid'],
@@ -72,11 +58,7 @@ for (const [label, payload] of [
   ['missing consent', { ...project, consent: false }],
   ['string consent', { ...project, consent: 'false' }],
   ['empty brief', { ...project, message: '' }],
-  ['same-day meeting', { ...meeting, preferredMeetingDate: dateAfter(0) }],
-  ['next-day meeting', { ...meeting, preferredMeetingDate: dateAfter(1) }],
-  ['impossible date', { ...meeting, preferredMeetingDate: '2099-02-30' }],
-  ['missing timezone', { ...meeting, timezone: '' }],
-  ['invalid time window', { ...meeting, preferredMeetingTime: 'now' }],
+  ['retired meeting request', { ...project, inquiryType: 'meeting' }],
   ['disallowed attachment', { ...project, attachments: [{ filename: 'test.exe', content: 'dGVzdA==' }] }],
 ]) {
   test(`rejects ${label} without emailing`, async () => {
@@ -88,9 +70,6 @@ for (const [label, payload] of [
 
 test('invalid JSON returns 400', async () => {
   assert.equal((await setup().malformed()).status, 400)
-})
-test('minimum allowed date is accepted', async () => {
-  assert.equal((await setup().send({ ...meeting, preferredMeetingDate: dateAfter(limits.exports.CONSULTATION_MIN_NOTICE_DAYS) })).status, 200)
 })
 test('an attachment can replace a written brief and is forwarded', async () => {
   const app = setup()

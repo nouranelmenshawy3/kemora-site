@@ -48,7 +48,6 @@ export const commonEn: CommonContent = {
     startProject: 'Discuss Your Project',
     requestSample: 'Request a Sample',
     sendDesign: 'Send Your Design',
-    bookMeeting: 'Request a Meeting',
     whatsapp: 'Contact Us on WhatsApp',
     contact: 'Contact Us',
     viewAll: 'View all',
@@ -71,7 +70,7 @@ export const commonEn: CommonContent = {
     rights: 'All rights reserved.',
     privacy: 'Privacy Policy',
     locations: 'Egypt-based · International service',
-    status: 'Currently accepting new projects',
+    status: 'Limited availability for new projects',
   },
   form: {
     heading: 'Tell us about your project',
@@ -124,22 +123,6 @@ export const commonEn: CommonContent = {
     optional: 'optional',
     noTechPackNote:
       'No tech pack? That is completely normal for a first collection — a photo or sketch is enough to begin.',
-    inquiryType: 'How would you like to start?',
-    projectEnquiry: 'Send a project enquiry',
-    consultationRequest: 'Request a production consultation',
-    consultationNote:
-      'Consultations require at least two days’ notice so our team can review your project first. Choose a preferred date and time window, and we will confirm the exact meeting time by email.',
-    preferredMeetingDate: 'Preferred meeting date',
-    preferredMeetingTime: 'Preferred time window',
-    meetingTimeOptions: [
-      { value: 'morning', label: 'Morning · 09:00–12:00' },
-      { value: 'afternoon', label: 'Afternoon · 12:00–17:00' },
-      { value: 'evening', label: 'Evening · 17:00–20:00' },
-      { value: 'flexible', label: 'Flexible' },
-    ],
-    timezone: 'Your time zone',
-    timezonePlaceholder: 'e.g. Europe/Warsaw or GMT+2',
-    requestMeeting: 'Request Consultation',
   },
   breadcrumbHome: 'Home',
 }

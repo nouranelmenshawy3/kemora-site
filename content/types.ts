@@ -236,7 +236,6 @@ export interface CommonContent {
     startProject: string
     requestSample: string
     sendDesign: string
-    bookMeeting: string
     whatsapp: string
     contact: string
     viewAll: string
@@ -292,16 +291,6 @@ export interface CommonContent {
     required: string
     optional: string
     noTechPackNote: string
-    inquiryType: string
-    projectEnquiry: string
-    consultationRequest: string
-    consultationNote: string
-    preferredMeetingDate: string
-    preferredMeetingTime: string
-    meetingTimeOptions: { value: string; label: string }[]
-    timezone: string
-    timezonePlaceholder: string
-    requestMeeting: string
   }
   breadcrumbHome: string
 }

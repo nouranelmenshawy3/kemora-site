@@ -8,7 +8,7 @@ import { path, type Locale, type RouteKey } from '@/lib/i18n'
 import type { CommonContent } from '@/content/types'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import TrackedLink from '../ui/TrackedLink'
-import { analyticsEvents, meetingRequestHref } from '@/lib/site'
+import { analyticsEvents } from '@/lib/site'
 
 export default function Navbar({ locale, common, whatsappHref }: {
   locale: Locale
@@ -71,7 +71,6 @@ export default function Navbar({ locale, common, whatsappHref }: {
         </div>
         <div className="flex shrink-0 items-center gap-2 xl:gap-3">
           <LanguageSwitcher locale={locale} labels={common.languageSwitch} onNavigate={close} compact onDark />
-          <TrackedLink href={meetingRequestHref(locale)} event={analyticsEvents.meetingBookingClick} onNavigate={close} className="hidden rounded-md border border-white/25 px-3 py-2.5 text-xs font-semibold transition-colors hover:border-accent lg:inline-flex">{common.cta.bookMeeting}</TrackedLink>
           <TrackedLink href={`${path('contact', locale)}#inquiry-form`} event={analyticsEvents.sampleRequestClick} onNavigate={close} className="hidden rounded-md bg-accent px-3 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-accent-dark lg:inline-flex">{common.cta.requestSample}</TrackedLink>
           <button type="button" aria-label={ar ? 'القائمة' : 'Navigation menu'} aria-expanded={open === 'mobile'} aria-controls="nav-mobile" onClick={(event) => { trigger.current = event.currentTarget; setOpen(open === 'mobile' ? null : 'mobile') }} className="flex h-11 w-11 items-center justify-center rounded-md border border-white/25 lg:hidden">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d={open === 'mobile' ? 'M6 6l12 12M6 18L18 6' : 'M4 8h16M4 16h16'} /></svg>
@@ -80,9 +79,8 @@ export default function Navbar({ locale, common, whatsappHref }: {
       </nav>
       {open === 'mobile' && (
         <div id="nav-mobile" className="max-h-[calc(100dvh-76px)] overflow-y-auto overscroll-contain border-t border-white/15 bg-[#192630] px-5 pb-8 text-white lg:hidden">
-          <div className="grid grid-cols-2 gap-3 border-b border-white/15 py-5">
+          <div className="grid gap-3 border-b border-white/15 py-5">
             <TrackedLink href={`${path('contact', locale)}#inquiry-form`} event={analyticsEvents.sampleRequestClick} onNavigate={close} className="rounded-md bg-accent px-3 py-3 text-center text-sm font-semibold text-white">{common.cta.requestSample}</TrackedLink>
-            <TrackedLink href={meetingRequestHref(locale)} event={analyticsEvents.meetingBookingClick} onNavigate={close} className="rounded-md border border-white/25 px-3 py-3 text-center text-sm font-semibold">{common.cta.bookMeeting}</TrackedLink>
           </div>
           <div className="grid grid-cols-2 py-3">{links(['home', 'products', 'selectedWork'])}</div>
           {groups.map(group => <div key={group.id} className="border-t border-white/15 py-4"><p className="px-3 text-xs font-bold uppercase tracking-widest text-accent-light">{group.label}</p><div className="mt-2 grid sm:grid-cols-2">{links(group.keys)}</div></div>)}
