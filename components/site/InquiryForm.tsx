@@ -13,6 +13,7 @@ import {
 } from '@/lib/contactLimits'
 import { privacyPath, type Locale } from '@/lib/i18n'
 import { analyticsEvents } from '@/lib/site'
+import AvailabilityNotice from './AvailabilityNotice'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
@@ -192,6 +193,7 @@ export default function InquiryForm({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      <AvailabilityNotice locale={locale} />
       <p className="rounded-lg border border-k-border bg-sand/50 px-4 py-3 text-sm text-k-muted">
         {t.noTechPackNote}
       </p>

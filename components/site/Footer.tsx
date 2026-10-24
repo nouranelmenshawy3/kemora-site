@@ -25,8 +25,8 @@ export default function Footer({
             <p className="mb-5 max-w-md text-sm leading-relaxed text-white/50">
               {common.footer.about}
             </p>
-            <p className="flex items-center gap-2 text-xs text-white/35">
-              <span className="h-1.5 w-1.5 rounded-full bg-green-400" aria-hidden="true" />
+            <p className="flex items-center gap-2 text-xs text-amber-200">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" aria-hidden="true" />
               {common.footer.status}
             </p>
             <TrackedLink

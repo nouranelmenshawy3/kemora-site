@@ -68,7 +68,7 @@ export const commonAr: CommonContent = {
     rights: 'جميع الحقوق محفوظة.',
     privacy: 'سياسة الخصوصية',
     locations: 'مقرنا في مصر · نخدم أسواقًا دولية',
-    status: 'قدرة محدودة لاستقبال مشاريع جديدة',
+    status: 'لا نستقبل مشاريع جديدة حاليًا',
   },
   form: {
     heading: 'أخبرنا عن مشروعك',

@@ -70,7 +70,7 @@ export const commonEn: CommonContent = {
     rights: 'All rights reserved.',
     privacy: 'Privacy Policy',
     locations: 'Egypt-based · International service',
-    status: 'Limited availability for new projects',
+    status: 'Not accepting new projects at the moment',
   },
   form: {
     heading: 'Tell us about your project',

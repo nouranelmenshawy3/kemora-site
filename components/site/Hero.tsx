@@ -26,8 +26,8 @@ export default function Hero({
       data-header-theme="dark"
       className={
         isHome
-          ? 'relative overflow-hidden bg-primary texture-dark pb-24 pt-32 sm:pb-32 sm:pt-40'
-          : 'relative overflow-hidden border-b border-white/10 bg-primary texture-dark pb-16 pt-28 sm:pb-20 sm:pt-32'
+          ? 'relative overflow-hidden bg-primary texture-dark pb-24 pt-12 sm:pb-32 sm:pt-20'
+          : 'relative overflow-hidden border-b border-white/10 bg-primary texture-dark pb-16 pt-8 sm:pb-20 sm:pt-12'
       }
     >
       {hero.backgroundImage && (

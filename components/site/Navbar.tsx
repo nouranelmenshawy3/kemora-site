@@ -8,6 +8,7 @@ import { path, type Locale, type RouteKey } from '@/lib/i18n'
 import type { CommonContent } from '@/content/types'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import TrackedLink from '../ui/TrackedLink'
+import AvailabilityNotice from './AvailabilityNotice'
 import { analyticsEvents } from '@/lib/site'
 
 export default function Navbar({ locale, common, whatsappHref }: {
@@ -57,6 +58,7 @@ export default function Navbar({ locale, common, whatsappHref }: {
     </div>
   )
   return (
+    <>
     <header ref={header} className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/95 text-white backdrop-blur-md"
       onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) close() }}>
       <nav aria-label={ar ? 'القائمة الرئيسية' : 'Main navigation'} className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between gap-4 px-5 lg:px-7 xl:px-10">
@@ -89,5 +91,7 @@ export default function Navbar({ locale, common, whatsappHref }: {
         </div>
       )}
     </header>
+    <div className="pt-[76px]"><AvailabilityNotice locale={locale} /></div>
+    </>
   )
 }
